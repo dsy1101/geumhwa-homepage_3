@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function ProductsPage() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null)
+
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const menuItems = [
