@@ -6,13 +6,17 @@ import Link from 'next/link';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [currentSection, setCurrentSection] = useState(0);
   const [rightMenuActiveSection, setRightMenuActiveSection] = useState(0);
   const [technologyScrollStep, setTechnologyScrollStep] = useState(0);
   const [servicesScrollStep, setServicesScrollStep] = useState(0);
-  const [companyAccordion, setCompanyAccordion] = useState(null);
-  const [servicesAccordion, setServicesAccordion] = useState(null);
+  // const [companyAccordion, setCompanyAccordion] = useState(null);
+  // const [servicesAccordion, setServicesAccordion] = useState(null);
+  const [companyAccordion, setCompanyAccordion] = useState<number | null>(0); // 또는 null
+  const [servicesAccordion, setServicesAccordion] = useState<number | null>(0); // 또는 null
+
 
   const slides = [
     {
@@ -103,7 +107,9 @@ export default function Home() {
       setCurrentSection(Math.min(sectionIndex, sections.length - 1));
     };
 
-    const handleWheel = (e) => {
+    // const handleWheel = (e) => {
+    const handleWheel = (e: WheelEvent) => {
+
       e.preventDefault();
       const delta = e.deltaY;
 
@@ -212,7 +218,7 @@ export default function Home() {
     };
   }, [currentSection, sections.length, technologyScrollStep, servicesScrollStep]);
 
-  const scrollToSection = (sectionIndex) => {
+  const scrollToSection = (sectionIndex: number) => {
     setCurrentSection(sectionIndex);
     if (sectionIndex === 1) {
       setTechnologyScrollStep(0);
@@ -230,11 +236,11 @@ export default function Home() {
     });
   };
 
-  const toggleCompanyAccordion = (index) => {
+  const toggleCompanyAccordion = (index: number) => {
     setCompanyAccordion(companyAccordion === index ? null : index);
   };
 
-  const toggleServicesAccordion = (index) => {
+  const toggleServicesAccordion = (index: number) => {
     setServicesAccordion(servicesAccordion === index ? null : index);
   };
 
@@ -248,7 +254,7 @@ export default function Home() {
     setActiveDropdown(null);
   };
 
-  const handleMenuItemMouseEnter = (index) => {
+  const handleMenuItemMouseEnter = (index: number) => {
     setActiveDropdown(index);
   };
 
