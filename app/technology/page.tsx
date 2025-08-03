@@ -94,7 +94,7 @@ export default function TechnologyPage() {
         '企業부설연구소 운영',
         '특허 보유 자동 수거 시스템',
         '벤처企業 인증',
-        '뿌리企業 지정'
+        '벤처企業 지정'
       ],
       image: 'https://readdy.ai/api/search-image?query=advanced%20research%20and%20development%20facility%20with%20professional%20engineers%20working%20on%20innovative%20laser%20cutting%20technology%2C%20corporate%20R%26D%20laboratory%20with%20high-tech%20equipment%20and%20patent%20development%2C%20modern%20technology%20center%20with%20research%20team%20and%20technical%20innovation&width=600&height=500&seq=capability-tech1&orientation=landscape'
     }

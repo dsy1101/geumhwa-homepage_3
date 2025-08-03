@@ -6,8 +6,7 @@ import Link from 'next/link';
 
 export default function CertificationPage() {
   // const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeDropdown, setActiveDropdown] = useState<number | null>(null); // ✅
-
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null); //
 
   const menuItems = [
     {
@@ -20,7 +19,7 @@ export default function CertificationPage() {
       href: '/company',
       dropdown: [
         { title: '회사개요', href: '/company' },
-        { title: '사업영역', href: '/company/business' },
+        { title: '事業영역', href: '/company/business' },
         { title: '인증', href: '/company/certification' }
       ]
     },
@@ -112,7 +111,7 @@ export default function CertificationPage() {
               인증
             </h1>
             <p className="text-xl md:text-2xl">
-              국가가 인정한 뿌리기업의 기술력과 신뢰성
+              국가가 인정한 기술력과 신뢰성을 바탕으로 혁신을 선도합니다
             </p>
           </div>
         </div>
@@ -122,15 +121,31 @@ export default function CertificationPage() {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
 
+          {/* Overview */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              금화레이저(주)의 공식 인증 현황
+            </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              금화레이저는 뿌리기업, 벤처기업, 기업부설 연구전담부서 인증을 통해 
+              技術力과 혁신성을 공식적으로 인정받은 신뢰할 수 있는 기업입니다.
+            </p>
+          </div>
+
           {/* Section 1: 뿌리기업 확인서 취득 */}
-          <div className="mb-20">
+          <div className="mb-20 bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                뿌리기업 확인서 취득: 제조업의 핵심을 증명하다
-              </h2>
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <i className="ri-government-line text-2xl text-blue-600"></i>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  뿌리기업 확인서 취득
+                </h2>
+              </div>
               <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
                 금화레이저(주)는 산업통상자원부가 지정하는 "뿌리산업" 중 금속가공 기술 분야의 핵심 제조 기업으로 공식 확인받았습니다. 
-                이는 금화레이저가 대한민국 제조업 발전에 필수적인 기초 공정 기술력을 보유하고 있음을 국가적으로 인정받은 결과입니다.
+                이는 금화レイ저가 대한민국 제조업 발전에 필수적인 기초 공정 기술력을 보유하고 있음을 국가적으로 인정받은 결과입니다.
               </p>
             </div>
 
@@ -141,247 +156,340 @@ export default function CertificationPage() {
                 className="max-w-md mx-auto rounded-lg shadow-lg"
               />
             </div>
-          </div>
 
-          {/* Section 2: 뿌리산업이란? */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                뿌리산업이란? 제조업 성장의 근간
-              </h2>
-              <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-blue-800 mb-4">뿌리산업이란?</h3>
+              <p className="text-gray-700 leading-relaxed">
                 뿌리산업은 주조, 금형, 소성가공, 용접, 열처리, 표면처리 등 제품 생산의 기반이 되는 6대 기초 공정 기술을 의미합니다. 
-                이는 자동차, 조선, IT 등 모든 제조업의 최종 제품에 내재되어 품질 경쟁력을 좌우하는 '뿌리'와 같은 필수 공정입니다.
-              </p>
-            </div>
-
-            <div className="bg-blue-600 text-white p-8 rounded-lg text-center">
-              <h3 className="text-2xl font-bold mb-4">뿌리산업의 중요성</h3>
-              <p className="text-lg leading-relaxed max-w-4xl mx-auto">
-                뿌리산업의 기술력이 곧 국가 제조업의 경쟁력이라 할 수 있습니다. 
-                모든 제조업 제품의 품질과 성능을 결정하는 핵심 기반 기술입니다.
+                이는 자동차, 조선, IT 등 모든 제조업의 최종 제품에 내재되어 品質 경쟁력을 좌우하는 '뿌리'와 같은 필수 공정입니다.
               </p>
             </div>
           </div>
 
-          {/* Section 3: 금화레이저의 뿌리기술 역량 */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                금화레이저(주)의 뿌리기술 역량
-              </h2>
-              <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                금화레이저는 정밀 레이저 절단 전문 기업으로서, 뿌리산업 중 금속가공 기술 분야에서 독보적인 역량을 발휘합니다.
-              </p>
+          {/* Section 2: 벤처기업 인증 */}
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-8 border-l-4 border-green-500">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                <i className="ri-award-line text-white text-xl"></i>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">벤처기업 인증 (혁신성장유형)</h2>
             </div>
 
-            <div className="space-y-12">
-
-              {/* 다양한 금속 가공 전문성 */}
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">다양한 금속 가공 전문성</h3>
-                    <p className="text-gray-700 mb-6 leading-relaxed">
-                      철, 알루미늄, 스테인리스 등 광범위한 금속을 고출력 레이저를 통해 정밀하게 절단 및 가공합니다.
-                    </p>
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                        <span className="text-gray-700">철강 (Steel) - 일반 구조용 강재, 고장력 강판</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                        <span className="text-gray-700">스테인리스 (Stainless Steel) - 내부식성 및 내열성 부품</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                        <span className="text-gray-700">알루미늄 (Aluminum) - 경량화 및 정밀 가공 부품</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                        <span className="text-gray-700">특수 금속 - 구리, 티타늄 등 고난도 절단 소재</span>
-                      </div>
-                    </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                {/* 주요 기술 요약 */}
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">주요 기술 요약</h3>
+                  <div className="space-y-3">
+                    <p className="text-gray-700 font-semibold">고품질 레이저 가공 및 자동 수거 시스템 개발</p>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• 레이저 절단 중 발생하는 금속조각과 스패터를 레이저 헤드의 이동과 연동하여 자동으로 수거</li>
+                      <li>• 회전 블레이드, 망 트레이, 슬라이딩 수거함 등 모듈화 구성</li>
+                      <li>• 수거율 90% 이상, 생산성 30% 향상</li>
+                      <li>• 국내 최초 특허기반 연동형 시스템</li>
+                    </ul>
                   </div>
-                  <div>
-                    <img
-                      src="https://readdy.ai/api/search-image?query=Various%20metal%20materials%20including%20steel%2C%20stainless%20steel%2C%20aluminum%20and%20special%20metals%20arranged%20professionally%20for%20laser%20cutting%20process%2C%20different%20metal%20sheets%20and%20plates%20with%20various%20thicknesses%2C%20clean%20industrial%20material%20preparation%20area&width=500&height=400&seq=metal-materials&orientation=landscape"
-                      alt="다양한 금속 소재"
-                      className="w-full rounded-lg shadow-lg"
-                    />
+                </div>
+
+                {/* 기술 적용 분야 */}
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">기술 적용 분야</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">전자부품</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">자동차</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">디스플레이</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">방산</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">정밀가공</span>
                   </div>
                 </div>
               </div>
 
-              {/* 유연한 생산 대응 */}
-              <div className="bg-gray-50 rounded-lg shadow-lg p-8">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <img
-                      src="https://readdy.ai/api/search-image?query=Flexible%20manufacturing%20system%20with%20both%20small%20batch%20and%20mass%20production%20capabilities%2C%20automated%20laser%20cutting%20equipment%20handling%20various%20production%20volumes%2C%20efficient%20production%20line%20with%20quality%20control%20stations%20and%20material%20handling%20systems&width=500&height=400&seq=flexible-production&orientation=landscape"
-                      alt="유연한 생산 대응"
-                      className="w-full rounded-lg shadow-lg"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">유연한 생산 대응</h3>
-                    <p className="text-gray-700 mb-6 leading-relaxed">
-                      다품종 소량 생산부터 고정밀 대량 생산까지, 고객의 어떠한 요구에도 유연하게 대응할 수 있는 공정 역량을 갖추고 있습니다.
-                    </p>
-                    <div className="space-y-4">
-                      <div className="bg-white p-4 rounded-lg">
-                        <h4 className="font-semibold text-blue-600 mb-2">다품종 소량 생산</h4>
-                        <p className="text-sm text-gray-600">다양한 제품을 소량으로 정밀하게 생산</p>
-                      </div>
-                      <div className="bg-white p-4 rounded-lg">
-                        <h4 className="font-semibold text-blue-600 mb-2">고정밀 대량 생산</h4>
-                        <p className="text-sm text-gray-600">일정한 품질로 대량 생산 시스템 운영</p>
-                      </div>
-                    </div>
-                  </div>
+              {/* 벤처기업 확인서 이미지 */}
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png"
+                  alt="벤처기업 확인서"
+                  className="w-full max-w-md h-auto object-contain rounded-lg shadow-md"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3: 기업부설 연구전담부서 인증 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="border-l-4 border-purple-500 p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mr-6">
+                  <i className="ri-microscope-line text-white text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">기업부설 연구전담부서 인증</h3>
+                  <p className="text-lg text-gray-600">금화레이저 기업부설 연구전담부서</p>
                 </div>
               </div>
 
-              {/* 일괄 제조 공정 체계 */}
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">일괄 제조 공정 체계</h3>
-                  <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                    설계부터 소재 준비, 정밀 절단, 후가공, 그리고 철저한 품질 검사에 이르기까지 모든 제조 과정을 체계적으로 관리하여, 
-                    고정밀 형상 및 복합 구조물 가공에 대한 탁월한 실적과 노하우를 축적해왔습니다.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-5 gap-4">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <i className="ri-edit-line text-2xl text-blue-600"></i>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">설계</h4>
-                    <p className="text-xs text-gray-600">정밀 설계 및 최적화</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <i className="ri-inbox-line text-2xl text-blue-600"></i>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">소재 준비</h4>
-                    <p className="text-xs text-gray-600">품질 kiểm사 및 전처리</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <i className="ri-scissors-cut-line text-2xl text-blue-600"></i>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">정밀 절단</h4>
-                    <p className="text-xs text-gray-600">레이저 정밀 가공</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <i className="ri-tools-fill text-2xl text-blue-600"></i>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">후가공</h4>
-                    <p className="text-xs text-gray-600">마무리 가공 처리</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <i className="ri-search-line text-2xl text-blue-600"></i>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">품질 검사</h4>
-                    <p className="text-xs text-gray-600">철저한 최종 검수</p>
-                  </div>
-                </div>
-
-                <div className="mt-8 text-center">
-                  <img
-                    src="https://readdy.ai/api/search-image?query=Comprehensive%20manufacturing%20process%20flow%20in%20modern%20laser%20cutting%20facility%2C%20systematic%20workflow%20from%20design%20to%20quality%20inspection%2C%20integrated%20production%20system%20with%20CAD%20design%2C%20material%20preparation%2C%20laser%20cutting%2C%20post-processing%20and%20quality%20control%20stations&width=800&height=300&seq=manufacturing-process&orientation=landscape"
-                    alt="일괄 제조 공정"
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <img 
+                    src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png" 
+                    alt="기업부설 연구전담부서 인증서" 
                     className="w-full rounded-lg shadow-lg"
                   />
                 </div>
+
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4">부서 정보</h3>
+                  <div className="space-y-3">
+                    <div className="flex">
+                      <span className="font-semibold text-gray-700 w-20">부서명:</span>
+                      <span className="text-gray-600">금화레이저 기업부설 연구전담부서</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* 산업 기여도 */}
-              <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg">
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-4">국가 산업 발전 기여</h3>
-                  <p className="text-lg leading-relaxed max-w-4xl mx-auto">
-                    금화레이저는 이러한 뿌리기술 역량을 바탕으로 자동차 부품, 산업 기계, 방산, 전자 부품 등 다양한 산업에 
-                    신뢰할 수 있는 고품질 가공 부품을 공급하며, 지역 산업 생태계와도 긴밀히 연계된 대표적인 뿌리기업으로서 
-                    국가 산업 발전에 기여하고 있습니다.
-                  </p>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">조직 구성</h3>
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-user-star-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">연구소장</h4>
+                    <p className="text-sm text-gray-600">기획/특허/프로젝트 총괄</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-drafting-compass-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">설계팀</h4>
+                    <p className="text-sm text-gray-600">자동 수거장치 구조 설계</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-microscope-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">소재팀</h4>
+                    <p className="text-sm text-gray-600">필터링 기술 연구</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-settings-3-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">장비팀</h4>
+                    <p className="text-sm text-gray-600">자동화 механизмов</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-flask-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">테스트팀</h4>
+                    <p className="text-sm text-gray-600">эксперименты, надёжность, оценка производительности</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-file-shield-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">특허팀</h4>
+                    <p className="text-sm text-gray-600">подача и поддержание патентов</p>
+                  </div>
                 </div>
-                <div className="grid md:grid-cols-4 gap-6 mt-8">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <i className="ri-car-line text-xl text-white"></i>
+
+                <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white p-6 rounded-lg">
+                  <h3 className="text-xl font-bold mb-4">연구 목표</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                      <span> 자동화된 레이저 가공</span>
                     </div>
-                    <h4 className="font-semibold">자동차 부품</h4>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <i className="ri-settings-line text-xl text-white"></i>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                      <span>생산성과 성능 향상</span>
                     </div>
-                    <h4 className="font-semibold">산업 기계</h4>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <i className="ri-shield-star-line text-xl text-white"></i>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                      <span>경쟁력 있는 기술 보유</span>
                     </div>
-                    <h4 className="font-semibold">방산</h4>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <i className="ri-computer-line text-xl text-white"></i>
-                    </div>
-                    <h4 className="font-semibold">전자 부품</h4>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Footer */}
-            <footer className="bg-gray-800 text-white py-12">
-              <div className="max-w-7xl mx-auto px-6">
-                <div className="grid md:grid-cols-4 gap-8">
-                  <div>
-                    <h3 className="text-xl font-bold mb-4 font-pacifico">금화레이저</h3>
-                    <p className="text-gray-400 mb-4">
-                      레이저 기반의 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조企業
-                    </p>
+          {/* Section 4: 벤처기업 인증 */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                벤처기업 인증
+              </h2>
+              <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                기술력을 바탕으로 한 혁신적인 벤처기업으로 인정받아 지속적인 성장을 추진하고 있습니다.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-green-800 mb-4">주요 기술 요약</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <i className="ri-settings-4-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">고정밀 파이버 레이저 절단 기술</span>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-4">회사소개</h4>
-                    <ul className="space-y-2 text-gray-400">
-                      <li><Link href="/company" className="hover:text-white">회사개요</Link></li>
-                      <li><Link href="/company/business" className="hover:text-white">사업영역</Link></li>
-                      <li><Link href="/company/certification" className="hover:text-white">인증</Link></li>
-                    </ul>
+                  <div className="flex items-start">
+                    <i className="ri-computer-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">CAD/CAM 기반 자동화 시스템</span>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-4">기술 및 서비스</h4>
-                    <ul className="space-y-2 text-gray-400">
-                      <li><Link href="/technology/laser" className="hover:text-white">레이저 가공</Link></li>
-                      <li><Link href="/products/main" className="hover:text-white">제품</Link></li>
-                      <li><Link href="/technology/process" className="hover:text-white">공정</Link></li>
-                      <li><Link href="/technology/capability" className="hover:text-white">기술력</Link></li>
-                    </ul>
+                  <div className="flex items-start">
+                    <i className="ri-shield-check-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">품질관리 및 검사 시스템</span>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-4">고객지원</h4>
-                    <ul className="space-y-2 text-gray-400">
-                      <li><Link href="/support/quote" className="hover:text-white">견적문의</Link></li>
-                      <li><Link href="/support/contact" className="hover:text-white">문의하기</Link></li>
-                    </ul>
+                  <div className="flex items-start">
+                    <i className="ri-hammer-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">다양한 소재 가공 기술</span>
                   </div>
                 </div>
-                <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                  <p>&copy; 2024 금화레이저(주). All rights reserved.</p>
+
+                <div className="mt-8">
+                  <h4 className="font-semibold text-green-800 mb-3">기술 적용 분야</h4>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                    <div>• 자동차 부품</div>
+                    <div>• 산업 기계</div>
+                    <div>• 방산 산업</div>
+                    <div>• 전자 부품</div>
+                  </div>
                 </div>
               </div>
-            </footer>
+
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Korean%20venture%20business%20certification%20document%20with%20official%20government%20seal%20and%20registration%20details%2C%20professional%20certificate%20layout%20with%20Korean%20text%20and%20official%20stamps%2C%20clean%20document%20design%20with%20enterprise%20information%20and%20approval%20details&width=400&height=500&seq=venture-cert&orientation=portrait"
+                  alt="벤처기업 확인서"
+                  className="max-w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
           </div>
+
+          {/* Section 4: 기업부설 연구전담부서 인증 */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                기업부설 연구전담부서 인증
+              </h2>
+              <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                기업부설 연구전담부서 인정을 받아 기술 혁신 활동을 수행하고 있습니다.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-purple-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-purple-800 mb-4">인증 개요</h3>
+                <div className="space-y-3">
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">인정기관:</span>
+                    <span className="text-gray-600">한국산업기술진흥협회 (KOITA)</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">인정번호:</span>
+                    <span className="text-gray-600">제20240011호</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">인정일자:</span>
+                    <span className="text-gray-600">2024.01.15</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">유효기간:</span>
+                    <span className="text-gray-600">2027.01.14</span>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <h4 className="font-semibold text-purple-800 mb-3">주요 연구 분야</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• 레이저 절단 기술 고도화 연구</li>
+                    <li>• 정밀 가공 공정 최적화 연구</li>
+                    <li>• 소재별 가공 조건 표준화 연구</li>
+                    <li>• 자동화 시스템 개발 연구</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png"
+                  alt="기업부설 연구전담부서 인증서"
+                  className="max-w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 종합 성과 */}
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg text-center">
+            <h3 className="text-3xl font-bold mb-6">금화레이저의 인증 성과</h3>
+            <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-8">
+              뿌리기업, 벤처기업, 기업부설 연구전담부서 인증을 통해 입증된 금화레이저의 기술력과 혁신성은 
+              대한민국 제조업 발전에 기여하며, 지속적인 연구개발을 통해 미래 산업을 선도해 나가겠습니다.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white bg-opacity-20 p-4 rounded-lg">
+                <div className="text-2xl font-bold mb-2">국가 인증</div>
+                <div className="text-sm">뿌리기업 공식 확인</div>
+              </div>
+              <div className="bg-white bg-opacity-20 p-4 rounded-lg">
+                <div className="text-2xl font-bold mb-2">혁신 기술</div>
+                <div className="text-sm">벤처기업 인증 보유</div>
+              </div>
+              <div className="bg-white bg-opacity-20 p-4 rounded-lg">
+                <div className="text-2xl font-bold mb-2">체계적 연구</div>
+                <div className="text-sm">전담 연구부서 운영</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4 font-pacifico">금화레이저</h3>
+              <p className="text-gray-400 mb-4">
+                레이저 기반의 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조企業
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">회사소개</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/company" className="hover:text-white">회사개요</Link></li>
+                <li><Link href="/company/business" className="hover:text-white">事業영역</Link></li>
+                <li><Link href="/company/certification" className="hover:text-white">인증</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">技術 및 서비스</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/technology/laser" className="hover:text-white">레이저 가공</Link></li>
+                <li><Link href="/products/main" className="hover:text-white">제품</Link></li>
+                <li><Link href="/technology/process" className="hover:text-white">공정</Link></li>
+                <li><Link href="/technology/capability" className="hover:text-white">기술력</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">고객지원</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/support/quote" className="hover:text-white">견적문의</Link></li>
+                <li><Link href="/support/contact" className="hover:text-white">문의하기</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 금화레이저(주). All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
