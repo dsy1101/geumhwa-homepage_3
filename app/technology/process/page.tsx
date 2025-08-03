@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function ProcessPage() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
 
   const menuItems = [
     {
