@@ -144,7 +144,7 @@ export default function CertificationPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-purple-50 p-6 rounded-lg">
+              <div className="bg-blue-50 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-purple-800 mb-4">인증 개요</h3>
                 <div className="space-y-3">
                   <div className="flex">
