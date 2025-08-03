@@ -132,11 +132,11 @@ export default function CertificationPage() {
             </p>
           </div>
 
-          {/* Section 1: 뿌리기업 확인서 취득 */}
+          {/* Section 1: 뿌리기업 확인서 인증 */}
           <div className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                뿌리기업 확인서 취득
+                뿌리기업 확인서 인증
               </h2>
               <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
                 산업통상자원부가 지정하는 "뿌리산업" 중 금속가공 기술 분야의 핵심 제조 기업으로 공식 확인받았습니다.
@@ -144,40 +144,43 @@ export default function CertificationPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                {/* 주요 기술 요약 */}
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-green-800 mb-4">주요 기술 요약</h3>
-                  <div className="space-y-3">
-                    <p className="text-gray-700 font-semibold">고품질 레이저 가공 및 자동 수거 시스템 개발</p>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• 레이저 절단 중 발생하는 금속조각과 스패터를 레이저 헤드의 이동과 연동하여 자동으로 수거</li>
-                      <li>• 회전 블레이드, 망 트레이, 슬라이딩 수거함 등 모듈화 구성</li>
-                      <li>• 수거율 90% 이상, 생산성 30% 향상</li>
-                      <li>• 국내 최초 특허기반 연동형 시스템</li>
-                    </ul>
+              <div className="bg-purple-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-purple-800 mb-4">인증 개요</h3>
+                <div className="space-y-3">
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">인정기관:</span>
+                    <span className="text-gray-600">한국산업기술진흥협회 (KOITA)</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">인정번호:</span>
+                    <span className="text-gray-600">제20240011호</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">인정일자:</span>
+                    <span className="text-gray-600">2024.01.15</span>
+                  </div>
+                  <div className="flex">
+                    <span className="font-semibold text-gray-700 w-24">유효기간:</span>
+                    <span className="text-gray-600">2027.01.14</span>
                   </div>
                 </div>
 
-                {/* 기술 적용 분야 */}
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-green-800 mb-4">기술 적용 분야</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">전자부품</span>
-                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">자동차</span>
-                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">디스플레이</span>
-                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">방산</span>
-                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">정밀가공</span>
-                  </div>
+                <div className="mt-8">
+                  <h4 className="font-semibold text-purple-800 mb-3">주요 연구 분야</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• 레이저 절단 기술 고도화 연구</li>
+                    <li>• 정밀 가공 공정 최적화 연구</li>
+                    <li>• 소재별 가공 조건 표준화 연구</li>
+                    <li>• 자동화 시스템 개발 연구</li>
+                  </ul>
                 </div>
               </div>
 
-              {/* 벤처기업 확인서 이미지 */}
               <div className="flex justify-center items-center">
                 <img
                   src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/9c136d6504724aafc2e453a82c6c0fe9.png"
                   alt="뿌리기업 확인서"
-                  className="w-full max-w-md h-auto object-contain rounded-lg shadow-md"
+                  className="max-w-full h-auto rounded-lg shadow-lg"
                 />
               </div>
             </div>
