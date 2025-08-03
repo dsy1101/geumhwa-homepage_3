@@ -101,7 +101,8 @@ export default function TechnologyPage() {
 
   useEffect(() => {
     let isScrolling = false;
-    let scrollTimeout;
+    // let scrollTimeout;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
 
     const handleWheel = (e) => {
       const technologySection = document.getElementById('technology-section');
