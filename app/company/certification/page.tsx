@@ -133,46 +133,65 @@ export default function CertificationPage() {
           </div>
 
           {/* Section 1: 뿌리기업 확인서 취득 */}
-          <div className="mb-20 bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+          <div className="mb-20">
             <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <i className="ri-government-line text-2xl text-blue-600"></i>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  뿌리기업 확인서 취득
-                </h2>
-              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                뿌리기업 확인서 취득
+              </h2>
               <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                금화레이저(주)는 산업통상자원부가 지정하는 "뿌리산업" 중 금속가공 기술 분야의 핵심 제조 기업으로 공식 확인받았습니다. 
-                이는 금화レイ저가 대한민국 제조업 발전에 필수적인 기초 공정 기술력을 보유하고 있음을 국가적으로 인정받은 결과입니다.
+                산업통상자원부가 지정하는 "뿌리산업" 중 금속가공 기술 분야의 핵심 제조 기업으로 공식 확인받았습니다.
               </p>
             </div>
 
-            <div className="text-center mb-12">
-              <img
-                src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/9c136d6504724aafc2e453a82c6c0fe9.png"
-                alt="뿌리기업 확인서"
-                className="max-w-md mx-auto rounded-lg shadow-lg"
-              />
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                {/* 주요 기술 요약 */}
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">주요 기술 요약</h3>
+                  <div className="space-y-3">
+                    <p className="text-gray-700 font-semibold">고품질 레이저 가공 및 자동 수거 시스템 개발</p>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• 레이저 절단 중 발생하는 금속조각과 스패터를 레이저 헤드의 이동과 연동하여 자동으로 수거</li>
+                      <li>• 회전 블레이드, 망 트레이, 슬라이딩 수거함 등 모듈화 구성</li>
+                      <li>• 수거율 90% 이상, 생산성 30% 향상</li>
+                      <li>• 국내 최초 특허기반 연동형 시스템</li>
+                    </ul>
+                  </div>
+                </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-blue-800 mb-4">뿌리산업이란?</h3>
-              <p className="text-gray-700 leading-relaxed">
-                뿌리산업은 주조, 금형, 소성가공, 용접, 열처리, 표면처리 등 제품 생산의 기반이 되는 6대 기초 공정 기술을 의미합니다. 
-                이는 자동차, 조선, IT 등 모든 제조업의 최종 제품에 내재되어 品質 경쟁력을 좌우하는 '뿌리'와 같은 필수 공정입니다.
-              </p>
+                {/* 기술 적용 분야 */}
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-green-800 mb-4">기술 적용 분야</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">전자부품</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">자동차</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">디스플레이</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">방산</span>
+                    <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-medium">정밀가공</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 벤처기업 확인서 이미지 */}
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/9c136d6504724aafc2e453a82c6c0fe9.png"
+                  alt="뿌리기업 확인서"
+                  className="w-full max-w-md h-auto object-contain rounded-lg shadow-md"
+                />
+              </div>
             </div>
           </div>
 
           {/* Section 2: 벤처기업 인증 */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8 border-l-4 border-green-500">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
-                <i className="ri-award-line text-white text-xl"></i>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900">벤처기업 인증 (혁신성장유형)</h2>
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                벤처기업 인증
+              </h2>
+              <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                벤처기업 인증을 받아 기술 혁신 활동을 수행하고 있습니다.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -222,7 +241,7 @@ export default function CertificationPage() {
                 기업부설 연구전담부서 인증
               </h2>
               <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                기업부설 연구전담부서 인정을 받아 기술 혁신 활동을 수행하고 있습니다.
+                기업부설 연구전담부서 인증을 받아 레이저 절단 기술 고도화 활동을 수행하고 있습니다.
               </p>
             </div>
 
