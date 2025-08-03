@@ -216,6 +216,161 @@ export default function CertificationPage() {
           </div>
 
           {/* Section 3: 기업부설 연구전담부서 인증 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="border-l-4 border-purple-500 p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mr-6">
+                  <i className="ri-microscope-line text-white text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">기업부설 연구전담부서 인증</h3>
+                  <p className="text-lg text-gray-600">금화레이저 기업부설 연구전담부서</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <img 
+                    src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png" 
+                    alt="기업부설 연구전담부서 인증서" 
+                    className="w-full rounded-lg shadow-lg"
+                  />
+                </div>
+
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-bold text-purple-800 mb-4">부서 정보</h3>
+                  <div className="space-y-3">
+                    <div className="flex">
+                      <span className="font-semibold text-gray-700 w-20">부서명:</span>
+                      <span className="text-gray-600">금화레이저 기업부설 연구전담부서</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">조직 구성</h3>
+                <div className="grid md:grid-cols-3 gap-4 mb-8">
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-user-star-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">연구소장</h4>
+                    <p className="text-sm text-gray-600">기획/특허/프로젝트 총괄</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-drafting-compass-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">설계팀</h4>
+                    <p className="text-sm text-gray-600">자동 수거장치 구조 설계</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-microscope-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">소재팀</h4>
+                    <p className="text-sm text-gray-600">필터링 기술 연구</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-settings-3-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">장비팀</h4>
+                    <p className="text-sm text-gray-600">자동화 механизмов</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-flask-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">테스트팀</h4>
+                    <p className="text-sm text-gray-600">эксперименты, надёжность, оценка производительности</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg text-center">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <i className="ri-file-shield-line text-xl text-purple-600"></i>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">특허팀</h4>
+                    <p className="text-sm text-gray-600">подача и поддержание патентов</p>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white p-6 rounded-lg">
+                  <h3 className="text-xl font-bold mb-4">연구 목표</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                      <span> 자동화된 레이저 가공</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                      <span>생산성과 성능 향상</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                      <span>경쟁력 있는 기술 보유</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: 벤처기업 인증 */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                벤처기업 인증
+              </h2>
+              <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                기술력을 바탕으로 한 혁신적인 벤처기업으로 인정받아 지속적인 성장을 추진하고 있습니다.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-green-800 mb-4">주요 기술 요약</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <i className="ri-settings-4-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">고정밀 파이버 레이저 절단 기술</span>
+                  </div>
+                  <div className="flex items-start">
+                    <i className="ri-computer-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">CAD/CAM 기반 자동화 시스템</span>
+                  </div>
+                  <div className="flex items-start">
+                    <i className="ri-shield-check-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">품질관리 및 검사 시스템</span>
+                  </div>
+                  <div className="flex items-start">
+                    <i className="ri-hammer-line text-green-600 mr-2 mt-1"></i>
+                    <span className="text-gray-600">다양한 소재 가공 기술</span>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <h4 className="font-semibold text-green-800 mb-3">기술 적용 분야</h4>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                    <div>• 자동차 부품</div>
+                    <div>• 산업 기계</div>
+                    <div>• 방산 산업</div>
+                    <div>• 전자 부품</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Korean%20venture%20business%20certification%20document%20with%20official%20government%20seal%20and%20registration%20details%2C%20professional%20certificate%20layout%20with%20Korean%20text%20and%20official%20stamps%2C%20clean%20document%20design%20with%20enterprise%20information%20and%20approval%20details&width=400&height=500&seq=venture-cert&orientation=portrait"
+                  alt="벤처기업 확인서"
+                  className="max-w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: 기업부설 연구전담부서 인증 */}
           <div className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
