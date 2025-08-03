@@ -5,7 +5,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function TechnologyPage() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [scrollStep, setScrollStep] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -102,9 +103,9 @@ export default function TechnologyPage() {
   useEffect(() => {
     let isScrolling = false;
     // let scrollTimeout;
-    let scrollTimeout: ReturnType<typeof setTimeout>;
+    let scrollTimeout: ReturnType<typeof setTimeout>; 
 
-    const handleWheel = (e) => {
+    const handleWheel = (e: WheelEvent) => {
       const technologySection = document.getElementById('technology-section');
       if (!technologySection) return;
 
