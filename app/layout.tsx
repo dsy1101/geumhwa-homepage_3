@@ -34,13 +34,12 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased flex flex-col min-h-screen`}
       >
         {/* ✅ 공통 Header 추가 */}
         <Header />
-
         {/* ✅ 각 페이지 본문 */}
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>
