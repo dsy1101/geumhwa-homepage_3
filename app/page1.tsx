@@ -6,13 +6,17 @@ import Link from 'next/link';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  // const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [currentSection, setCurrentSection] = useState(0);
-  const [rightMenuActiveSection, setRightMenuActiveSection] = useState(0);
+  // const [rightMenuActiveSection, setRightMenuActiveSection] = useState(0);
+  const [rightMenuActiveSection, setRightMenuActiveSection] = useState<number | null>(0);
   const [technologyScrollStep, setTechnologyScrollStep] = useState(0);
   const [servicesScrollStep, setServicesScrollStep] = useState(0);
-  const [companyAccordion, setCompanyAccordion] = useState(null);
-  const [servicesAccordion, setServicesAccordion] = useState(null);
+  // const [companyAccordion, setCompanyAccordion] = useState(null);
+  // const [servicesAccordion, setServicesAccordion] = useState(null);
+  const [companyAccordion, setCompanyAccordion] = useState<number | null>(0); // 또는 null
+  const [servicesAccordion, setServicesAccordion] = useState<number | null>(0); // 또는 null
 
   const slides = [
     {
@@ -65,7 +69,9 @@ export default function Home() {
       setCurrentSection(Math.min(sectionIndex, sections.length - 1));
     };
 
-    const handleWheel = (e) => {
+    // const handleWheel = (e) => {
+    const handleWheel = (e: WheelEvent) => {
+
       e.preventDefault();
       const delta = e.deltaY;
 
@@ -174,7 +180,7 @@ export default function Home() {
     };
   }, [currentSection, sections.length, technologyScrollStep, servicesScrollStep]);
 
-  const scrollToSection = (sectionIndex) => {
+  const scrollToSection = (sectionIndex: number) => {
     setCurrentSection(sectionIndex);
     if (sectionIndex === 1) {
       setTechnologyScrollStep(0);
@@ -192,11 +198,11 @@ export default function Home() {
     });
   };
 
-  const toggleCompanyAccordion = (index) => {
+  const toggleCompanyAccordion = (index: number) => {
     setCompanyAccordion(companyAccordion === index ? null : index);
   };
 
-  const toggleServicesAccordion = (index) => {
+  const toggleServicesAccordion = (index: number) => {
     setServicesAccordion(servicesAccordion === index ? null : index);
   };
 
@@ -210,7 +216,7 @@ export default function Home() {
     setActiveDropdown(null);
   };
 
-  const handleMenuItemMouseEnter = (index) => {
+  const handleMenuItemMouseEnter = (index: number) => {
     setActiveDropdown(index);
   };
 
@@ -229,69 +235,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header
-        className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50"
-        onMouseEnter={handleHeaderMouseEnter}
-        onMouseLeave={handleHeaderMouseLeave}
-      >
-        <div className="px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <button onClick={() => scrollToSection(0)} className="flex items-center">
-                <img
-                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/f961bea3ffc98767631d59484c4ff812.png"
-                  alt="금화레이저 로고"
-                  className="h-16 w-auto"
-                />
-              </button>
-            </div>
-
-            <nav className="hidden md:flex items-center space-x-8">
-              {menuItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => handleMenuItemMouseEnter(index)}
-                  onMouseLeave={handleMenuItemMouseLeave}
-                >
-                  <button
-                    onClick={() => item.section !== undefined && scrollToSection(item.section)}
-                    className="px-3 py-2 text-lg font-bold transition-colors duration-200 text-gray-700 hover:text-blue-600"
-                  >
-                    {item.title}
-                  </button>
-
-                  {item.dropdown && activeDropdown === index && (
-                    <div
-                      className="absolute top-full left-0 mt-1 w-48 bg-blue-600 rounded-md shadow-lg overflow-hidden"
-                      onMouseEnter={handleDropdownMouseEnter}
-                      onMouseLeave={handleDropdownMouseLeave}
-                    >
-                      {item.dropdown.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href={subItem.href}
-                          className="block px-4 py-3 text-sm text-white hover:bg-blue-700 transition-colors duration-200"
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </nav>
-
-            <button className="md:hidden">
-              <i className="ri-menu-line text-xl"></i>
-            </button>
-          </div>
-        </div>
-      </header>
-
+    <div className="h-screen bg-white">
+      <main className="mt-20">
       {/* Hero Section */}
+      {/* <section id="hero" className="relative h-screen"> */}
       <section id="hero" className="relative h-screen overflow-hidden pt-20">
         {slides.map((slide, index) => (
           <div
@@ -516,7 +463,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="h-screen bg-white pt-20">
+      <section id="services" className="h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -529,7 +476,7 @@ export default function Home() {
                     ? "https://readdy.ai/api/search-image?query=diverse%20precision%20metal%20products%20and%20finished%20components%20for%20automotive%20aerospace%20electronics%20and%20industrial%20applications%2C%20professional%20display%20of%20high-quality%20manufactured%20metal%20parts%20with%20clean%20industrial%20background%2C%20variety%20of%20precision%20laser-cut%20products%20and%20custom%20manufacturing%20solutions&width=600&height=500&seq=products-main&orientation=landscape"
                     : servicesAccordion === 2
                     ? "https://readdy.ai/api/search-image?query=systematic%20quality%20control%20and%20manufacturing%20process%20with%20professional%20quality%20inspection%20equipment%2C%20precision%20measurement%20tools%20and%20quality%20assurance%20procedures%20in%20clean%20organized%20facility%2C%20manufacturing%20process%20control%20with%20testing%20equipment%20and%20documentation%20systems&width=600&height=500&seq=process-main&orientation=landscape"
-                    : "https://readdy.ai/api/search-image?query=advanced%20corporate%20research%20and%20development%20laboratory%20with%20professional%20engineers%20and%20scientists%20working%20on%20innovative%20laser%20cutting%20technology%20development%2C%20modern%20high-tech%20R%26D%20facility%20with%20cutting-edge%20equipment%20and%20patent%20development%20workspace%2C%20technology%20innovation%20center%20with%20research%20team%20developing%20automated%20laser%20systems%20and%20precision%20manufacturing%20technology&width=600&height=500&seq=capability-main-new&orientation=landscape"
+                    : "https://readdy.ai/api/search-image?query=precision%20laser%20cutting%20technology%20comparison%20demonstration%20showing%20high%20accuracy%20metal%20processing%20with%20measurement%20tools%2C%20professional%20manufacturing%20facility%20with%20quality%20control%20equipment%2C%20advanced%20laser%20system%20with%20precision%20monitoring%20devices%20and%20technical%20specifications&width=500&height=600&seq=tech-comparison&orientation=portrait"
                 })`
               }}
             >
@@ -538,7 +485,7 @@ export default function Home() {
                   <p className="text-sm mb-3 font-medium tracking-wider">전문 서비스</p>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">기술 및 서비스</h2>
                   <p className="text-base leading-relaxed max-w-sm mb-6">
-                    레이저 가공부터 品質 관리까지 고객 요구사항에 최적화된 종합 기술 서비스를 제공합니다.
+                    레이저 가공부터 품질 관리까지 고객 요구사항에 최적화된 종합 기술 서비스를 제공합니다.
                   </p>
                   <Link
                     href="/technology"
@@ -764,11 +711,13 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="h-screen bg-blue-600 pt-20">
+      <section id="contact" className="h-screen bg-white">
         <div className="w-full h-full">
-          <div className="grid grid-cols-3 gap-0 items-stretch h-full">
+          <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+            
+            {/* Left Image (col-span-2) */}
             <div
-              className="relative bg-cover bg-center bg-no-repeat h-full"
+              className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://readdy.ai/api/search-image?query=professional%20business%20consultation%20and%20customer%20support%20in%20modern%20industrial%20facility%2C%20business%20meeting%20with%20laser%20cutting%20equipment%20in%20background%2C%20customer%20service%20and%20technical%20support%20environment&width=600&height=500&seq=contact-section&orientation=landscape')`
               }}
@@ -791,7 +740,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-2 p-12 flex flex-col justify-center bg-white h-full">
+            <div className="col-span-3 p-12 flex flex-col justify-center bg-white h-full">
               <div className="max-w-2xl">
                 <h2 className="text-4xl font-bold text-gray-800 mb-8">
                   지금 바로 견적을 요청하세요
@@ -819,82 +768,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 font-pacifico">금화레이저</h3>
-              <p className="text-gray-400 mb-4">
-                레이저 기반의 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조企業
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">회사소개</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/company" className="hover:text-white">
-                    公司개요
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/company/business" className="hover:text-white">
-                    사업영역
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/company/certification" className="hover:text-white">
-                    인증
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">기술 및 서비스</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/technology/laser" className="hover:text-white">
-                    레이저 가공
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/products/main" className="hover:text-white">
-                    제품
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/technology/process" className="hover:text-white">
-                    공정
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/technology/capability" className="hover:text-white">
-                    기술력
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">고객지원</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/support/quote" className="hover:text-white">
-                    견적문의
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/support/contact" className="hover:text-white">
-                    문의하기
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 금화레이저(주). All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      </main>
     </div>
   );
 }
