@@ -335,7 +335,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen overflow-hidden pt-20">
+      <section id="hero" className="relative h-screen overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-      <section id="company" className="h-screen bg-white pt-20">
+      <section id="company" className="h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -559,7 +559,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="h-screen bg-white pt-20">
+      <section id="services" className="h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -807,7 +807,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="h-screen bg-white pt-20">
+      <section id="contact" className="h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             
