@@ -102,7 +102,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Header
       <header className="bg-white shadow-sm relative z-50">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
@@ -153,7 +153,7 @@ export default function ContactPage() {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

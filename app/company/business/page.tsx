@@ -45,7 +45,7 @@ export default function BusinessPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Header
       <header className="bg-white shadow-sm relative z-50">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
@@ -96,7 +96,7 @@ export default function BusinessPage() {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Hero Section */}
       <section

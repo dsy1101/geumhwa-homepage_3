@@ -66,7 +66,7 @@ export default function LaserProcessingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Header
       <header className="bg-white shadow-sm relative z-50">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
@@ -117,7 +117,7 @@ export default function LaserProcessingPage() {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 py-20">
