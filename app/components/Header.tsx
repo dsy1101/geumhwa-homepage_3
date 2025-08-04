@@ -6,6 +6,10 @@ import { useState } from "react";
 
 const menuItems = [
   {
+    title: "금화레이저",
+    href: "/kumhwa",
+  },
+  {
     title: "회사소개",
     href: "/company",
     dropdown: [
@@ -21,17 +25,9 @@ const menuItems = [
       { title: "레이저가공", href: "/products/laser" },
       { title: "제품", href: "/products/product" },
       { title: "공정", href: "/products/process" },
+      { title: "기술력", href: "/products/technology" },
     ],
   },
-  // {
-  //   title: "기술력",
-  //   href: "/technology",
-  //   dropdown: [
-  //     { title: "보유장비", href: "/technology/capability" },
-  //     { title: "레이저 가공", href: "/technology/laser" },
-  //     { title: "가공 공정", href: "/technology/process" },
-  //   ],
-  // },
   {
     title: "고객지원",
     href: "/support/contact",
