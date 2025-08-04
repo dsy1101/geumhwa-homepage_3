@@ -15,21 +15,29 @@ const menuItems = [
     ],
   },
   {
-    title: "제품소개",
-    href: "/products/main",
-  },
-  {
-    title: "기술력",
-    href: "/technology",
-    dropdown: [
-      { title: "보유장비", href: "/technology/capability" },
-      { title: "레이저 가공", href: "/technology/laser" },
-      { title: "가공 공정", href: "/technology/process" },
+    title: "기술 및 서비스",
+    href: "/products",
+        dropdown: [
+      { title: "레이저가공", href: "/products/laser" },
+      { title: "제품", href: "/products/product" },
+      { title: "공정", href: "/products/process" },
     ],
   },
+  // {
+  //   title: "기술력",
+  //   href: "/technology",
+  //   dropdown: [
+  //     { title: "보유장비", href: "/technology/capability" },
+  //     { title: "레이저 가공", href: "/technology/laser" },
+  //     { title: "가공 공정", href: "/technology/process" },
+  //   ],
+  // },
   {
     title: "고객지원",
     href: "/support/contact",
+    dropdown: [
+      { title: "문의하기", href: "/support/contact" },
+    ],
   },
 ];
 
