@@ -237,7 +237,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      {/* <Header /> */}
       <main className="mt-24">
       {/* Hero Section */}
       <section id="hero" className="relative h-screen overflow-hidden">

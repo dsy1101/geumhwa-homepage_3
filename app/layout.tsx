@@ -35,8 +35,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
-        {/* ✅ 공통 Header 추가
-        <Header /> */}
+        {/* ✅ 공통 Header 추가 */}
+        <Header />
 
         {/* ✅ 각 페이지 본문 */}
         <main>{children}</main>
