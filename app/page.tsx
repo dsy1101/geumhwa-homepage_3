@@ -237,8 +237,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* <Header /> */}
-      <main className="mt-24">
+      <main className="mt-20">
       {/* Hero Section */}
       <section id="hero" className="relative h-screen overflow-hidden">
         {slides.map((slide, index) => (
