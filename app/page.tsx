@@ -238,7 +238,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <main className="mt-20">
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen overflow-hidden">
+      <section id="hero" className="relative min-h-screen">
         {slides.map((slide, index) => (
           <div
             key={index}
