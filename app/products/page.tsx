@@ -9,39 +9,39 @@ export default function ProductsPage() {
 
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const menuItems = [
-    {
-      title: "금화레이저",
-      href: '/',
-      dropdown: null
-    },
-    {
-      title: '회사소개',
-      href: '/company',
-      dropdown: [
-        { title: '회사개요', href: '/company' },
-        { title: '사업영역', href: '/company/business' },
-        { title: '인증', href: '/company/certification' }
-      ]
-    },
-    {
-      title: '기술 및 서비스',
-      href: '/technology',
-      dropdown: [
-        { title: '레이저 가공', href: '/technology/laser' },
-        { title: '제품', href: '/products/main' },
-        { title: '공정', href: '/technology/process' },
-        { title: '기술력', href: '/technology/capability' }
-      ]
-    },
-    {
-      title: '고객 지원',
-      href: '/support',
-      dropdown: [
-        { title: '문의하기', href: '/support/contact' }
-      ]
-    }
-  ];
+  // const menuItems = [
+  //   {
+  //     title: "금화레이저",
+  //     href: '/',
+  //     dropdown: null
+  //   },
+  //   {
+  //     title: '회사소개',
+  //     href: '/company',
+  //     dropdown: [
+  //       { title: '회사개요', href: '/company' },
+  //       { title: '사업영역', href: '/company/business' },
+  //       { title: '인증', href: '/company/certification' }
+  //     ]
+  //   },
+  //   {
+  //     title: '기술 및 서비스',
+  //     href: '/technology',
+  //     dropdown: [
+  //       { title: '레이저 가공', href: '/technology/laser' },
+  //       { title: '제품', href: '/products/main' },
+  //       { title: '공정', href: '/technology/process' },
+  //       { title: '기술력', href: '/technology/capability' }
+  //     ]
+  //   },
+  //   {
+  //     title: '고객 지원',
+  //     href: '/support',
+  //     dropdown: [
+  //       { title: '문의하기', href: '/support/contact' }
+  //     ]
+  //   }
+  // ];
 
   const productCategories = [
     { id: 'all', name: '전체', icon: 'ri-grid-line' },
