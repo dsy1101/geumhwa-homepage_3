@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
@@ -34,7 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
-        {children}
+        {/* ✅ 공통 Header 추가 */}
+        <Header />
+
+        {/* ✅ 각 페이지 본문 */}
+        <main>{children}</main>
       </body>
     </html>
   );
