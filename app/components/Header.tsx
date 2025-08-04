@@ -9,6 +9,7 @@ const menuItems = [
     title: "회사소개",
     href: "/company",
     dropdown: [
+      { title: "회사개요", href: "/company/company_summary" },
       { title: "사업분야", href: "/company/business" },
       { title: "인증현황", href: "/company/certification" },
     ],
