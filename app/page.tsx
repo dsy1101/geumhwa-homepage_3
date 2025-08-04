@@ -9,7 +9,8 @@ export default function Home() {
   // const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [currentSection, setCurrentSection] = useState(0);
-  const [rightMenuActiveSection, setRightMenuActiveSection] = useState(0);
+  // const [rightMenuActiveSection, setRightMenuActiveSection] = useState(0);
+  const [rightMenuActiveSection, setRightMenuActiveSection] = useState<number | null>(0);
   const [technologyScrollStep, setTechnologyScrollStep] = useState(0);
   const [servicesScrollStep, setServicesScrollStep] = useState(0);
   // const [companyAccordion, setCompanyAccordion] = useState(null);
