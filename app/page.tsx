@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-      <section id="company" className="h-screen bg-white">
+      {/* <section id="company" className="h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -377,6 +377,25 @@ export default function Home() {
                     ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
                     : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
                 })}`
+              }}
+            > */}
+
+        <section id="company" className="h-screen bg-white">
+        <div className="w-full h-full">
+          <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+            <div
+              className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${
+                  rightMenuActiveSection === 0
+                    ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
+                    : rightMenuActiveSection === 1
+                    ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
+                    : rightMenuActiveSection === 2
+                    ? "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
+                    : "https://readdy.ai/api/search-image?query=default%20image%20for%20company%20section%20with%20modern%20laser%20technology&width=600&height=500&seq=default-company&orientation=landscape"
+                }')`,
+                transition: 'background-image 0.3s ease-in-out',
               }}
             >
               <div className="p-12 flex flex-col justify-center text-white h-full">
