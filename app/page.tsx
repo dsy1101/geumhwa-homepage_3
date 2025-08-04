@@ -267,7 +267,7 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-        <section id="company" className="h-screen bg-white">
+        <section id="company" className="min-h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -465,7 +465,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="h-screen bg-white">
+      <section id="services" className="min-h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -713,7 +713,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="h-screen bg-white">
+      <section id="contact" className="min-h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             
