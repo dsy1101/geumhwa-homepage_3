@@ -274,7 +274,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      Header
       <header
         className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50"
         onMouseEnter={handleHeaderMouseEnter}
@@ -810,9 +809,9 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="h-screen bg-blue-600 pt-20">
         <div className="w-full h-full">
-          <div className="grid grid-cols-3 gap-0 items-stretch h-full">
+          <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
-              className="relative bg-cover bg-center bg-no-repeat h-full"
+              className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://readdy.ai/api/search-image?query=professional%20business%20consultation%20and%20customer%20support%20in%20modern%20industrial%20facility%2C%20business%20meeting%20with%20laser%20cutting%20equipment%20in%20background%2C%20customer%20service%20and%20technical%20support%20environment&width=600&height=500&seq=contact-section&orientation=landscape')`
               }}
