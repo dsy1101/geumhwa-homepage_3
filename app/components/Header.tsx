@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const menuItems = [
   {
-    title: "회사소개",
+    title: "회사소개지용",
     href: "/kumhwa",
   },
   {
