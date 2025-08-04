@@ -6,14 +6,13 @@ import { useState } from "react";
 
 const menuItems = [
   {
-    title: "금화레이저",
+    title: "회사소개",
     href: "/kumhwa",
   },
   {
-    title: "회사소개",
+    title: "사업현황",
     href: "/company",
     dropdown: [
-      { title: "회사개요", href: "/company/company_summary" },
       { title: "사업분야", href: "/company/business" },
       { title: "인증현황", href: "/company/certification" },
     ],
