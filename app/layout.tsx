@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
@@ -31,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="ko" suppressHydrationWarning={true}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
@@ -40,6 +41,7 @@ export default function RootLayout({
 
         {/* ✅ 각 페이지 본문 */}
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
