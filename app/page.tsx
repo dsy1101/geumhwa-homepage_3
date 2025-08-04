@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-      <section id="company" className="h-screen bg-gray-50 pt-20">
+      <section id="company" className="h-screen bg-white pt-20">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -807,34 +807,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      {/* <section id="contact" className="h-screen bg-blue-600 pt-20">
-        <div className="w-full h-full">
-          <div className="grid grid-cols-5 gap-0 items-stretch h-full">
-            <div
-              className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://readdy.ai/api/search-image?query=professional%20business%20consultation%20and%20customer%20support%20in%20modern%20industrial%20facility%2C%20business%20meeting%20with%20laser%20cutting%20equipment%20in%20background%2C%20customer%20service%20and%20technical%20support%20environment&width=600&height=500&seq=contact-section&orientation=landscape')`
-              }}
-            >
-              <div className="p-12 flex flex-col justify-center text-white h-full">
-                <div>
-                  <p className="text-sm mb-3 font-medium tracking-wider">고객 지원</p>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">전문 상담 서비스</h2>
-                  <p className="text-base leading-relaxed max-w-sm mb-6">
-                    숙련된 전문가들이 고객의 요구사항을 정확히 파악하여 최적의 솔루션을 제안해드립니다.
-                  </p>
-                  <Link
-                    href="/support/contact"
-                    className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
-                  >
-                    <span>문의하기</span>
-                    <i className="ri-arrow-right-line"></i>
-                  </Link>
-                </div>
-              </div>
-            </div> */}
-
-      <section id="contact" className="h-screen bg-blue-600 pt-20">
+      <section id="contact" className="h-screen bg-white pt-20">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             
