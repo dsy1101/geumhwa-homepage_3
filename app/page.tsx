@@ -274,7 +274,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header
+      Header
       <header
         className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50"
         onMouseEnter={handleHeaderMouseEnter}
@@ -333,7 +333,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </header> */}
+      </header>
 
       {/* Hero Section */}
       <section id="hero" className="relative h-screen overflow-hidden pt-20">
@@ -367,9 +367,9 @@ export default function Home() {
       {/* Company Section */}
       <section id="company" className="h-screen bg-gray-50 pt-20">
         <div className="w-full h-full">
-          <div className="grid grid-cols-3 gap-0 items-stretch h-full">
+          <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
-              className="relative bg-cover bg-center bg-no-repeat h-full"
+              className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
                   rightMenuActiveSection === 0
@@ -418,9 +418,9 @@ export default function Home() {
                         companyAccordion === 0 ? 'text-blue-600' : 'text-gray-400'
                       }`}
                     >
-                      公司개요
+                      기업개요
                     </h3>
-                    <p className="text-gray-700 text-lg">최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業</p>
+                    <p className="text-gray-700 text-lg">최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조기업</p>
                   </div>
                 </button>
                 <div
@@ -529,7 +529,7 @@ export default function Home() {
                     >
                       인증
                     </h3>
-                    <p className="text-gray-700 text-lg">산업통상자원부 인정 뿌리企業으로서의 검증된 기술력</p>
+                    <p className="text-gray-700 text-lg">산업통상자원부 인정 뿌리기업으로서의 검증된 기술력</p>
                   </div>
                 </button>
                 <div
@@ -546,8 +546,8 @@ export default function Home() {
                       <div className="flex items-center">
                         <i className="ri-award-line text-blue-600 text-2xl mr-3"></i>
                         <div>
-                          <h4 className="font-semibold text-gray-900">뿌리企業 확인서</h4>
-                          <p className="text-sm text-gray-600">산업통상자원부 인정企業</p>
+                          <h4 className="font-semibold text-gray-900">뿌리기업 확인서</h4>
+                          <p className="text-sm text-gray-600">산업통상자원부 인증기업</p>
                         </div>
                       </div>
                     </div>
@@ -582,7 +582,7 @@ export default function Home() {
                   <p className="text-sm mb-3 font-medium tracking-wider">전문 서비스</p>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">기술 및 서비스</h2>
                   <p className="text-base leading-relaxed max-w-sm mb-6">
-                    레이저 가공부터 品質 관리까지 고객 요구사항에 최적화된 종합 기술 서비스를 제공합니다.
+                    레이저 가공부터 품질 관리까지 고객 요구사항에 최적화된 종합 기술 서비스를 제공합니다.
                   </p>
                   <Link
                     href="/technology"
