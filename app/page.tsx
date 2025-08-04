@@ -274,7 +274,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Header
       <header
         className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50"
         onMouseEnter={handleHeaderMouseEnter}
@@ -333,7 +333,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Hero Section */}
       <section id="hero" className="relative h-screen overflow-hidden pt-20">
