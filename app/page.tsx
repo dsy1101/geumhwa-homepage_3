@@ -37,43 +37,43 @@ export default function Home() {
     }
   ];
 
-  const menuItems = [
-    {
-      title: "금화레이저",
-      href: '#hero',
-      section: 0
-    },
-    {
-      title: '회사소개',
-      href: '#company',
-      section: 1,
-      dropdown: [
-        { title: '회사개요', href: '/company' },
-        { title: '사업영역', href: '/company/business' },
-        { title: '인증', href: '/company/certification' }
-      ]
-    },
-    {
-      title: '기술 및 서비스',
-      href: '#services',
-      section: 2,
-      dropdown: [
-        { title: '레이저 가공', href: '/technology/laser' },
-        { title: '제품', href: '/products/main' },
-        { title: '공정', href: '/technology/process' },
-        { title: '기술력', href: '/technology/capability' }
-      ]
-    },
-    {
-      title: '고객 지원',
-      href: '#contact',
-      section: 3,
-      dropdown: [
-        { title: '견적 문의', href: '/support/quote' },
-        { title: '문의하기', href: '/support/contact' }
-      ]
-    }
-  ];
+  // const menuItems = [
+  //   {
+  //     title: "금화레이저",
+  //     href: '#hero',
+  //     section: 0
+  //   },
+  //   {
+  //     title: '회사소개',
+  //     href: '#company',
+  //     section: 1,
+  //     dropdown: [
+  //       { title: '회사개요', href: '/company' },
+  //       { title: '사업영역', href: '/company/business' },
+  //       { title: '인증', href: '/company/certification' }
+  //     ]
+  //   },
+  //   {
+  //     title: '기술 및 서비스',
+  //     href: '#services',
+  //     section: 2,
+  //     dropdown: [
+  //       { title: '레이저 가공', href: '/technology/laser' },
+  //       { title: '제품', href: '/products/main' },
+  //       { title: '공정', href: '/technology/process' },
+  //       { title: '기술력', href: '/technology/capability' }
+  //     ]
+  //   },
+  //   {
+  //     title: '고객 지원',
+  //     href: '#contact',
+  //     section: 3,
+  //     dropdown: [
+  //       { title: '견적 문의', href: '/support/quote' },
+  //       { title: '문의하기', href: '/support/contact' }
+  //     ]
+  //   }
+  // ];
 
   const sections = [
     {
@@ -292,7 +292,7 @@ export default function Home() {
               </button>
             </div>
 
-            <nav className="hidden md:flex items-center space-x-8">
+            {/* <nav className="hidden md:flex items-center space-x-8">
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -326,7 +326,7 @@ export default function Home() {
                   )}
                 </div>
               ))}
-            </nav>
+            </nav> */}
 
             <button className="md:hidden">
               <i className="ri-menu-line text-xl"></i>
