@@ -1,6 +1,7 @@
 
 'use client';
 
+import Header from "./components/Header";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -17,7 +18,6 @@ export default function Home() {
   // const [servicesAccordion, setServicesAccordion] = useState(null);
   const [companyAccordion, setCompanyAccordion] = useState<number | null>(0); // 또는 null
   const [servicesAccordion, setServicesAccordion] = useState<number | null>(0); // 또는 null
-
 
   const slides = [
     {
@@ -36,44 +36,6 @@ export default function Home() {
       subtitle: "0.1mm~25mm 두께까지 변형 없는 고품질 가공 실현"
     }
   ];
-
-  // const menuItems = [
-  //   {
-  //     title: "금화레이저",
-  //     href: '#hero',
-  //     section: 0
-  //   },
-  //   {
-  //     title: '회사소개',
-  //     href: '#company',
-  //     section: 1,
-  //     dropdown: [
-  //       { title: '회사개요', href: '/company' },
-  //       { title: '사업영역', href: '/company/business' },
-  //       { title: '인증', href: '/company/certification' }
-  //     ]
-  //   },
-  //   {
-  //     title: '기술 및 서비스',
-  //     href: '#services',
-  //     section: 2,
-  //     dropdown: [
-  //       { title: '레이저 가공', href: '/technology/laser' },
-  //       { title: '제품', href: '/products/main' },
-  //       { title: '공정', href: '/technology/process' },
-  //       { title: '기술력', href: '/technology/capability' }
-  //     ]
-  //   },
-  //   {
-  //     title: '고객 지원',
-  //     href: '#contact',
-  //     section: 3,
-  //     dropdown: [
-  //       { title: '견적 문의', href: '/support/quote' },
-  //       { title: '문의하기', href: '/support/contact' }
-  //     ]
-  //   }
-  // ];
 
   const sections = [
     {
@@ -275,66 +237,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header
-        className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50"
-        onMouseEnter={handleHeaderMouseEnter}
-        onMouseLeave={handleHeaderMouseLeave}
-      >
-        <div className="px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <button onClick={() => scrollToSection(0)} className="flex items-center">
-                <img
-                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/f961bea3ffc98767631d59484c4ff812.png"
-                  alt="금화레이저 로고"
-                  className="h-16 w-auto"
-                />
-              </button>
-            </div>
-
-            {/* <nav className="hidden md:flex items-center space-x-8">
-              {menuItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => handleMenuItemMouseEnter(index)}
-                  onMouseLeave={handleMenuItemMouseLeave}
-                >
-                  <button
-                    onClick={() => item.section !== undefined && scrollToSection(item.section)}
-                    className="px-3 py-2 text-lg font-bold transition-colors duration-200 text-gray-700 hover:text-blue-600"
-                  >
-                    {item.title}
-                  </button>
-
-                  {item.dropdown && activeDropdown === index && (
-                    <div
-                      className="absolute top-full left-0 mt-1 w-48 bg-blue-600 rounded-md shadow-lg overflow-hidden"
-                      onMouseEnter={handleDropdownMouseEnter}
-                      onMouseLeave={handleDropdownMouseLeave}
-                    >
-                      {item.dropdown.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href={subItem.href}
-                          className="block px-4 py-3 text-sm text-white hover:bg-blue-700 transition-colors duration-200"
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </nav> */}
-
-            <button className="md:hidden">
-              <i className="ri-menu-line text-xl"></i>
-            </button>
-          </div>
-        </div>
-      </header>
-
+      <Header />
+      <main className="mt-24">
       {/* Hero Section */}
       <section id="hero" className="relative h-screen overflow-hidden">
         {slides.map((slide, index) => (
@@ -365,22 +269,6 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-      {/* <section id="company" className="h-screen bg-white">
-        <div className="w-full h-full">
-          <div className="grid grid-cols-5 gap-0 items-stretch h-full">
-            <div
-              className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
-                  rightMenuActiveSection === 0
-                    ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
-                    : rightMenuActiveSection === 1
-                    ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
-                    : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
-                })}`
-              }}
-            > */}
-
         <section id="company" className="h-screen bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
@@ -960,6 +848,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </main>
     </div>
   );
 }
