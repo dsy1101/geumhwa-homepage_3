@@ -303,7 +303,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-2 p-12 flex flex-col justify-center bg-white h-full overflow-y-auto">
+            {/* <div className="col-span-2 p-12 flex flex-col justify-center bg-white h-full overflow-y-auto"> */}
+            <div className="col-span-2 p-12 flex flex-col justify-center bg-white overflow-y-auto">
+
               {/*회사개요*/}
               <div className="border-b border-gray-200 pb-2">
                 <button
