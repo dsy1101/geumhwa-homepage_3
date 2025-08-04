@@ -267,7 +267,7 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-        <section id="company" className="h-screen bg-white">
+        <section id="company" className="bg-white">
         <div className="w-full h-full">
           <div className="grid grid-cols-5 gap-0 items-stretch h-full">
             <div
@@ -306,7 +306,7 @@ export default function Home() {
             {/* <div className="col-span-2 p-12 flex flex-col justify-center bg-white h-full overflow-y-auto"> */}
             {/* <div className="col-span-2 p-12 flex flex-col justify-center bg-white overflow-y-auto"> */}
             {/* <div className="col-span-2 p-12 flex flex-col justify-center bg-white h-screen"> */}
-            <div className="col-span-2 p-12 flex flex-col justify-center bg-white">
+            <div className="col-span-2 p-12 flex flex-col justify-center bg-white h-full">
 
               {/*회사개요*/}
               <div className="border-b border-gray-200 pb-2">
