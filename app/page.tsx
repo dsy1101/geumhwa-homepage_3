@@ -268,7 +268,8 @@ export default function Home() {
       </section>
 
       {/* Company Section */}
-      <section id="company" className="h-screen bg-gray-50 pt-20">
+      {/* <section id="company" className="h-screen bg-gray-50 pt-20"> */}
+      <section id="company" className="bg-gray-50 pt-20">
         <div className="w-full h-full">
           <div className="grid grid-cols-3 gap-0 items-stretch h-full">
             <div

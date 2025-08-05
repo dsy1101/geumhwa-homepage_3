@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">고객지원</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/support/quote" className="hover:text-white">견적문의</Link></li>
+              {/* <li><Link href="/support/quote" className="hover:text-white">견적문의</Link></li> */}
               <li><Link href="/support/contact" className="hover:text-white">문의하기</Link></li>
             </ul>
           </div>
