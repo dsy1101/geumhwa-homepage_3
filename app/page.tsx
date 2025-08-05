@@ -272,7 +272,8 @@
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div 
-                className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+                // className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat min-h-full"
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
                     rightMenuActiveSection === 0
