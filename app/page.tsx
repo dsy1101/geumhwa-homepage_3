@@ -368,6 +368,16 @@
 
               {/* 오른쪽텍스트 */}
               <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
+                
+                <div className="mb-8">
+                  <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
+                    아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
+                  </p>
+                </div>
+
+
                 {/*회사개요*/}
                 <div className="border-b border-gray-200 pb-2">
                   <button
