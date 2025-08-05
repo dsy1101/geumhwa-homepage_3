@@ -273,7 +273,7 @@
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div 
                 // className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
-                className="col-span-2 relative bg-cover bg-center bg-no-repeat min-h-full"
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat min-h-full" // 왼쪽이미지
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
                     rightMenuActiveSection === 0
@@ -302,8 +302,8 @@
                 </div>
               </div>
 
-
-              <div className="col-span-2 p-12 flex flex-col justify-center bg-white">
+              {/* 오른쪽텍스트 */}
+              <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
                 {/*회사개요*/}
                 <div className="border-b border-gray-200 pb-2">
                   <button
