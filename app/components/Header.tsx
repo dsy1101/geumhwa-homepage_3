@@ -11,7 +11,7 @@ const menuItems = [
   },
   {
     title: "사업현황",
-    href: "/company",
+    href: "/company/business",
     dropdown: [
       { title: "사업분야", href: "/company/business" },
       { title: "인증현황", href: "/company/certification" },

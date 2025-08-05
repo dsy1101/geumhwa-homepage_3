@@ -238,7 +238,8 @@
       <div className="h-screen bg-white">
         <main className="mt-0">
         {/* Hero Section */}
-        <section id="hero" className="relative h-screen">
+        {/* <section id="hero" className="relative h-screen"> */}
+        <section id="hero" className="relative h-[calc(100vh-96px)]">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -375,7 +376,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트1
+                        사업영역테스트2
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
