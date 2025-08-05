@@ -267,8 +267,8 @@
         </section>
 
         {/* Company Section */}
-        {/* <section id="company" className="h-screen bg-gray-50 pt-20"> */}
-        <section id="company" className="bg-gray-50 pt-20">
+        <section id="company" className="h-screen bg-gray-50 pt-20">
+        {/* <section id="company" className="bg-gray-50 pt-20"> */}
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div 
@@ -375,7 +375,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트44
+                        사업영역테스트55
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
