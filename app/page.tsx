@@ -265,6 +265,260 @@
             </div>
           ))}
         </section>
+{/* 여기부터 테스트임!! */}
+
+        {/* Services Section */}
+        <section id="services" className="h-screen bg-white">
+          <div className="w-full h-full">
+            <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+              <div
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
+                    servicesAccordion === 0
+                      ? "https://readdy.ai/api/search-image?query=advanced%20high-power%20fiber%20laser%20cutting%20system%20in%20operation%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20modern%20industrial%20manufacturing%20facility%20with%20automated%20equipment%20and%20sparks%20flying%2C%20clean%20professional%20laser%20technology%20environment%20with%20metallic%20surfaces%20and%20precise%20cutting%20demonstration&width=600&height=500&seq=laser-processing-main&orientation=landscape"
+                      : servicesAccordion === 1
+                      ? "https://readdy.ai/api/search-image?query=diverse%20precision%20metal%20products%20and%20finished%20components%20for%20automotive%20aerospace%20electronics%20and%20industrial%20applications%2C%20professional%20display%20of%20high-quality%20manufactured%20metal%20parts%20with%20clean%20industrial%20background%2C%20variety%20of%20precision%20laser-cut%20products%20and%20custom%20manufacturing%20solutions&width=600&height=500&seq=products-main&orientation=landscape"
+                      : servicesAccordion === 2
+                      ? "https://readdy.ai/api/search-image?query=systematic%20quality%20control%20and%20manufacturing%20process%20with%20professional%20quality%20inspection%20equipment%2C%20precision%20measurement%20tools%20and%20quality%20assurance%20procedures%20in%20clean%20organized%20facility%2C%20manufacturing%20process%20control%20with%20testing%20equipment%20and%20documentation%20systems&width=600&height=500&seq=process-main&orientation=landscape"
+                      : "https://readdy.ai/api/search-image?query=precision%20laser%20cutting%20technology%20comparison%20demonstration%20showing%20high%20accuracy%20metal%20processing%20with%20measurement%20tools%2C%20professional%20manufacturing%20facility%20with%20quality%20control%20equipment%2C%20advanced%20laser%20system%20with%20precision%20monitoring%20devices%20and%20technical%20specifications&width=500&height=600&seq=tech-comparison&orientation=portrait"
+                  })`
+                }}
+              >
+                <div className="p-12 flex flex-col justify-center text-white h-full">
+                  <div>
+                    <p className="text-sm mb-3 font-medium tracking-wider">전문 서비스</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">기술 및 서비스</h2>
+                    <p className="text-base leading-relaxed max-w-sm mb-6">
+                      레이저 가공부터 품질 관리까지 고객 요구사항에 최적화된 종합 기술 서비스를 제공합니다.
+                    </p>
+                    <Link 
+                      href="/technology"
+                      className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
+                    >
+                      <span>전체 서비스</span>
+                      <i className="ri-arrow-right-line"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-span-3 p-12 flex flex-col justify-center bg-white h-full overflow-y-auto">
+                {/*레이저 가공*/}
+                <div className="border-b border-gray-200 pb-2">
+                  <button
+                    onClick={() => toggleServicesAccordion(0)}
+                    className="flex items-start space-x-6 w-full text-left"
+                  >
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+                        servicesAccordion === 0 ? 'bg-blue-600' : 'bg-gray-300'
+                      }`}
+                    >
+                      <i className="ri-check-line text-white text-xs"></i>
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+                          servicesAccordion === 0 ? 'text-blue-600' : 'text-gray-400'
+                        }`}
+                      >
+                        레이저 가공
+                      </h3>
+                      <p className="text-gray-700 text-lg">고출력 파이버 레이저 기반 정밀 절단 및 가공 기술</p>
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      servicesAccordion === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        최신 파이버 레이저 시스템을 활용하여 철강, 스테인리스, 알루미늄 등 다양한 금속 소재를
+                        0.1mm~25mm 두께까지 정밀하게 절단 가공합니다.
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-scissors-cut-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">정밀 절단</span>
+                        </div>
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-focus-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">복잡 형상</span>
+                        </div>
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-speed-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">고속 가공</span>
+                        </div>
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-settings-4-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">무변형 가공</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/*제품*/}
+                <div className="border-b border-gray-200 pb-2">
+                  <button
+                    onClick={() => toggleServicesAccordion(1)}
+                    className="flex items-start space-x-6 w-full text-left"
+                  >
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+                        servicesAccordion === 1 ? 'bg-blue-600' : 'bg-gray-300'
+                      }`}
+                    >
+                      <i className="ri-check-line text-white text-xs"></i>
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+                          servicesAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
+                        }`}
+                      >
+                        제품
+                      </h3>
+                      <p className="text-gray-700 text-lg">다양한 산업 분야 맞춤형 정밀 가공 제품 공급</p>
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      servicesAccordion === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        자동차, 항공우주, 방산, 전자 등 다양한 산업 분야에 필요한
+                        고정밀 금속 부품과 제품을 맞춤형으로 제작합니다.
+                      </p>
+                      <div className="mt-4 grid grid-cols-2 gap-4 text-center">
+                        <div className="p-3 bg-white rounded">
+                          <div className="text-2xl font-bold text-blue-600">1000+</div>
+                          <div className="text-sm text-gray-600">제품 종류</div>
+                        </div>
+                        <div className="p-3 bg-white rounded">
+                          <div className="text-2xl font-bold text-blue-600">±0.1mm</div>
+                          <div className="text-sm text-gray-600">가공 정밀도</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/*공정*/}
+                <div className="border-b border-gray-200 pb-2">
+                  <button
+                    onClick={() => toggleServicesAccordion(2)}
+                    className="flex items-start space-x-6 w-full text-left"
+                  >
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+                        servicesAccordion === 2 ? 'bg-blue-600' : 'bg-gray-300'
+                      }`}
+                    >
+                      <i className="ri-check-line text-white text-xs"></i>
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+                          servicesAccordion === 2 ? 'text-blue-600' : 'text-gray-400'
+                        }`}
+                      >
+                        공정
+                      </h3>
+                      <p className="text-gray-700 text-lg">체계적 品質 관리와 정밀 측정 시스템</p>
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      servicesAccordion === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        철저한 品質 관리 시스템과 정밀 측정 장비를 통해
+                        고객이 요구하는 품질 기준을 완벽하게 충족시킵니다.
+                      </p>
+                      <div className="bg-white p-4 rounded-lg border-l-4 border-blue-600">
+                        <div className="flex items-center">
+                          <i className="ri-check-double-line text-blue-600 text-2xl mr-3"></i>
+                          <div>
+                            <h4 className="font-semibold text-gray-900">ISO 9001 品質 시스템</h4>
+                            <p className="text-sm text-gray-600">국제 표준 品質 관리 시스템 운영</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/*기술력*/}
+                <div className="border-b border-gray-200 pb-2">
+                  <button
+                    onClick={() => toggleServicesAccordion(3)}
+                    className="flex items-start space-x-6 w-full text-left"
+                  >
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+                        servicesAccordion === 3 ? 'bg-blue-600' : 'bg-gray-300'
+                      }`}
+                    >
+                      <i className="ri-check-line text-white text-xs"></i>
+                    </div>
+                    <div className="flex-1">
+                      <h3
+                        className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+                          servicesAccordion === 3 ? 'text-blue-600' : 'text-gray-400'
+                        }`}
+                      >
+                        기술력
+                      </h3>
+                      <p className="text-gray-700 text-lg">企業부설연구소 운영을 통한 지속적 기술 개발</p>
+                    </div>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      servicesAccordion === 3 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        企業부설연구소를 통해 지속적인 R&D 투자와 신기술 개발로
+                        업계 최고 수준의 기술 경쟁력을 확보하고 있습니다.
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-lightbulb-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">특허 기술</span>
+                        </div>
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-research-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">R&D 투자</span>
+                        </div>
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-team-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">전문 인력</span>
+                        </div>
+                        <div className="flex items-center p-2 bg-white rounded">
+                          <i className="ri-trophy-line text-blue-600 mr-2"></i>
+                          <span className="text-sm text-gray-700">технолог 인증</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
 
         {/* Company Section */}
         <section id="company" className="h-screen bg-white">
@@ -300,12 +554,8 @@
                 </div>
               </div>
 
-              {/* <div className="col-span-2 p-12 flex flex-col justify-center bg-white"> */}
-                {/*레이저 가공*/}
-                {/* <div className="border-b border-gray-200 pb-2">
-                  <button
-                    onClick={() => toggleServicesAccordion(0)}
-                    className="flex items-start space-x-6 w-full text-left" */}
+
+
 
               <div className="col-span-2 p-12 flex flex-col justify-center bg-white">
                 {/*회사개요*/}
@@ -380,7 +630,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트77
+                        사업영역테스트88
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
