@@ -375,7 +375,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트22
+                        사업영역테스트33
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
@@ -488,7 +488,7 @@
                     <p className="text-base leading-relaxed max-w-sm mb-6">
                       레이저 가공부터 품질 관리까지 고객 요구사항에 최적화된 종합 기술 서비스를 제공합니다.
                     </p>
-                    <Link
+                    <Link 
                       href="/technology"
                       className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
                     >
