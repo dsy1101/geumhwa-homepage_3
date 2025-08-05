@@ -300,6 +300,19 @@
             ))}
           </section>
 
+{/* 이거 추가한거 */}
+          <section id="about" className="bg-white py-20 px-6 text-center">
+            <div className="max-w-3xl mx-auto">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6">금화레이저의 기술력</h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                금화레이저는 정밀한 레이저 가공 기술을 바탕으로 고객 맞춤형 솔루션을 제공합니다. 
+                다양한 산업 분야에서 축적된 노하우와 최신 장비를 통해 최고의 품질을 보장합니다.
+              </p>
+            </div>
+          </section>
+
+
+
         {/* Company Section */}
         {/* <section id="company" className="h-screen bg-white"> */}
         <section id="company" className="min-h-screen bg-white">
