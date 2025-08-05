@@ -357,7 +357,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/*사업영역*/}
+              {/*사업영역 테스트*/}
               <div className="border-b border-gray-200 pb-2">
                 <button
                   onClick={() => toggleCompanyAccordion(1)}
