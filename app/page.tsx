@@ -357,7 +357,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/*사업영역 테스트*/}
+              {/*사업영역*/}
               <div className="border-b border-gray-200 pb-2">
                 <button
                   onClick={() => toggleCompanyAccordion(1)}
@@ -376,7 +376,7 @@ export default function Home() {
                         companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                       }`}
                     >
-                      사업영역
+                      사업영역테스트
                     </h3>
                     <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                   </div>
