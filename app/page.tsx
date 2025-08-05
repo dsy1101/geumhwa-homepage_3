@@ -235,7 +235,8 @@
     };
 
     return (
-      <div className="h-screen bg-white">
+      // <div className="h-screen bg-white">
+      <div className="min-h-screen bg-white">
         <main className="mt-0">
         {/* Hero Section */}
         {/* <section id="hero" className="relative h-screen"> */}
@@ -268,8 +269,8 @@
         </section>
 
         {/* Company Section */}
-        <section id="company" className="h-screen bg-white">
-        {/* <section id="company" className="min-h-[80vh] bg-white"> */}
+        {/* <section id="company" className="h-screen bg-white"> */}
+        <section id="company" className="min-h-screen bg-white">
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div 
@@ -465,8 +466,8 @@
         </section>
 
         {/* Services Section */}
-        <section id="services" className="h-screen bg-white">
-        {/* <section id="company" className="min-h-[80vh] bg-white">  // 높이 조정 */}
+        {/* <section id="services" className="h-screen bg-white"> */}
+        <section id="services" className="min-h-screen bg-white">
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div
@@ -714,7 +715,8 @@
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="h-screen bg-white">
+        {/* <section id="contact" className="h-screen bg-white"> */}
+        <section id="contact" className="min-h-screen bg-white">
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               
