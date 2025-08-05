@@ -269,7 +269,7 @@
 
         {/* Company Section */}
         {/* <section id="company" className="h-screen bg-white"> */}
-        <section id="company" className="min-h-[80vh] bg-white">  // 높이 조정
+        <section id="company" className="min-h-[80vh] bg-white">
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div 
