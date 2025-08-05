@@ -236,7 +236,7 @@
 
     return (
       <div className="h-screen bg-white">
-        <main className="mt-20">
+        <main className="mt-0"> // 헤더와 메인 콘텐츠 사이의 여백 제거
         {/* Hero Section */}
         <section id="hero" className="relative h-screen">
           {slides.map((slide, index) => (
