@@ -300,7 +300,7 @@
                       : rightMenuActiveSection === 1
                       ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
                       : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
-                  })}`
+                  })`
                 }}
               >
                 <div className="p-12 flex flex-col justify-center text-white h-full">
@@ -395,7 +395,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트55
+                        사업영역테스트66
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
