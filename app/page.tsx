@@ -301,15 +301,33 @@
           </section>
 
 {/* 이거 추가한거 */}
-          <section id="about" className="bg-white py-20 px-6 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">금화레이저의 기술력</h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                금화레이저는 정밀한 레이저 가공 기술을 바탕으로 고객 맞춤형 솔루션을 제공합니다. 
-                다양한 산업 분야에서 축적된 노하우와 최신 장비를 통해 최고의 품질을 보장합니다.
-              </p>
+          <section id="about" className="bg-white min-h-screen px-6 py-20">
+            <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+              {/* 왼쪽 이미지 영역 */}
+              <div
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://readdy.ai/api/search-image?query=laser%20precision%20engineering%20showcase%20with%20modern%20equipment%20and%20clean%20white%20background%2C%20representing%20cutting-edge%20technology%20overview&width=600&height=500&seq=about-bg&orientation=landscape')`,
+                }}
+              >
+                <div className="p-12 flex flex-col justify-center text-white h-full">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">금화레이저의 기술력</h2>
+                  <p className="text-base leading-relaxed max-w-sm mb-6">
+                    정밀한 레이저 가공 기술과 최신 장비를 기반으로 고객 맞춤형 솔루션을 제공합니다.
+                  </p>
+                </div>
+              </div>
+
+              {/* 오른쪽 텍스트 영역 */}
+              <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  금화레이저는 정밀한 레이저 가공 기술을 바탕으로 고객 맞춤형 솔루션을 제공합니다.
+                  다양한 산업 분야에서 축적된 노하우와 최신 장비를 통해 최고의 품질을 보장합니다.
+                </p>
+              </div>
             </div>
           </section>
+
 
 
 
