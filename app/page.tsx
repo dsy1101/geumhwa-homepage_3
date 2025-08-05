@@ -266,8 +266,28 @@
           ))}
         </section>
 
+        {/* Services Section */}
+        {/* <section id="services" className="h-screen bg-white">
+          <div className="w-full h-full">
+            <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+              <div
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
+                    servicesAccordion === 0
+                      ? "https://readdy.ai/api/search-image?query=advanced%20high-power%20fiber%20laser%20cutting%20system%20in%20operation%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20modern%20industrial%20manufacturing%20facility%20with%20automated%20equipment%20and%20sparks%20flying%2C%20clean%20professional%20laser%20technology%20environment%20with%20metallic%20surfaces%20and%20precise%20cutting%20demonstration&width=600&height=500&seq=laser-processing-main&orientation=landscape"
+                      : servicesAccordion === 1
+                      ? "https://readdy.ai/api/search-image?query=diverse%20precision%20metal%20products%20and%20finished%20components%20for%20automotive%20aerospace%20electronics%20and%20industrial%20applications%2C%20professional%20display%20of%20high-quality%20manufactured%20metal%20parts%20with%20clean%20industrial%20background%2C%20variety%20of%20precision%20laser-cut%20products%20and%20custom%20manufacturing%20solutions&width=600&height=500&seq=products-main&orientation=landscape"
+                      : servicesAccordion === 2
+                      ? "https://readdy.ai/api/search-image?query=systematic%20quality%20control%20and%20manufacturing%20process%20with%20professional%20quality%20inspection%20equipment%2C%20precision%20measurement%20tools%20and%20quality%20assurance%20procedures%20in%20clean%20organized%20facility%2C%20manufacturing%20process%20control%20with%20testing%20equipment%20and%20documentation%20systems&width=600&height=500&seq=process-main&orientation=landscape"
+                      : "https://readdy.ai/api/search-image?query=precision%20laser%20cutting%20technology%20comparison%20demonstration%20showing%20high%20accuracy%20metal%20processing%20with%20measurement%20tools%2C%20professional%20manufacturing%20facility%20with%20quality%20control%20equipment%2C%20advanced%20laser%20system%20with%20precision%20monitoring%20devices%20and%20technical%20specifications&width=500&height=600&seq=tech-comparison&orientation=portrait"
+                  })`
+                }} */}
+
+
         {/* Company Section */}
-        <section id="company" className="h-screen bg-gray-50 pt-20">
+        <section id="company" className="h-screen bg-white">
+        {/* <section id="company" className="h-screen bg-gray-50 pt-20"> */}
         {/* <section id="company" className="bg-gray-50 pt-20"> */}
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
