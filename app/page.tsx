@@ -239,7 +239,6 @@
         <main className="mt-20">
         {/* Hero Section */}
         <section id="hero" className="relative h-screen">
-        {/* <section id="hero" className="relative h-screen overflow-hidden pt-20"> */}
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -273,7 +272,7 @@
           <div className="w-full h-full">
             <div className="grid grid-cols-3 gap-0 items-stretch h-full">
               <div
-                className="relative bg-cover bg-center bg-no-repeat h-full"
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
                     rightMenuActiveSection === 0
@@ -376,7 +375,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트
+                        사업영역테스트22
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
