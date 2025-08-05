@@ -268,12 +268,14 @@
 
         {/* Company Section */}
         {/* <section id="company" className="h-screen bg-white"> */}
-        <section id="company" className="min-h-[80vh] bg-white">
-          <div className="w-full h-full">
-            <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+        <section id="company" className="min-h-[80vh] bg-white">  // 높이 조정
+          {/* <div className="w-full h-full">
+            <div className="grid grid-cols-5 gap-0 items-stretch h-full"> */}
+          <div className="w-full">
+            <div className="grid grid-cols-5 gap-0 items-stretch"> // h-full 제거
               <div 
                 // className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
-                className="col-span-2 relative bg-cover bg-center bg-no-repeat min-h-full" // 왼쪽이미지
+                className="col-span-2 relative bg-cover bg-center bg-no-repeat" // 왼쪽이미지
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
                     rightMenuActiveSection === 0
@@ -284,7 +286,8 @@
                   })`
                 }}
               >
-                <div className="p-12 flex flex-col justify-center text-white h-full">
+                {/* <div className="p-12 flex flex-col justify-center text-white h-full"> */}
+                <div className="p-12 flex flex-col justify-center text-white"> // h-full제거
                   <div>
                     <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">최첨단 레이저 기술</h2>
@@ -466,6 +469,7 @@
 
         {/* Services Section */}
         <section id="services" className="h-screen bg-white">
+        {/* <section id="company" className="min-h-[80vh] bg-white">  // 높이 조정 */}
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
               <div
