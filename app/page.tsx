@@ -3,7 +3,7 @@
 
   import React, { useState, useEffect } from 'react';
   import Link from 'next/link';
-  import CompanyAccordion from './components/CompanyAccordion';
+  import CompanyAccordion from './components/content/CompanyAccordion';
 
   export default function Home() {
     const [currentSlide, setCurrentSlide] = useState(0);
