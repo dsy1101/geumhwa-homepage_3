@@ -132,8 +132,6 @@ export default function CompanyAccordion({
         if (scrollCountRef.current >= 7) {
           setCompanyAccordion(companyAccordion + 1);
           scrollCountRef.current = 0;
-
-          // 스크롤 맨 위로 리셋
           container.scrollTo({ top: 0 });
         }
       }
@@ -170,7 +168,6 @@ export default function CompanyAccordion({
             </div>
           </button>
 
-          {/* ✅ 여기에 ref 연결 + 내부 스크롤 가능하게 설정 */}
           <div
             className={`overflow-hidden transition-all duration-500 ${
               companyAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'

@@ -288,13 +288,13 @@
                       })`
                   }}
                 >
-                  <div className="p-12 flex flex-col justify-center text-white h-full">
+                  {/* <div className="p-12 flex flex-col justify-center text-white h-full">
                     <div>
-                      {/* <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
+                      <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
                       <h2 className="text-3xl md:text-4xl font-bold mb-4">최첨단 레이저 기술</h2>
                       <p className="text-base leading-relaxed max-w-sm mb-6">
                         고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
-                      </p> */}
+                      </p>
                       <Link
                         href="/technology"
                         className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
@@ -303,7 +303,7 @@
                         <i className="ri-arrow-right-line"></i>
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* 오른쪽 텍스트 영역 */}
