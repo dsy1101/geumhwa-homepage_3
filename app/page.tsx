@@ -235,48 +235,11 @@
     };
 
 
-    // return (
-    //   <div className="min-h-screen bg-white">
-    //     <main className="mt-0">
-    //       {/* Hero Section */}
-    //       <section id="hero" className="relative h-[calc(100svh-96px)] overflow-hidden">
-    //         {slides.map((slide, index) => (
-    //           <div
-    //             key={index}
-    //             className={`absolute inset-0 transition-opacity duration-1000 ${
-    //               index === currentSlide ? 'opacity-100' : 'opacity-0'
-    //             }`}
-    //           >
-    //             <div
-    //               className="w-full h-full bg-cover bg-center"
-    //               style={{ backgroundImage: `url(${slide.image})` }}
-    //             >
-    //               <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-    //               <div className="relative h-full flex items-center justify-center text-center">
-    //                 <div className="max-w-4xl mx-auto px-6">
-    //                   <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-    //                     {slide.title}
-    //                   </h2>
-    //                   <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
-    //                     {slide.subtitle}
-    //                   </p>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         ))}
-    //       </section>
-
-
-    // 글로비스 스타일 적용
     return (
-      <div className="bg-white">
-        {/* 전체 페이지를 section 단위로 구성하고 각각 h-screen 부여 */}
-
-        {/* ✅ Hero Section - 현대글로비스처럼 h-screen에 grid-cols-2 사용 */}
-        <section id="hero" className="h-screen grid grid-cols-2">
-          {/* 왼쪽: 배경 이미지 (슬라이드) */}
-          <div className="relative h-full">
+      <div className="min-h-screen bg-white">
+        <main className="mt-0">
+          {/* Hero Section */}
+          <section id="hero" className="relative h-[calc(100svh-96px)] overflow-hidden">
             {slides.map((slide, index) => (
               <div
                 key={index}
@@ -289,25 +252,23 @@
                   style={{ backgroundImage: `url(${slide.image})` }}
                 >
                   <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                  <div className="relative h-full flex items-center justify-center text-center">
+                    <div className="max-w-4xl mx-auto px-6">
+                      <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                        {slide.title}
+                      </h2>
+                      <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
+                        {slide.subtitle}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* 오른쪽: 텍스트 */}
-          <div className="flex flex-col justify-center px-10 text-center bg-white z-10">
-            <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
-              {slides[currentSlide].title}
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              {slides[currentSlide].subtitle}
-            </p>
-          </div>
-        </section>
+          </section>
 
 
         {/* Company Section */}
-        {/* <section id="company" className="h-screen bg-white"> */}
         <section id="company" className="min-h-screen bg-white">
           <div className="w-full h-full">
             <div className="grid grid-cols-5 gap-0 items-stretch h-full">
@@ -353,7 +314,7 @@
                 </div>
 
 
-                {/*회사개요*/}
+                {/* 회사개요 */}
                 <div className="border-b border-gray-200 pb-2">
                   <button
                     onClick={() => toggleCompanyAccordion(0)}
@@ -406,7 +367,7 @@
                   </div>
                 </div>
 
-                {/*사업영역*/}
+                {/*{사업영역}*/}
                 <div className="border-b border-gray-200 pb-2">
                   <button
                     onClick={() => toggleCompanyAccordion(1)}
@@ -425,7 +386,7 @@
                           companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
                         }`}
                       >
-                        사업영역테스트3
+                        사업영역테스트4
                       </h3>
                       <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
                     </div>
