@@ -142,7 +142,8 @@ export default function CertificationPage() {
               {/* 벤처기업 확인서 이미지 */}
               <div className="flex justify-center items-center">
                 <img
-                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png"
+                  // src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png"
+                  src="/certifications/벤처기업확인서.jpg"
                   alt="벤처기업 확인서"
                   className="w-full max-w-md h-auto object-contain rounded-lg shadow-md"
                 />
@@ -196,7 +197,7 @@ export default function CertificationPage() {
 
               <div className="flex justify-center items-center">
                 <img
-                  src="https://static.readdy.ai/image/1ff0918651835526a3a0d66786fe9132/7f99d9490d84963100acf385675356a7.png"
+                  src="/certifications/연구개발전담부서인정서.jpg"
                   alt="기업부설 연구전담부서 인증서"
                   className="max-w-full h-auto rounded-lg shadow-lg"
                 />
