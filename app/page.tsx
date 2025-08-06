@@ -3,6 +3,7 @@
 
   import React, { useState, useEffect } from 'react';
   import Link from 'next/link';
+  import CompanyAccordion from './components/CompanyAccordion';
 
   export default function Home() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,7 +16,9 @@
     const [servicesScrollStep, setServicesScrollStep] = useState(0);
     // const [companyAccordion, setCompanyAccordion] = useState(null);
     // const [servicesAccordion, setServicesAccordion] = useState(null);
-    const [companyAccordion, setCompanyAccordion] = useState<number | null>(0); // 또는 null
+    // const [companyAccordion, setCompanyAccordion] = useState<number | null>(0); // 또는 null
+    const [companyAccordion, setCompanyAccordion] = useState<number>(0);
+
     const [servicesAccordion, setServicesAccordion] = useState<number | null>(0); // 또는 null
 
     const slides = [
@@ -89,7 +92,7 @@
               setTechnologyScrollStep(0);
               setRightMenuActiveSection(0);
               setServicesScrollStep(0);
-              setCompanyAccordion(null);
+              setCompanyAccordion(0);
               setServicesAccordion(0);
               window.scrollTo({
                 top: 2 * window.innerHeight,
@@ -105,7 +108,7 @@
             } else {
               // 이전 섹션으로 이동
               setCurrentSection(0);
-              setCompanyAccordion(null);
+              setCompanyAccordion(0);
               window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -161,7 +164,7 @@
             if (nextSection === 2) {
               setServicesScrollStep(0);
               setServicesAccordion(0);
-              setCompanyAccordion(null);
+              setCompanyAccordion(0);
             }
             window.scrollTo({
               top: nextSection * window.innerHeight,
@@ -190,7 +193,7 @@
       if (sectionIndex === 2) {
         setServicesScrollStep(0);
         setServicesAccordion(0);
-        setCompanyAccordion(null);
+        setCompanyAccordion(0);
       }
       window.scrollTo({
         top: sectionIndex * window.innerHeight,
@@ -198,9 +201,14 @@
       });
     };
 
+    // const toggleCompanyAccordion = (index: number) => {
+    //   setCompanyAccordion(companyAccordion === index ? null : index);
+    // };
+
     const toggleCompanyAccordion = (index: number) => {
-      setCompanyAccordion(companyAccordion === index ? null : index);
+      setCompanyAccordion(companyAccordion === index ? -1 : index); // null 대신 -1 사용
     };
+
 
     const toggleServicesAccordion = (index: number) => {
       setServicesAccordion(servicesAccordion === index ? null : index);
@@ -324,6 +332,13 @@
 
                   {/* 아코디언 자리 */}
                   {/* <YourAccordionComponent /> */}
+                  <CompanyAccordion
+                    companyAccordion={companyAccordion}
+                    setCompanyAccordion={setCompanyAccordion}
+                  />
+
+
+
                 </div>
               </div>
             </div>
