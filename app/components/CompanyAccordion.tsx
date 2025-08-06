@@ -116,7 +116,7 @@ import React, { useEffect, useRef } from 'react';
 // 아코디언 항목 데이터
 const accordionItems = [
   {
-    title: '公司개요',
+    title: '公司개요2',
     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
     content: (
       <p className="text-gray-700 leading-relaxed">
