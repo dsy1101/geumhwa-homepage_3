@@ -113,10 +113,9 @@
 
 import React, { useEffect, useRef } from 'react';
 
-// 아코디언 항목 데이터
 const accordionItems = [
   {
-    title: '公司개요2',
+    title: '公司개요1',
     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
     content: (
       <p className="text-gray-700 leading-relaxed">
@@ -152,38 +151,30 @@ export default function CompanyAccordion({
   companyAccordion: number;
   setCompanyAccordion: (index: number) => void;
 }) {
-  // 아코디언 전체 컨테이너에 ref 연결
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // 휠 카운트를 누적하는 ref
-  const scrollCountRef = useRef(0);
-
-  // 휠 이벤트 등록: scrollCount가 7 이상일 때 다음 항목으로 이동
+  // 1️⃣ 스크롤 위치 감지
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    const onWheel = (e: WheelEvent) => {
-      // 아래 방향 스크롤 + 마지막 항목 이전일 때만 실행
-      if (e.deltaY > 0 && companyAccordion < accordionItems.length - 1) {
-        scrollCountRef.current += 1;
+    const handleScroll = () => {
+      const scrollTop = container.scrollTop;
+      const threshold = 300; // 넘겨야 할 스크롤 거리 (조절 가능)
 
-        // 휠 7번 이상 시 다음 항목으로 이동
-        if (scrollCountRef.current >= 7) {
-          setCompanyAccordion(companyAccordion + 1);
-          scrollCountRef.current = 0; // 카운트 초기화
-          container.scrollTop = 0; // 내부 스크롤 맨 위로
-        }
+      if (scrollTop >= threshold && companyAccordion < accordionItems.length - 1) {
+        setCompanyAccordion(companyAccordion + 1);
       }
     };
 
-    container.addEventListener('wheel', onWheel);
-    return () => container.removeEventListener('wheel', onWheel);
-  }, [companyAccordion]);
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [companyAccordion, setCompanyAccordion]);
 
-  // 아코디언이 바뀔 때마다 count 초기화 (예방용)
+  // 2️⃣ 항목 바뀌면 스크롤 맨 위로
   useEffect(() => {
-    scrollCountRef.current = 0;
+    const container = scrollContainerRef.current;
+    if (container) container.scrollTop = 0;
   }, [companyAccordion]);
 
   return (
@@ -193,7 +184,6 @@ export default function CompanyAccordion({
     >
       {accordionItems.map((item, index) => (
         <div key={index} className="border-b border-gray-200 pb-2">
-          {/* 아코디언 헤더 */}
           <button
             onClick={() => setCompanyAccordion(index)}
             className="flex items-start space-x-6 w-full text-left"
@@ -217,7 +207,6 @@ export default function CompanyAccordion({
             </div>
           </button>
 
-          {/* 아코디언 내용 */}
           <div
             className={`overflow-hidden transition-all duration-500 ${
               companyAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
@@ -232,4 +221,3 @@ export default function CompanyAccordion({
     </div>
   );
 }
-// 이 컴포넌트는 회사 소개 아코디언을 구현합니다.
