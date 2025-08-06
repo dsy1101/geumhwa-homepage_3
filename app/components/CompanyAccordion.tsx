@@ -115,10 +115,15 @@
 
 import React, { useEffect, useRef } from 'react';
 
+type CompanyAccordionProps = {
+  companyAccordion: number;
+  setCompanyAccordion: React.Dispatch<React.SetStateAction<number>>;
+};
+
 const accordionItems = [
   {
-    title: '公司개요2',
-    subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
+    title: '회사개요',
+    subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조기업',
     content: (
       <p className="text-gray-700 leading-relaxed">
         금화레이저는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하며,
@@ -146,81 +151,76 @@ const accordionItems = [
   },
 ];
 
-export default function CompanyAccordion({
+const CompanyAccordion: React.FC<CompanyAccordionProps> = ({
   companyAccordion,
   setCompanyAccordion,
-}: {
-  companyAccordion: number;
-  setCompanyAccordion: (index: number) => void;
-}) {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+}) => {
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // 1️⃣ 스크롤 위치에 따라 아코디언 자동 전환
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
     const handleScroll = () => {
-      const scrollTop = container.scrollTop;
-      const sectionHeight = 500; // 섹션 하나당 높이 기준 (px)
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
 
-      const nextIndex = Math.floor(scrollTop / sectionHeight);
+      const newIndex = sectionRefs.current.findIndex((section) => {
+        if (!section) return false;
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        return scrollY + windowHeight / 2 >= top && scrollY + windowHeight / 2 < bottom;
+      });
 
-      // 범위 내에서만 업데이트
-      if (
-        nextIndex !== companyAccordion &&
-        nextIndex >= 0 &&
-        nextIndex < accordionItems.length
-      ) {
-        setCompanyAccordion(nextIndex);
+      if (newIndex !== -1 && newIndex !== companyAccordion) {
+        setCompanyAccordion(newIndex);
       }
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [companyAccordion, setCompanyAccordion]);
 
   return (
-    <div
-      ref={scrollContainerRef}
-      className="space-y-6 overflow-y-auto max-h-[500px] pr-2"
-    >
+    <div>
       {accordionItems.map((item, index) => (
-        <div key={index} className="border-b border-gray-200 pb-2 min-h-[500px]">
-          <button
-            onClick={() => setCompanyAccordion(index)}
-            className="flex items-start space-x-6 w-full text-left"
-          >
-            <div
-              className={`w-6 h-6 rounded-full flex items-center justify-center mt-1 transition-colors ${
-                companyAccordion === index ? 'bg-blue-600' : 'bg-gray-300'
-              }`}
-            >
-              <i className="ri-check-line text-white text-xs"></i>
-            </div>
-            <div className="flex-1">
-              <h3
-                className={`text-3xl font-bold mb-2 ${
-                  companyAccordion === index ? 'text-blue-600' : 'text-gray-400'
+        <div
+          key={index}
+        //   ref={(el) => (sectionRefs.current[index] = el)}
+          ref={(el: HTMLDivElement | null) => {
+        sectionRefs.current[index] = el!;
+        }}
+          className="min-h-screen flex items-center justify-center px-6 border-b border-gray-200"
+        >
+          <div className="max-w-3xl w-full">
+            <div className="flex items-start space-x-4 mb-4">
+              <div
+                className={`w-6 h-6 rounded-full flex items-center justify-center mt-1 transition-colors ${
+                  companyAccordion === index ? 'bg-blue-600' : 'bg-gray-300'
                 }`}
               >
-                {item.title}
-              </h3>
-              <p className="text-gray-700 text-lg">{item.subtitle}</p>
+                <i className="ri-check-line text-white text-xs"></i>
+              </div>
+              <div>
+                <h3
+                  className={`text-3xl font-bold mb-2 ${
+                    companyAccordion === index ? 'text-blue-600' : 'text-gray-400'
+                  }`}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 text-lg">{item.subtitle}</p>
+              </div>
             </div>
-          </button>
-
-          <div
-            className={`overflow-hidden transition-all duration-500 ${
-              companyAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-            }`}
-          >
-            <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
-              {item.content}
+            <div
+              className={`transition-all duration-700 ${
+                companyAccordion === index ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <div className="p-4 bg-blue-50 rounded-lg">{item.content}</div>
             </div>
           </div>
         </div>
       ))}
     </div>
   );
-}
+};
+
+export default CompanyAccordion;
