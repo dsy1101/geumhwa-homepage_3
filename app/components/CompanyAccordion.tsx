@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const accordionItems = [
   {
-    title: '公司개요',
+    title: '公司개요1',
     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
     content: (
       <p className="text-gray-700 leading-relaxed">
@@ -41,35 +41,57 @@ export default function CompanyAccordion({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollCountRef = useRef(0);
 
+useEffect(() => {
+  const container = scrollContainerRef.current;
+  if (!container) return;
+
+  const onWheel = (e: WheelEvent) => {
+    if (e.deltaY > 0 && companyAccordion < accordionItems.length - 1) {
+      scrollCountRef.current += 1;
+
+      if (scrollCountRef.current >= 7) {
+        setCompanyAccordion(companyAccordion + 1);
+        // 여기선 초기화 X
+        container.scrollTo({ top: 0 });
+      }
+    }
+  };
+
+  container.addEventListener('wheel', onWheel);
+  return () => container.removeEventListener('wheel', onWheel);
+}, [companyAccordion, setCompanyAccordion]);
+
+// ✅ 여기서 초기화
+useEffect(() => {
+  scrollCountRef.current = 0;
+}, [companyAccordion]);
+
+
 //   useEffect(() => {
 //     const container = scrollContainerRef.current;
 //     if (!container) return;
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
+//     const onWheel = (e: WheelEvent) => {
+//       if (e.deltaY > 0 && companyAccordion < accordionItems.length - 1) {
+//         scrollCountRef.current += 1;
 
-    const onWheel = (e: WheelEvent) => {
-      if (e.deltaY > 0 && companyAccordion < accordionItems.length - 1) {
-        scrollCountRef.current += 1;
+//         // 일정 시간 안에 7번 넘기면 전환
+//         if (scrollCountRef.current >= 7) {
+//           setCompanyAccordion(companyAccordion + 1);
+//           scrollCountRef.current = 0;
+//           container.scrollTo({ top: 0 });
+//         }
+//       }
+//     };
 
-        // 일정 시간 안에 7번 넘기면 전환
-        if (scrollCountRef.current >= 7) {
-          setCompanyAccordion(companyAccordion + 1);
-          scrollCountRef.current = 0;
-          container.scrollTo({ top: 0 });
-        }
-      }
-    };
+//     container.addEventListener('wheel', onWheel);
+//     return () => container.removeEventListener('wheel', onWheel);
+//   }, [companyAccordion, setCompanyAccordion]);
 
-    container.addEventListener('wheel', onWheel);
-    return () => container.removeEventListener('wheel', onWheel);
-  }, [companyAccordion, setCompanyAccordion]);
-
-  // ✅ 여기서 초기화
-  useEffect(() => {
-    scrollCountRef.current = 0;
-  }, [companyAccordion]);
+//   // ✅ 여기서 초기화
+//   useEffect(() => {
+//     scrollCountRef.current = 0;
+//   }, [companyAccordion]);
 
   return (
     <div className="space-y-6">
