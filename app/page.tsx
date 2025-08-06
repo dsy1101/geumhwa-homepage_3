@@ -234,45 +234,49 @@
       // 헤더 영역 전체를 벗어날 때만 닫힘
     };
 
+
     // return (
-    //   // <div className="h-screen bg-white">
     //   <div className="min-h-screen bg-white">
     //     <main className="mt-0">
-    //     {/* Hero Section */}
-    //     {/* <section id="hero" className="relative h-screen"> */}
-    //     <section id="hero" className="relative h-[calc(100vh-96px)]">
-    //       {slides.map((slide, index) => (
-    //         <div
-    //           key={index}
-    //           className={`absolute inset-0 transition-opacity duration-1000 ${
-    //             index === currentSlide ? 'opacity-100' : 'opacity-0'
-    //           }`}
-    //         >
+    //       {/* Hero Section */}
+    //       <section id="hero" className="relative h-[calc(100svh-96px)] overflow-hidden">
+    //         {slides.map((slide, index) => (
     //           <div
-    //             className="w-full h-full bg-cover bg-center"
-    //             style={{ backgroundImage: `url(${slide.image})` }}
+    //             key={index}
+    //             className={`absolute inset-0 transition-opacity duration-1000 ${
+    //               index === currentSlide ? 'opacity-100' : 'opacity-0'
+    //             }`}
     //           >
-    //             <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-    //             <div className="relative h-full flex items-center justify-center text-center">
-    //               <div className="max-w-4xl mx-auto px-6">
-    //                 <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-    //                   {slide.title}
-    //                 </h2>
-    //                 <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
-    //                   {slide.subtitle}
-    //                 </p>
+    //             <div
+    //               className="w-full h-full bg-cover bg-center"
+    //               style={{ backgroundImage: `url(${slide.image})` }}
+    //             >
+    //               <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+    //               <div className="relative h-full flex items-center justify-center text-center">
+    //                 <div className="max-w-4xl mx-auto px-6">
+    //                   <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+    //                     {slide.title}
+    //                   </h2>
+    //                   <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
+    //                     {slide.subtitle}
+    //                   </p>
+    //                 </div>
     //               </div>
     //             </div>
     //           </div>
-    //         </div>
-    //       ))}
-    //     </section>
+    //         ))}
+    //       </section>
 
+
+    // 글로비스 스타일 적용
     return (
-      <div className="min-h-screen bg-white">
-        <main className="mt-0">
-          {/* Hero Section */}
-          <section id="hero" className="relative h-[calc(100svh-96px)] overflow-hidden">
+      <div className="bg-white">
+        {/* 전체 페이지를 section 단위로 구성하고 각각 h-screen 부여 */}
+
+        {/* ✅ Hero Section - 현대글로비스처럼 h-screen에 grid-cols-2 사용 */}
+        <section id="hero" className="h-screen grid grid-cols-2">
+          {/* 왼쪽: 배경 이미지 (슬라이드) */}
+          <div className="relative h-full">
             {slides.map((slide, index) => (
               <div
                 key={index}
@@ -285,20 +289,22 @@
                   style={{ backgroundImage: `url(${slide.image})` }}
                 >
                   <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-                  <div className="relative h-full flex items-center justify-center text-center">
-                    <div className="max-w-4xl mx-auto px-6">
-                      <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                        {slide.title}
-                      </h2>
-                      <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
-                        {slide.subtitle}
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
-          </section>
+          </div>
+
+          {/* 오른쪽: 텍스트 */}
+          <div className="flex flex-col justify-center px-10 text-center bg-white z-10">
+            <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
+              {slides[currentSlide].title}
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-700 mb-8">
+              {slides[currentSlide].subtitle}
+            </p>
+          </div>
+        </section>
+
 
         {/* Company Section */}
         {/* <section id="company" className="h-screen bg-white"> */}
