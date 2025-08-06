@@ -540,7 +540,7 @@
             {/* 아코디언 or 상세 설명 등 이후 내용들 */}
             {/* ... */}
           </div>
-
+        </section>
 
 
         {/* Services Section */}
