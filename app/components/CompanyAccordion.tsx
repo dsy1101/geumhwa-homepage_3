@@ -111,11 +111,13 @@
 //   );
 // }
 
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 
 const accordionItems = [
   {
-    title: '公司개요1',
+    title: '公司개요2',
     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
     content: (
       <p className="text-gray-700 leading-relaxed">
@@ -153,17 +155,24 @@ export default function CompanyAccordion({
 }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // 1️⃣ 스크롤 위치 감지
+  // 1️⃣ 스크롤 위치에 따라 아코디언 자동 전환
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
     const handleScroll = () => {
       const scrollTop = container.scrollTop;
-      const threshold = 300; // 넘겨야 할 스크롤 거리 (조절 가능)
+      const sectionHeight = 500; // 섹션 하나당 높이 기준 (px)
 
-      if (scrollTop >= threshold && companyAccordion < accordionItems.length - 1) {
-        setCompanyAccordion(companyAccordion + 1);
+      const nextIndex = Math.floor(scrollTop / sectionHeight);
+
+      // 범위 내에서만 업데이트
+      if (
+        nextIndex !== companyAccordion &&
+        nextIndex >= 0 &&
+        nextIndex < accordionItems.length
+      ) {
+        setCompanyAccordion(nextIndex);
       }
     };
 
@@ -171,19 +180,13 @@ export default function CompanyAccordion({
     return () => container.removeEventListener('scroll', handleScroll);
   }, [companyAccordion, setCompanyAccordion]);
 
-  // 2️⃣ 항목 바뀌면 스크롤 맨 위로
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) container.scrollTop = 0;
-  }, [companyAccordion]);
-
   return (
     <div
       ref={scrollContainerRef}
       className="space-y-6 overflow-y-auto max-h-[500px] pr-2"
     >
       {accordionItems.map((item, index) => (
-        <div key={index} className="border-b border-gray-200 pb-2">
+        <div key={index} className="border-b border-gray-200 pb-2 min-h-[500px]">
           <button
             onClick={() => setCompanyAccordion(index)}
             className="flex items-start space-x-6 w-full text-left"
