@@ -508,10 +508,38 @@
           </div>
 
           {/* 오른쪽 텍스트 영역 (이건 나중에 이어서 작업) */}
-          <div className="w-3/5 h-screen flex items-center justify-center p-10">
+          {/* <div className="w-3/5 h-screen flex items-center justify-center p-10">
             <p className="text-gray-800 text-xl">이 영역은 오른쪽 텍스트 박스입니다.</p>
           </div>
-        </section>
+        </section> */}
+
+          {/* 오른쪽 내용 */}
+          <div className="col-span-3 flex flex-col justify-center px-12 py-16 bg-white">
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.<br />
+              아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
+            </p>
+
+            {/* 예: 카드형 정보 */}
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="bg-gray-100 rounded-lg p-6 text-center">
+                <p className="text-blue-600 text-xl font-bold">20+</p>
+                <p className="text-sm text-gray-600 mt-1">년간 기술력</p>
+              </div>
+              <div className="bg-gray-100 rounded-lg p-6 text-center">
+                <p className="text-blue-600 text-xl font-bold">500+</p>
+                <p className="text-sm text-gray-600 mt-1">협력사</p>
+              </div>
+              <div className="bg-gray-100 rounded-lg p-6 text-center">
+                <p className="text-blue-600 text-xl font-bold">99.9%</p>
+                <p className="text-sm text-gray-600 mt-1">품질 만족도</p>
+              </div>
+            </div>
+
+            {/* 아코디언 or 상세 설명 등 이후 내용들 */}
+            {/* ... */}
+          </div>
 
 
 
