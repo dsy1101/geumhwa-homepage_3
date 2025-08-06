@@ -268,11 +268,13 @@
           </section>
 
 
-        {/* Company Section */}
-        <section id="company" className="min-h-screen bg-white">
+        {/* Company Section
+        {/* <section id="company" className="min-h-screen bg-white">
           <div className="w-full h-full">
-            <div className="grid grid-cols-5 gap-0 items-stretch h-full">
-              <div 
+            <div className="grid grid-cols-5 gap-0 items-stretch h-full"> */}
+        
+              {/* 왼쪽 이미지 */}
+              {/* <div 
                 className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
@@ -300,10 +302,10 @@
                     </Link>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* 오른쪽텍스트 */}
-              <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
+              {/* <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
 
                 <div className="mb-8">
                   <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
@@ -311,10 +313,9 @@
                     20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
                     아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
                   </p>
-                </div>
+                </div> */}
 
-
-                {/* 회사개요 */}
+                {/* 회사개요
                 <div className="border-b border-gray-200 pb-2">
                   <button
                     onClick={() => toggleCompanyAccordion(0)}
@@ -365,9 +366,9 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                {/*{사업영역}*/}
+                {/* {사업영역}
                 <div className="border-b border-gray-200 pb-2">
                   <button
                     onClick={() => toggleCompanyAccordion(1)}
@@ -421,9 +422,9 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                {/*인증*/}
+                {/* 인증
                 <div className="border-b border-gray-200 pb-2">
                   <button
                     onClick={() => toggleCompanyAccordion(2)}
@@ -472,7 +473,47 @@
               </div>
             </div>
           </div>
+        </section> */}
+
+        <section id="company" className="min-h-screen bg-white flex">
+          {/* 왼쪽 이미지 영역 */}
+          <div
+            className="w-2/5 h-screen bg-cover bg-center bg-no-repeat relative"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
+                rightMenuActiveSection === 0
+                  ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
+                  : rightMenuActiveSection === 1
+                  ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
+                  : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
+              })`
+            }}
+          >
+            <div className="p-12 flex flex-col justify-center text-white h-full">
+              <div>
+                <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">최첨단 레이저 기술</h2>
+                <p className="text-base leading-relaxed max-w-sm mb-6">
+                  고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
+                </p>
+                <Link
+                  href="/technology"
+                  className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
+                >
+                  <span>기술 정보</span>
+                  <i className="ri-arrow-right-line"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* 오른쪽 텍스트 영역 (이건 나중에 이어서 작업) */}
+          <div className="w-3/5 h-screen flex items-center justify-center p-10">
+            <p className="text-gray-800 text-xl">이 영역은 오른쪽 텍스트 박스입니다.</p>
+          </div>
         </section>
+
+
 
         {/* Services Section */}
         {/* <section id="services" className="h-screen bg-white"> */}
