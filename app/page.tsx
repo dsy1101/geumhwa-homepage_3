@@ -35,12 +35,12 @@ export default function Home() {
       </section>
 
       {/* ✅ Services Section */}
-      <section className="h-screen">
+      <section className="h-screen mt-0">
         <ServicesAccordion />
       </section>
 
       {/* ✅ Contact Section */}
-      <section className="h-screen">
+      <section className="h-screen mt-0">
         <ContactBox />
       </section>
     </main>
