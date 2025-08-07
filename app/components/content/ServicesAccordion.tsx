@@ -7,19 +7,19 @@ const accordionItems = [
     title: '정밀 절단 서비스',
     content:
       '레이저 기술을 활용한 고정밀 금속 절단 서비스로, 복잡한 형상도 정밀하게 가공 가능합니다.',
-    image: '/certifications/Services/Service_1.jpg',
+    image: '/certifications/Services/Services_1.jpg',
   },
   {
     title: '맞춤형 설계 지원',
     content:
       '고객 요구에 맞는 설계부터 시제품 제작까지 One-Stop 맞춤형 솔루션을 제공합니다.',
-    image: '/certifications/Services/Service_2.jpg',
+    image: '/certifications/Services/Services_2.jpg',
   },
   {
     title: '대량 생산 대응',
     content:
       '자동화 시스템을 통해 대량 주문에도 신속하고 일관된 품질로 대응합니다.',
-    image: '/certifications/Services/Service_3.jpg',
+    image: '/certifications/Services/Services_3.jpg',
   },
 ];
 
