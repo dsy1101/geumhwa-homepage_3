@@ -359,306 +359,306 @@ export default function Home() {
 
 
 
-  //   // return (
-  //   //   <div className="min-h-screen bg-white">
-  //   //     <main className="mt-0">
-  //   //       {/* Hero Section */}
-  //   //       <section id="hero" className="relative h-[calc(100svh-96px)] overflow-hidden">
-  //   //         {slides.map((slide, index) => (
-  //   //           <div
-  //   //             key={index}
-  //   //             className={`absolute inset-0 transition-opacity duration-1000 ${
-  //   //               index === currentSlide ? 'opacity-100' : 'opacity-0'
-  //   //             }`}
-  //   //           >
-  //   //             <div
-  //   //               className="w-full h-full bg-cover bg-center"
-  //   //               style={{ backgroundImage: `url(${slide.image})` }}
-  //   //             >
-  //   //               <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-  //   //               <div className="relative h-full flex items-center justify-center text-center">
-  //   //                 <div className="max-w-4xl mx-auto px-6">
-  //   //                   <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-  //   //                     {slide.title}
-  //   //                   </h2>
-  //   //                   <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
-  //   //                     {slide.subtitle}
-  //   //                   </p>
-  //   //                 </div>
-  //   //               </div>
-  //   //             </div>
-  //   //           </div>
-  //   //         ))}
-  //   //       </section>
+    // return (
+    //   <div className="min-h-screen bg-white">
+    //     <main className="mt-0">
+    //       {/* Hero Section */}
+    //       <section id="hero" className="relative h-[calc(100svh-96px)] overflow-hidden">
+    //         {slides.map((slide, index) => (
+    //           <div
+    //             key={index}
+    //             className={`absolute inset-0 transition-opacity duration-1000 ${
+    //               index === currentSlide ? 'opacity-100' : 'opacity-0'
+    //             }`}
+    //           >
+    //             <div
+    //               className="w-full h-full bg-cover bg-center"
+    //               style={{ backgroundImage: `url(${slide.image})` }}
+    //             >
+    //               <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+    //               <div className="relative h-full flex items-center justify-center text-center">
+    //                 <div className="max-w-4xl mx-auto px-6">
+    //                   <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+    //                     {slide.title}
+    //                   </h2>
+    //                   <p className="text-xl md:text-2xl text-white mb-8 opacity-90">
+    //                     {slide.subtitle}
+    //                   </p>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         ))}
+    //       </section>
 
-  //   //     {/* Company Section */}
-  //   //     <section id="company" className="min-h-screen bg-white">
-  //   //       <div className="w-full h-full">
-  //   //         <div className="grid grid-cols-5 gap-0 items-stretch h-full">
+    //     {/* Company Section */}
+    //     <section id="company" className="min-h-screen bg-white">
+    //       <div className="w-full h-full">
+    //         <div className="grid grid-cols-5 gap-0 items-stretch h-full">
 
-  //   //       {/* 왼쪽 이미지 영역 */}
-  //   //       <div
-  //   //         className="w-2/5 h-screen bg-cover bg-center bg-no-repeat relative"
-  //   //         style={{
-  //   //           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
-  //   //             rightMenuActiveSection === 0
-  //   //               ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
-  //   //               : rightMenuActiveSection === 1
-  //   //               ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
-  //   //               : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
-  //   //           })`
-  //   //         }}
-  //   //       >
-  //   //         <div className="p-12 flex flex-col justify-center text-white h-full">
-  //   //           <div>
-  //   //             <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
-  //   //             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">최첨단 레이저 기술</h2>
-  //   //             <p className="text-base leading-relaxed max-w-sm mb-6">
-  //   //               고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
-  //   //             </p>
-  //   //             <Link
-  //   //               href="/technology"
-  //   //               className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
-  //   //             >
-  //   //               <span>기술 정보</span>
-  //   //               <i className="ri-arrow-right-line"></i>
-  //   //             </Link>
-  //   //           </div>
-  //   //         </div>
-  //   //       </div>
+    //       {/* 왼쪽 이미지 영역 */}
+    //       <div
+    //         className="w-2/5 h-screen bg-cover bg-center bg-no-repeat relative"
+    //         style={{
+    //           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
+    //             rightMenuActiveSection === 0
+    //               ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
+    //               : rightMenuActiveSection === 1
+    //               ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
+    //               : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
+    //           })`
+    //         }}
+    //       >
+    //         <div className="p-12 flex flex-col justify-center text-white h-full">
+    //           <div>
+    //             <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
+    //             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">최첨단 레이저 기술</h2>
+    //             <p className="text-base leading-relaxed max-w-sm mb-6">
+    //               고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
+    //             </p>
+    //             <Link
+    //               href="/technology"
+    //               className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
+    //             >
+    //               <span>기술 정보</span>
+    //               <i className="ri-arrow-right-line"></i>
+    //             </Link>
+    //           </div>
+    //         </div>
+    //       </div>
 
-  //   //       {/* 오른쪽 내용 */}
-  //   //       <div className="col-span-3 flex flex-col justify-center px-12 py-16 bg-white">
-  //   //         <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
-  //   //         <p className="text-lg text-gray-600 leading-relaxed mb-6">
-  //   //           20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.<br />
-  //   //           아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
-  //   //         </p>
+    //       {/* 오른쪽 내용 */}
+    //       <div className="col-span-3 flex flex-col justify-center px-12 py-16 bg-white">
+    //         <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
+    //         <p className="text-lg text-gray-600 leading-relaxed mb-6">
+    //           20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.<br />
+    //           아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
+    //         </p>
 
-  //   //         {/* 예: 카드형 정보 */}
-  //   //         <div className="grid grid-cols-3 gap-4 mb-8">
-  //   //           <div className="bg-gray-100 rounded-lg p-6 text-center">
-  //   //             <p className="text-blue-600 text-xl font-bold">20+</p>
-  //   //             <p className="text-sm text-gray-600 mt-1">년간 기술력</p>
-  //   //           </div>
-  //   //           <div className="bg-gray-100 rounded-lg p-6 text-center">
-  //   //             <p className="text-blue-600 text-xl font-bold">500+</p>
-  //   //             <p className="text-sm text-gray-600 mt-1">협력사</p>
-  //   //           </div>
-  //   //           <div className="bg-gray-100 rounded-lg p-6 text-center">
-  //   //             <p className="text-blue-600 text-xl font-bold">99.9%</p>
-  //   //             <p className="text-sm text-gray-600 mt-1">품질 만족도</p>
-  //   //           </div>
-  //   //         </div>
+    //         {/* 예: 카드형 정보 */}
+    //         <div className="grid grid-cols-3 gap-4 mb-8">
+    //           <div className="bg-gray-100 rounded-lg p-6 text-center">
+    //             <p className="text-blue-600 text-xl font-bold">20+</p>
+    //             <p className="text-sm text-gray-600 mt-1">년간 기술력</p>
+    //           </div>
+    //           <div className="bg-gray-100 rounded-lg p-6 text-center">
+    //             <p className="text-blue-600 text-xl font-bold">500+</p>
+    //             <p className="text-sm text-gray-600 mt-1">협력사</p>
+    //           </div>
+    //           <div className="bg-gray-100 rounded-lg p-6 text-center">
+    //             <p className="text-blue-600 text-xl font-bold">99.9%</p>
+    //             <p className="text-sm text-gray-600 mt-1">품질 만족도</p>
+    //           </div>
+    //         </div>
 
-  //   //         {/* 아코디언 or 상세 설명 등 이후 내용들 */}
-  //   //         {/* ... */}
-  //   //       </div>
-  //   //     </div>
-  //   //     </section>
+    //         {/* 아코디언 or 상세 설명 등 이후 내용들 */}
+    //         {/* ... */}
+    //       </div>
+    //     </div>
+    //     </section>
 
         
-  //             /* 왼쪽 이미지 */
-  //             {/* <div 
-  //               className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
-  //               style={{
-  //                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
-  //                   rightMenuActiveSection === 0
-  //                     ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
-  //                     : rightMenuActiveSection === 1
-  //                     ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
-  //                     : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
-  //                 })`
-  //               }}
-  //             >
-  //               <div className="p-12 flex flex-col justify-center text-white h-full">
-  //                 <div>
-  //                   <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
-  //                   <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">최첨단 레이저 기술</h2>
-  //                   <p className="text-base leading-relaxed max-w-sm mb-6">
-  //                     고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
-  //                   </p>
-  //                   <Link
-  //                     href="/technology"
-  //                     className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
-  //                   >
-  //                     <span>기술 정보</span>
-  //                     <i className="ri-arrow-right-line"></i>
-  //                   </Link>
-  //                 </div>
-  //               </div>
-  //             </div> */}
+        //       /* 왼쪽 이미지 */
+        //       {/* <div 
+        //         className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
+        //         style={{
+        //           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
+        //             rightMenuActiveSection === 0
+        //               ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
+        //               : rightMenuActiveSection === 1
+        //               ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
+        //               : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
+        //           })`
+        //         }}
+        //       >
+        //         <div className="p-12 flex flex-col justify-center text-white h-full">
+        //           <div>
+        //             <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
+        //             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">최첨단 레이저 기술</h2>
+        //             <p className="text-base leading-relaxed max-w-sm mb-6">
+        //               고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
+        //             </p>
+        //             <Link
+        //               href="/technology"
+        //               className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
+        //             >
+        //               <span>기술 정보</span>
+        //               <i className="ri-arrow-right-line"></i>
+        //             </Link>
+        //           </div>
+        //         </div>
+        //       </div> */}
 
-  //             {/* 오른쪽텍스트 */}
-  //             {/* <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
+        //       {/* 오른쪽텍스트 */}
+        //       {/* <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
 
-  //               <div className="mb-8">
-  //                 <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
-  //                 <p className="text-lg text-gray-600 leading-relaxed">
-  //                   20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
-  //                   아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
-  //                 </p>
-  //               </div> */}
+        //         <div className="mb-8">
+        //           <h2 className="text-4xl font-extrabold text-gray-900 mb-4">기술과 신뢰의 이름, 금화레이저</h2>
+        //           <p className="text-lg text-gray-600 leading-relaxed">
+        //             20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
+        //             아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
+        //           </p>
+        //         </div> */}
 
-  //               {/* 회사개요
-  //               <div className="border-b border-gray-200 pb-2">
-  //                 <button
-  //                   onClick={() => toggleCompanyAccordion(0)}
-  //                   className="flex items-start space-x-6 w-full text-left"
-  //                 >
-  //                   <div
-  //                     className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
-  //                       companyAccordion === 0 ? 'bg-blue-600' : 'bg-gray-300'
-  //                     }`}
-  //                   >
-  //                     <i className="ri-check-line text-white text-xs"></i>
-  //                   </div>
-  //                   <div className="flex-1">
-  //                     <h3
-  //                       className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
-  //                         companyAccordion === 0 ? 'text-blue-600' : 'text-gray-400'
-  //                       }`}
-  //                     >
-  //                       公司개요
-  //                     </h3>
-  //                     <p className="text-gray-700 text-lg">최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業</p>
-  //                   </div>
-  //                 </button>
-  //                 <div
-  //                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
-  //                     companyAccordion === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-  //                   }`}
-  //                 >
-  //                   <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
-  //                     <p className="text-gray-700 leading-relaxed">
-  //                       금화레이저(주)는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조企業입니다.
-  //                       20년 이상의 축적된 노하우와 최첨단 장비를 바탕으로 철강, 알루미늄, 스테인리스 등 다양한 금속 소재를
-  //                       고출력 파이버 레이저로 정밀 가공하여 최고 품질의 부품을 생산하고 있습니다.
-  //                     </p>
-  //                     <div className="mt-4 grid grid-cols-3 gap-4 text-center">
-  //                       <div className="p-3 bg-white rounded">
-  //                         <div className="text-2xl font-bold text-blue-600">20+</div>
-  //                         <div className="text-sm text-gray-600">년간 기술력</div>
-  //                       </div>
-  //                       <div className="p-3 bg-white rounded">
-  //                         <div className="text-2xl font-bold text-blue-600">500+</div>
-  //                         <div className="text-sm text-gray-600">협력사</div>
-  //                       </div>
-  //                       <div className="p-3 bg-white rounded">
-  //                         <div className="text-2xl font-bold text-blue-600">99.9%</div>
-  //                         <div className="text-sm text-gray-600">품질 만족도</div>
-  //                       </div>
-  //                     </div>
-  //                   </div>
-  //                 </div>
-  //               </div> */}
+        //         {/* 회사개요
+        //         <div className="border-b border-gray-200 pb-2">
+        //           <button
+        //             onClick={() => toggleCompanyAccordion(0)}
+        //             className="flex items-start space-x-6 w-full text-left"
+        //           >
+        //             <div
+        //               className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+        //                 companyAccordion === 0 ? 'bg-blue-600' : 'bg-gray-300'
+        //               }`}
+        //             >
+        //               <i className="ri-check-line text-white text-xs"></i>
+        //             </div>
+        //             <div className="flex-1">
+        //               <h3
+        //                 className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+        //                   companyAccordion === 0 ? 'text-blue-600' : 'text-gray-400'
+        //                 }`}
+        //               >
+        //                 公司개요
+        //               </h3>
+        //               <p className="text-gray-700 text-lg">최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業</p>
+        //             </div>
+        //           </button>
+        //           <div
+        //             className={`overflow-hidden transition-all duration-500 ease-in-out ${
+        //               companyAccordion === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        //             }`}
+        //           >
+        //             <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+        //               <p className="text-gray-700 leading-relaxed">
+        //                 금화레이저(주)는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조企業입니다.
+        //                 20년 이상의 축적된 노하우와 최첨단 장비를 바탕으로 철강, 알루미늄, 스테인리스 등 다양한 금속 소재를
+        //                 고출력 파이버 레이저로 정밀 가공하여 최고 품질의 부품을 생산하고 있습니다.
+        //               </p>
+        //               <div className="mt-4 grid grid-cols-3 gap-4 text-center">
+        //                 <div className="p-3 bg-white rounded">
+        //                   <div className="text-2xl font-bold text-blue-600">20+</div>
+        //                   <div className="text-sm text-gray-600">년간 기술력</div>
+        //                 </div>
+        //                 <div className="p-3 bg-white rounded">
+        //                   <div className="text-2xl font-bold text-blue-600">500+</div>
+        //                   <div className="text-sm text-gray-600">협력사</div>
+        //                 </div>
+        //                 <div className="p-3 bg-white rounded">
+        //                   <div className="text-2xl font-bold text-blue-600">99.9%</div>
+        //                   <div className="text-sm text-gray-600">품질 만족도</div>
+        //                 </div>
+        //               </div>
+        //             </div>
+        //           </div>
+        //         </div> */}
 
-  //               {/* {사업영역}
-  //               <div className="border-b border-gray-200 pb-2">
-  //                 <button
-  //                   onClick={() => toggleCompanyAccordion(1)}
-  //                   className="flex items-start space-x-6 w-full text-left"
-  //                 >
-  //                   <div
-  //                     className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
-  //                       companyAccordion === 1 ? 'bg-blue-600' : 'bg-gray-300'
-  //                     }`}
-  //                   >
-  //                     <i className="ri-check-line text-white text-xs"></i>
-  //                   </div>
-  //                   <div className="flex-1">
-  //                     <h3
-  //                       className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
-  //                         companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
-  //                       }`}
-  //                     >
-  //                       사업영역테스트4
-  //                     </h3>
-  //                     <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
-  //                   </div>
-  //                 </button>
-  //                 <div
-  //                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
-  //                     companyAccordion === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-  //                   }`}
-  //                 >
-  //                   <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
-  //                     <p className="text-gray-700 leading-relaxed mb-4">
-  //                       자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서
-  //                       정밀 레이저 가공 서비스를 제공하고 있습니다.
-  //                     </p>
-  //                     <div className="grid grid-cols-2 gap-3">
-  //                       <div className="flex items-center p-2 bg-white rounded">
-  //                         <i className="ri-car-line text-blue-600 mr-2"></i>
-  //                         <span className="text-sm text-gray-700">자동차 부품</span>
-  //                       </div>
-  //                       <div className="flex items-center p-2 bg-white rounded">
-  //                         <i className="ri-settings-line text-blue-600 mr-2"></i>
-  //                         <span className="text-sm text-gray-700">산업 기계</span>
-  //                       </div>
-  //                       <div className="flex items-center p-2 bg-white rounded">
-  //                         <i className="ri-shield-star-line text-blue-600 mr-2"></i>
-  //                         <span className="text-sm text-gray-700">방산 산업</span>
-  //                       </div>
-  //                       <div className="flex items-center p-2 bg-white rounded">
-  //                         <i className="ri-computer-line text-blue-600 mr-2"></i>
-  //                         <span className="text-sm text-gray-700">전자 부품</span>
-  //                       </div>
-  //                     </div>
-  //                   </div>
-  //                 </div>
-  //               </div> */}
+        //         {/* {사업영역}
+        //         <div className="border-b border-gray-200 pb-2">
+        //           <button
+        //             onClick={() => toggleCompanyAccordion(1)}
+        //             className="flex items-start space-x-6 w-full text-left"
+        //           >
+        //             <div
+        //               className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+        //                 companyAccordion === 1 ? 'bg-blue-600' : 'bg-gray-300'
+        //               }`}
+        //             >
+        //               <i className="ri-check-line text-white text-xs"></i>
+        //             </div>
+        //             <div className="flex-1">
+        //               <h3
+        //                 className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+        //                   companyAccordion === 1 ? 'text-blue-600' : 'text-gray-400'
+        //                 }`}
+        //               >
+        //                 사업영역테스트4
+        //               </h3>
+        //               <p className="text-gray-700 text-lg">다양한 금속 소재의 레이저 정밀 가공 전문 서비스</p>
+        //             </div>
+        //           </button>
+        //           <div
+        //             className={`overflow-hidden transition-all duration-500 ease-in-out ${
+        //               companyAccordion === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        //             }`}
+        //           >
+        //             <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+        //               <p className="text-gray-700 leading-relaxed mb-4">
+        //                 자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서
+        //                 정밀 레이저 가공 서비스를 제공하고 있습니다.
+        //               </p>
+        //               <div className="grid grid-cols-2 gap-3">
+        //                 <div className="flex items-center p-2 bg-white rounded">
+        //                   <i className="ri-car-line text-blue-600 mr-2"></i>
+        //                   <span className="text-sm text-gray-700">자동차 부품</span>
+        //                 </div>
+        //                 <div className="flex items-center p-2 bg-white rounded">
+        //                   <i className="ri-settings-line text-blue-600 mr-2"></i>
+        //                   <span className="text-sm text-gray-700">산업 기계</span>
+        //                 </div>
+        //                 <div className="flex items-center p-2 bg-white rounded">
+        //                   <i className="ri-shield-star-line text-blue-600 mr-2"></i>
+        //                   <span className="text-sm text-gray-700">방산 산업</span>
+        //                 </div>
+        //                 <div className="flex items-center p-2 bg-white rounded">
+        //                   <i className="ri-computer-line text-blue-600 mr-2"></i>
+        //                   <span className="text-sm text-gray-700">전자 부품</span>
+        //                 </div>
+        //               </div>
+        //             </div>
+        //           </div>
+        //         </div> */}
 
-  //               {/* 인증
-  //               <div className="border-b border-gray-200 pb-2">
-  //                 <button
-  //                   onClick={() => toggleCompanyAccordion(2)}
-  //                   className="flex items-start space-x-6 w-full text-left"
-  //                 >
-  //                   <div
-  //                     className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
-  //                       companyAccordion === 2 ? 'bg-blue-600' : 'bg-gray-300'
-  //                     }`}
-  //                   >
-  //                     <i className="ri-check-line text-white text-xs"></i>
-  //                   </div>
-  //                   <div className="flex-1">
-  //                     <h3
-  //                       className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
-  //                         companyAccordion === 2 ? 'text-blue-600' : 'text-gray-400'
-  //                       }`}
-  //                     >
-  //                       인증
-  //                     </h3>
-  //                     <p className="text-gray-700 text-lg">산업통상자원부 인정 뿌리企業으로서의 검증된 기술력</p>
-  //                   </div>
-  //                 </button>
-  //                 <div
-  //                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
-  //                     companyAccordion === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-  //                   }`}
-  //                 >
-  //                   <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
-  //                     <p className="text-gray-700 leading-relaxed mb-4">
-  //                       산업통상자원부가 지정하는 "뿌리 산업" 중 금속 가공 기술 분야의 핵심 제조企業으로
-  //                       공식 확인받았습니다.
-  //                     </p>
-  //                     <div className="bg-white p-4 rounded-lg border-l-4 border-blue-600">
-  //                       <div className="flex items-center">
-  //                         <i className="ri-award-line text-blue-600 text-2xl mr-3"></i>
-  //                         <div>
-  //                           <h4 className="font-semibold text-gray-900">뿌리企業 확인서</h4>
-  //                           <p className="text-sm text-gray-600">산업통상자원부 인정企業</p>
-  //                         </div>
-  //                       </div>
-  //                     </div>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </section> */}
+        //         {/* 인증
+        //         <div className="border-b border-gray-200 pb-2">
+        //           <button
+        //             onClick={() => toggleCompanyAccordion(2)}
+        //             className="flex items-start space-x-6 w-full text-left"
+        //           >
+        //             <div
+        //               className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+        //                 companyAccordion === 2 ? 'bg-blue-600' : 'bg-gray-300'
+        //               }`}
+        //             >
+        //               <i className="ri-check-line text-white text-xs"></i>
+        //             </div>
+        //             <div className="flex-1">
+        //               <h3
+        //                 className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+        //                   companyAccordion === 2 ? 'text-blue-600' : 'text-gray-400'
+        //                 }`}
+        //               >
+        //                 인증
+        //               </h3>
+        //               <p className="text-gray-700 text-lg">산업통상자원부 인정 뿌리企業으로서의 검증된 기술력</p>
+        //             </div>
+        //           </button>
+        //           <div
+        //             className={`overflow-hidden transition-all duration-500 ease-in-out ${
+        //               companyAccordion === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        //             }`}
+        //           >
+        //             <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+        //               <p className="text-gray-700 leading-relaxed mb-4">
+        //                 산업통상자원부가 지정하는 "뿌리 산업" 중 금속 가공 기술 분야의 핵심 제조企業으로
+        //                 공식 확인받았습니다.
+        //               </p>
+        //               <div className="bg-white p-4 rounded-lg border-l-4 border-blue-600">
+        //                 <div className="flex items-center">
+        //                   <i className="ri-award-line text-blue-600 text-2xl mr-3"></i>
+        //                   <div>
+        //                     <h4 className="font-semibold text-gray-900">뿌리企業 확인서</h4>
+        //                     <p className="text-sm text-gray-600">산업통상자원부 인정企業</p>
+        //                   </div>
+        //                 </div>
+        //               </div>
+        //             </div>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </section> */}
 
 
 
