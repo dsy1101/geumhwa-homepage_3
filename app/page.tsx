@@ -26,27 +26,80 @@ const heroSlides = [
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <section className="h-screen">
-        <HeroSection slides={heroSlides} />
-      
-    {/* <main className="flex flex-col">
-      <HeroSection slides={slides} /> */}
+      {/* ✅ Hero Section */}
+      <HeroSection slides={heroSlides} />
 
-      {/* 여백 없애려면 mt-0 / 또는 없음 */}
+      {/* ✅ Company Section (mt-0으로 여백 제거) */}
       <section className="h-screen mt-0">
         <CompanyAccordion />
       </section>
 
-      </section>
+      {/* ✅ Services Section */}
       <section className="h-screen">
         <ServicesAccordion />
       </section>
+
+      {/* ✅ Contact Section */}
       <section className="h-screen">
         <ContactBox />
       </section>
     </main>
   );
 }
+
+
+
+
+// 202508080214
+// 'use client';
+
+// import HeroSection from './components/content/HeroSection';
+// import CompanyAccordion from './components/content/CompanyAccordion';
+// import ServicesAccordion from "./components/content/ServicesAccordion";
+// import ContactBox from "./components/content/ContactBox";
+
+// const heroSlides = [
+//   {
+//     image: '/certifications/Hero/Hero_1.jpg',
+//     title: '정밀한 기술력으로',
+//     subtitle: '고객의 내일을 설계합니다.',
+//   },
+//   {
+//     image: '/certifications/Hero/Hero_2.jpg',
+//     title: '끊임없는 도전과 혁신',
+//     subtitle: '대한민국 산업을 이끌다.',
+//   },
+//   {
+//     image: '/certifications/Hero/Hero_3.jpg',
+//     title: '믿음과 신뢰의 파트너',
+//     subtitle: 'KH LASER와 함께 성장하세요.',
+//   },
+// ];
+
+// export default function Home() {
+//   return (
+//     <main className="flex flex-col">
+//       <section className="h-screen">
+//         <HeroSection slides={heroSlides} />
+      
+//     {/* <main className="flex flex-col">
+//       <HeroSection slides={slides} /> */}
+
+//       {/* 여백 없애려면 mt-0 / 또는 없음 */}
+//       <section className="h-screen mt-0">
+//         <CompanyAccordion />
+//       </section>
+
+//       </section>
+//       <section className="h-screen">
+//         <ServicesAccordion />
+//       </section>
+//       <section className="h-screen">
+//         <ContactBox />
+//       </section>
+//     </main>
+//   );
+// }
 
 
 
