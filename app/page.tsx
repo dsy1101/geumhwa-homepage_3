@@ -1,10 +1,34 @@
+'use client';
+
+import HeroSection from './components/content/HeroSection';
 import CompanyAccordion from './components/content/CompanyAccordion';
 import ServicesAccordion from "./components/content/ServicesAccordion";
 import ContactBox from "./components/content/ContactBox";
 
+const heroSlides = [
+  {
+    image: '/certifications/Hero/Hero_1.jpg',
+    title: '정밀한 기술력으로',
+    subtitle: '고객의 내일을 설계합니다.',
+  },
+  {
+    image: '/certifications/Hero/Hero_2.jpg',
+    title: '끊임없는 도전과 혁신',
+    subtitle: '대한민국 산업을 이끌다.',
+  },
+  {
+    image: '/certifications/Hero/Hero_3.jpg',
+    title: '믿음과 신뢰의 파트너',
+    subtitle: 'KH LASER와 함께 성장하세요.',
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex flex-col">
+      <section className="h-screen">
+        <HeroSection slides={heroSlides} />
+      </section>
       <section className="h-screen">
         <CompanyAccordion />
       </section>
