@@ -2,21 +2,15 @@
 
 import React, { useState } from 'react';
 
-
-  //       image: "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20metal%20fabrication%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology&width=1920&height=800&seq=hero1&orientation=landscape",
-  //       title: "정밀 레이저 가공의 선도企業",
-  //       subtitle: "신뢰할 수 있는 기술력으로 고품질 金속 가공 서비스를 제공합니다"
-  //     },
-  //     {
-  //       image: "https://readdy.ai/api/search-image?query=advanced%20fiber%20laser%20cutting%20system%20in%20operation%20with%20sparks%20flying%20from%20metal%20cutting%20process%2C%20industrial%20automation%20equipment%20in%20clean%20manufacturing%20facility%2C%20high-precision%20metal%20fabrication%20with%20modern%20laser%20technology%2C%20professional%20manufacturing%20environment&width=1920&height=800&seq=hero2&orientation=landscape",
-  //       title: "혁신적인 기술력",
-  //       subtitle: "다양한 金속 소재의 복잡한 형상 가공이 가능합니다"
-  //     },
-  //     {
-  //       image: "https://readdy.ai/api/search-image?query=precision%20metal%20parts%20and%20components%20manufactured%20by%20laser%20cutting%20technology%2C%20various%20stainless%20steel%20and%20aluminum%20products%20displayed%20on%20clean%20industrial%20surface%2C%20high-quality%20finished%20metal%20parts%20with%20perfect%20edges%2C%20professional%20product%20showcase&width=1920&height=800&seq=hero3&orientation=landscape",
-  //       title: "품질과 정밀도",
-  //       subtitle: "0.1mm~25mm 두께까지 변형 없는 고품질 가공 실현"
-  //     }
+  //                 style={{
+  //                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${
+  //                     rightMenuActiveSection === 0
+  //                       ? "https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape"
+  //                       : rightMenuActiveSection === 1
+  //                       ? "https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape"
+  //                       : "https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape"
+  //                     })`
+  //                 }}
 
 const accordionItems = [
   {
@@ -25,7 +19,7 @@ const accordionItems = [
     description:
       '금화레이저(주)는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조기업입니다. 20년 이상의 축적된 노하우와 최첨단 장비를 바탕으로 철강, 알루미늄, 스테인리스 등 다양한 금속 소재를 고출력 파이버 레이저로 정밀 가공하여 최고 품질의 부품을 생산하고 있습니다.',
     image:
-      'https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20metal%20fabrication%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology&width=1920&height=800&seq=hero1&orientation=landscape',
+      'https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape',
     stats: [
       { label: '년간 기술력', value: '20+' },
       { label: '협력사', value: '500+' },
@@ -38,7 +32,7 @@ const accordionItems = [
     description:
       '자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서 정밀 레이저 가공 서비스를 제공하고 있습니다.',
     image:
-      'https://readdy.ai/api/search-image?query=advanced%20fiber%20laser%20cutting%20system%20in%20operation%20with%20sparks%20flying%20from%20metal%20cutting%20process%2C%20industrial%20automation%20equipment%20in%20clean%20manufacturing%20facility%2C%20high-precision%20metal%20fabrication%20with%20modern%20laser%20technology%2C%20professional%20manufacturing%20environment&width=1920&height=800&seq=hero2&orientation=landscape',
+      'https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape',
     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
   },
   {
@@ -47,7 +41,7 @@ const accordionItems = [
     description:
       '산업통상자원부가 지정하는 "뿌리 산업" 중 금속 가공 기술 분야의 핵심 제조기업으로 공식 확인받았습니다.',
     image:
-      'https://readdy.ai/api/search-image?query=precision%20metal%20parts%20and%20components%20manufactured%20by%20laser%20cutting%20technology%2C%20various%20stainless%20steel%20and%20aluminum%20products%20displayed%20on%20clean%20industrial%20surface%2C%20high-quality%20finished%20metal%20parts%20with%20perfect%20edges%2C%20professional%20product%20showcase&width=1920&height=800&seq=hero3&orientation=landscape',
+      'https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape',
     certification: {
       title: '뿌리기업 확인서',
       desc: '산업통상자원부 인정기업',
