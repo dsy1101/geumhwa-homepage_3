@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 
 const accordionItems = [
+
   {
     title: '정밀 절단 서비스',
-    content:
-      '레이저 기술을 활용한 고정밀 금속 절단 서비스로, 복잡한 형상도 정밀하게 가공 가능합니다.',
+    subtitle: '다양한 금속',
     image: '/certifications/Services/Services_1.jpg',
   },
   {
