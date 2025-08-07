@@ -28,9 +28,15 @@ export default function Home() {
     <main className="flex flex-col">
       <section className="h-screen">
         <HeroSection slides={heroSlides} />
-      </section>
-      <section className="h-screen">
+      
+    {/* <main className="flex flex-col">
+      <HeroSection slides={slides} /> */}
+
+      {/* 여백 없애려면 mt-0 / 또는 없음 */}
+      <section className="h-screen mt-0">
         <CompanyAccordion />
+      </section>
+
       </section>
       <section className="h-screen">
         <ServicesAccordion />
