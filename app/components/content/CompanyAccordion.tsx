@@ -66,7 +66,7 @@ export default function CompanyAccordion() {
 
   return (
     <div className="flex h-screen bg-white">
-      {/* ✅ 왼쪽 이미지 영역 */}
+      {/* 왼쪽 이미지 영역 */}
       <div className="w-1/2 flex items-center justify-center p-10">
         {accordionItems[activeIndex]?.image && (
           <img
@@ -77,8 +77,8 @@ export default function CompanyAccordion() {
         )}
       </div>
 
-      {/* ✅ 오른쪽 아코디언 영역 */}
-      <div className="w-1/2 overflow-y-auto h-full pt-20 pr-10">
+      {/* 오른쪽 아코디언 영역 */}
+      <div className="w-1/2 flex flex-col justify-center p-10 space-y-8">
         {accordionItems.map((item, index) => (
           <div
             key={index}
@@ -87,8 +87,8 @@ export default function CompanyAccordion() {
               contentRefs.current[index] = el;
             }}
             className={cn(
-              'transition-opacity duration-700 ease-in-out',
-              activeIndex === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 w-full'
+              activeIndex === index ? 'block' : 'hidden',
+              'transition-opacity duration-700 ease-in-out'
             )}
           >
             <button
@@ -99,23 +99,145 @@ export default function CompanyAccordion() {
               )}
             >
               <div className="w-full">
-                <div className="text-xl">{item.title}</div>
-                <div className="text-sm">{item.subtitle}</div>
+                <div className="text-3xl font-bold text-blue-800">{item.title}</div>
+                <div className="text-md text-gray-600 mt-2">{item.subtitle}</div>
               </div>
               <ChevronDown
                 className={cn(
-                  'ml-2 h-4 w-4 transition-transform duration-300',
+                  'ml-2 h-5 w-5 transition-transform duration-300',
                   activeIndex === index ? 'rotate-180' : 'rotate-0'
                 )}
               />
             </button>
-            <div className="px-4 pt-4">{item.content}</div>
+            <div className="mt-4 text-base text-gray-700">{item.content}</div>
           </div>
         ))}
       </div>
     </div>
   );
 }
+
+
+
+// 202508071555
+// 'use client';
+
+// import React, { useEffect, useRef, useState } from 'react';
+// import { ChevronDown } from 'lucide-react';
+
+// function cn(...classes: (string | boolean | undefined | null)[]) {
+//   return classes.filter(Boolean).join(" ");
+// }
+
+// const accordionItems = [
+//   {
+//     title: '회사 개요',
+//     subtitle: '정밀 레이저 가공의 선도企業',
+//     content: (
+//       <p className="leading-relaxed text-muted-foreground">
+//         금화레이저는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하며,
+//         고출력 파이버 레이저로 다양한 금속을 정밀 가공합니다.
+//       </p>
+//     ),
+//     image:
+//       'https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20metal%20fabrication%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology&width=1920&height=800&seq=hero1&orientation=landscape',
+//   },
+//   {
+//     title: '사업 분야',
+//     subtitle: '혁신적인 기술력',
+//     content: (
+//       <p className="leading-relaxed text-muted-foreground">
+//         자동차, 전자, 반도체, 건축 등 다양한 산업에 특화된 맞춤형 솔루션을 제공합니다.
+//       </p>
+//     ),
+//     image:
+//       'https://readdy.ai/api/search-image?query=advanced%20fiber%20laser%20cutting%20system%20in%20operation%20with%20sparks%20flying%20from%20metal%20cutting%20process%2C%20industrial%20automation%20equipment%20in%20clean%20manufacturing%20facility%2C%20high-precision%20metal%20fabrication%20with%20modern%20laser%20technology%2C%20professional%20manufacturing%20environment&width=1920&height=800&seq=hero2&orientation=landscape',
+//   },
+//   {
+//     title: '인증 및 수상',
+//     subtitle: '품질과 정밀도',
+//     content: (
+//       <p className="leading-relaxed text-muted-foreground">
+//         ISO 9001, 벤처기업 인증, 기술혁신형 중소기업 인증 등을 보유하고 있습니다.
+//       </p>
+//     ),
+//     image:
+//       'https://readdy.ai/api/search-image?query=precision%20metal%20parts%20and%20components%20manufactured%20by%20laser%20cutting%20technology%2C%20various%20stainless%20steel%20and%20aluminum%20products%20displayed%20on%20clean%20industrial%20surface%2C%20high-quality%20finished%20metal%20parts%20with%20perfect%20edges%2C%20professional%20product%20showcase&width=1920&height=800&seq=hero3&orientation=landscape',
+//   },
+// ];
+
+// export default function CompanyAccordion() {
+//   const [activeIndex, setActiveIndex] = useState<number>(0);
+//   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       contentRefs.current.forEach((ref, index) => {
+//         if (ref) {
+//           const rect = ref.getBoundingClientRect();
+//           if (rect.top >= 0 && rect.top <= window.innerHeight * 0.3) {
+//             setActiveIndex(index);
+//           }
+//         }
+//       });
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
+
+//   return (
+//     <div className="flex h-screen bg-white">
+//       {/* ✅ 왼쪽 이미지 영역 */}
+//       <div className="w-1/2 flex items-center justify-center p-10">
+//         {accordionItems[activeIndex]?.image && (
+//           <img
+//             src={accordionItems[activeIndex].image}
+//             alt={accordionItems[activeIndex].title}
+//             className="max-h-[80%] object-contain rounded shadow-lg"
+//           />
+//         )}
+//       </div>
+
+//       {/* ✅ 오른쪽 아코디언 영역 */}
+//       <div className="w-1/2 overflow-y-auto h-full pt-20 pr-10">
+//         {accordionItems.map((item, index) => (
+//           <div
+//             key={index}
+//             // ref={(el) => (contentRefs.current[index] = el)}
+//             ref={(el: HTMLDivElement | null) => {
+//               contentRefs.current[index] = el;
+//             }}
+//             className={cn(
+//               'transition-opacity duration-700 ease-in-out',
+//               activeIndex === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 w-full'
+//             )}
+//           >
+//             <button
+//               onClick={() => setActiveIndex(index)}
+//               className={cn(
+//                 'flex items-center justify-between w-full py-4 text-left transition-all',
+//                 activeIndex === index ? 'text-primary font-semibold' : 'text-muted-foreground'
+//               )}
+//             >
+//               <div className="w-full">
+//                 <div className="text-xl">{item.title}</div>
+//                 <div className="text-sm">{item.subtitle}</div>
+//               </div>
+//               <ChevronDown
+//                 className={cn(
+//                   'ml-2 h-4 w-4 transition-transform duration-300',
+//                   activeIndex === index ? 'rotate-180' : 'rotate-0'
+//                 )}
+//               />
+//             </button>
+//             <div className="px-4 pt-4">{item.content}</div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
 
 
