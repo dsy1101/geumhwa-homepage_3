@@ -52,33 +52,36 @@ const accordionItems: Item[] = [
 
 function CompanyAccordion() {
   const [companyAccordion, setCompanyAccordion] = useState<number>(0);
-  const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
+  // 🔁 관찰 대상: '항목 래퍼'
+  const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
-        const visible = entries
+        const hit = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        if (visible) {
-          const idx = contentRefs.current.findIndex((el) => el === visible.target);
+        if (hit) {
+          const idx = itemRefs.current.findIndex((el) => el === hit.target);
           if (idx !== -1) setCompanyAccordion(idx);
         }
       },
-      { root: null, threshold: [0.35, 0.6] }
+      {
+        root: null,
+        // 가운데 20% 근처에 들어오면 트리거
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: [0.1, 0.25, 0.5],
+      }
     );
 
-    contentRefs.current.forEach((el) => {
-      if (el) io.observe(el);
-    });
-
+    itemRefs.current.forEach((el) => el && io.observe(el));
     return () => io.disconnect();
   }, []);
 
   const handleClick = (index: number) => {
     setCompanyAccordion(index);
-    const node = contentRefs.current[index];
+    const node = itemRefs.current[index]; // ← 래퍼로 스크롤
     if (node) {
       const top = node.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -120,7 +123,11 @@ function CompanyAccordion() {
         </div>
 
         {accordionItems.map((item, index) => (
-          <div key={index} className="border-b border-gray-200 pb-2">
+          <div
+            key={index}
+            ref={(el: HTMLDivElement | null) => { itemRefs.current[index] = el; }}
+            className="border-b border-gray-200 pb-2 min-h-[60vh] flex flex-col justify-center"
+          >
             <button onClick={() => handleClick(index)} className="flex items-start space-x-6 w-full text-left">
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
@@ -147,12 +154,7 @@ function CompanyAccordion() {
                 companyAccordion === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div
-                ref={(el: HTMLDivElement | null) => {
-                  contentRefs.current[index] = el; // ← void 반환 (OK)
-                }}
-                className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg"
-              >
+              <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
                 <p className="text-gray-700 leading-relaxed mb-4">{item.description}</p>
 
                 {item.stats && (
@@ -197,8 +199,8 @@ function CompanyAccordion() {
   );
 }
 
-
 export default CompanyAccordion;
+
 
 
 
