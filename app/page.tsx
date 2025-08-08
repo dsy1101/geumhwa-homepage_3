@@ -40,9 +40,9 @@ export default function Home() {
       </section>
 
       {/* ✅ Contact Section */}
-      <section className="h-screen mt-0">
+      {/* <section className="h-screen mt-0">
         <ContactBox />
-      </section>
+      </section> */}
     </main>
   );
 }
