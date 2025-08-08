@@ -54,69 +54,69 @@ const accordionItems: Item[] = [
  *  덮는 느낌 없이: 2단계(기존 사라짐 → 새 이미지 등장) 크로스페이드
  *  ------------------------------ */
 function CrossfadeImage({ src }: { src: string }) {
-  const DURATION = 800; // 전체 전환 시간(ms) - 취향대로 조절
+  const DURATION = 800; // ms
   const HALF = DURATION / 2;
 
-  const [baseSrc, setBaseSrc] = useState(src);        // 현재 화면에 깔린 이미지
-  const [overlaySrc, setOverlaySrc] = useState(src);  // 새로 들어올 이미지
+  const [baseSrc, setBaseSrc] = useState(src);
+  const [overlaySrc, setOverlaySrc] = useState(src);
+  const [showOverlay, setShowOverlay] = useState(false);
   const [phase, setPhase] = useState<'idle' | 'baseOut' | 'overlayIn'>('idle');
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
-    // 같은 이미지면 전환 없음
     if (src === baseSrc) return;
 
-    // 1) 새 이미지를 오버레이에 세팅(아직 안 보임)
-    setOverlaySrc(src);
-    setPhase('baseOut'); // 기존 이미지만 먼저 사라지는 단계
+    // 1) 기존 이미지만 먼저 사라짐 (오버레이는 렌더하지 않음)
+    setPhase('baseOut');
+    setShowOverlay(false);
 
-    // 2) 절반 시점에 새 이미지 등장 시작
-    const t1 = window.setTimeout(() => setPhase('overlayIn'), HALF);
+    // 2) 절반 시점에 오버레이를 '그때' 마운트하고 등장
+    const t1 = window.setTimeout(() => {
+      setOverlaySrc(src);
+      setShowOverlay(true);
+      setPhase('overlayIn');
+    }, HALF);
 
-    // 3) 끝나면 베이스 교체하고 단계 초기화
+    // 3) 완료 후 베이스 교체, 오버레이 숨김
     const t2 = window.setTimeout(() => {
       setBaseSrc(src);
+      setShowOverlay(false);
       setPhase('idle');
     }, DURATION);
 
     timers.current.forEach(clearTimeout);
     timers.current = [t1, t2];
-
-    return () => {
-      timers.current.forEach(clearTimeout);
-      timers.current = [];
-    };
+    return () => { timers.current.forEach(clearTimeout); timers.current = []; };
   }, [src, baseSrc]);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* 베이스 이미지: 0~50% 구간에서만 서서히 사라짐 */}
+      {/* 베이스: 0~50% 동안 서서히 사라짐 */}
       <img
         src={baseSrc}
         alt=""
         className={[
-          "absolute inset-0 w-full h-full object-contain",
+          "absolute inset-0 w-full h-full object-contain pointer-events-none",
           "transition-[opacity,filter] ease-out",
           phase === 'baseOut' ? `duration-[${HALF}ms] opacity-0 blur-sm` : "duration-150 opacity-100 blur-0"
         ].join(" ")}
         style={{ willChange: 'opacity, filter' }}
       />
 
-      {/* 오버레이 이미지: 50~100% 구간에서만 서서히 나타남 */}
-      <img
-        src={overlaySrc}
-        alt=""
-        className={[
-          "absolute inset-0 w-full h-full object-contain",
-          "transition-[opacity,filter] ease-out",
-          phase === 'overlayIn'
-            ? `duration-[${HALF}ms] opacity-100 blur-0`
-            : "duration-150 opacity-0 blur-sm"
-        ].join(" ")}
-        style={{ willChange: 'opacity, filter' }}
-      />
+      {/* 오버레이: 50% 시점에 마운트되어 페이드인 → 덮임 없음 */}
+      {showOverlay && (
+        <img
+          src={overlaySrc}
+          alt=""
+          className={[
+            "absolute inset-0 w-full h-full object-contain pointer-events-none",
+            "transition-[opacity,filter] ease-out",
+            phase === 'overlayIn' ? `duration-[${HALF}ms] opacity-100 blur-0` : "duration-150 opacity-0 blur-sm"
+          ].join(" ")}
+          style={{ willChange: 'opacity, filter' }}
+        />
+      )}
 
-      {/* 동일한 어둡기 오버레이 */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
     </div>
   );
@@ -238,7 +238,7 @@ function CompanyAccordion() {
     // wrapper: 아이템 수 * 100vh → 이 범위 동안 섹션이 화면에 고정됨
     <div ref={wrapperRef} className="relative" style={{ height: `${accordionItems.length * 100}vh` }}>
       {/* sticky: 실제로 보이는 영역은 고정 */}
-      <div className="sticky top-0 h-screen">
+      <div className="sticky top-0 h-screen z-40">
         <div className="grid grid-cols-5 h-full">
           {/* 왼쪽 이미지 (자연스러운 블러 + 페이드 전환) */}
           <div className="col-span-2 relative h-full bg-[#0b0b0b] overflow-hidden">
