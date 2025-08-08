@@ -73,11 +73,10 @@ function CompanyAccordion() {
         const y = window.scrollY;
         const local = Math.min(Math.max(y - start, 0), totalScrollable);
 
-        // 각 아이템을 1뷰포트 단위로 매핑
-        const nextIndex = Math.min(
-          accordionItems.length - 1,
-          Math.floor(local / vh + 0.00001)
-        );
+        // ✅ 각 아이템을 1뷰포트 단위로 매핑 + 안정 스냅
+        const raw = local / vh;                // 0 → 1 → 2 ...
+        const snapped = raw < 0.3 ? 0 : Math.round(raw); // 초입 강제 0, 이후 반올림
+        const nextIndex = Math.min(accordionItems.length - 1, Math.max(0, snapped));
 
         if (nextIndex !== companyAccordion) {
           setCompanyAccordion(nextIndex);
@@ -101,7 +100,11 @@ function CompanyAccordion() {
     if (!wrapper) return;
     const start = wrapper.getBoundingClientRect().top + window.scrollY;
     const vh = window.innerHeight;
-    const target = start + index * vh;
+
+    // ✅ 초입에서 1로 튀지 않게 아주 작은 여유를 두고 이동
+    const offset = 8; // px
+    const target = start + index * vh + offset;
+
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
 
@@ -224,6 +227,233 @@ function CompanyAccordion() {
 export default CompanyAccordion;
 
 
+
+
+// 20250808_1820
+// 'use client';
+
+// import React, { useState, useEffect, useRef } from 'react';
+
+// type Stat = { label: string; value: string };
+// type Item = {
+//   title: string;
+//   subtitle: string;
+//   description: string;
+//   image: string;
+//   stats?: Stat[];
+//   features?: string[];
+//   certification?: { title: string; desc: string };
+// };
+
+// const accordionItems: Item[] = [
+//   {
+//     title: '회사 개요',
+//     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
+//     description:
+//       '금화레이저(주)는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조기업입니다. 20년 이상의 축적된 노하우와 최첨단 장비를 바탕으로 철강, 알루미늄, 스테인리스 등 다양한 금속 소재를 고출력 파이버 레이저로 정밀 가공하여 최고 품질의 부품을 생산하고 있습니다.',
+//     image:
+//       'https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape',
+//     stats: [
+//       { label: '년간 기술력', value: '20+' },
+//       { label: '협력사', value: '500+' },
+//       { label: '품질 만족도', value: '99.9%' },
+//     ],
+//   },
+//   {
+//     title: '사업 분야',
+//     subtitle: '다양한 금속 소재의 레이저 정밀 가공 전문 서비스',
+//     description:
+//       '자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서 정밀 레이저 가공 서비스를 제공하고 있습니다.',
+//     image:
+//       'https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape',
+//     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
+//   },
+//   {
+//     title: '인증 및 수상',
+//     subtitle: '산업통상자원부 인정 뿌리기업으로서의 검증된 기술력',
+//     description:
+//       '산업통상자원부가 지정하는 "뿌리 산업" 중 금속 가공 기술 분야의 핵심 제조기업으로 공식 확인받았습니다.',
+//     image:
+//       'https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape',
+//     certification: {
+//       title: '뿌리기업 확인서',
+//       desc: '산업통상자원부 인정기업',
+//     },
+//   },
+// ];
+
+// function CompanyAccordion() {
+//   const [companyAccordion, setCompanyAccordion] = useState<number>(0);
+
+//   // 섹션을 고정하고 내부 스크롤 진행을 계산할 래퍼
+//   const wrapperRef = useRef<HTMLDivElement | null>(null);
+//   const rafRef = useRef<number | null>(null);
+
+//   useEffect(() => {
+//     const onScroll = () => {
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//       rafRef.current = requestAnimationFrame(() => {
+//         const wrapper = wrapperRef.current;
+//         if (!wrapper) return;
+
+//         const start = wrapper.getBoundingClientRect().top + window.scrollY; // wrapper 시작 지점(문서 기준)
+//         const vh = window.innerHeight;
+//         const totalHeight = accordionItems.length * vh; // wrapper 총 높이
+//         const totalScrollable = totalHeight - vh; // pinned 상태로 소비할 높이
+
+//         // 현재 문서 스크롤에서 wrapper 내부로 얼마나 들어왔는지
+//         const y = window.scrollY;
+//         const local = Math.min(Math.max(y - start, 0), totalScrollable);
+
+//         // 각 아이템을 1뷰포트 단위로 매핑
+//         const nextIndex = Math.min(
+//           accordionItems.length - 1,
+//           Math.floor(local / vh + 0.00001)
+//         );
+
+//         if (nextIndex !== companyAccordion) {
+//           setCompanyAccordion(nextIndex);
+//         }
+//       });
+//     };
+
+//     // 초기 1회 계산 + 스크롤 리스너
+//     onScroll();
+//     window.addEventListener('scroll', onScroll, { passive: true });
+//     return () => {
+//       window.removeEventListener('scroll', onScroll);
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//     };
+//     // companyAccordion에 의존하지 않음 (스크롤마다 set만)
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, []);
+
+//   const handleClick = (index: number) => {
+//     const wrapper = wrapperRef.current;
+//     if (!wrapper) return;
+//     const start = wrapper.getBoundingClientRect().top + window.scrollY;
+//     const vh = window.innerHeight;
+//     const target = start + index * vh;
+//     window.scrollTo({ top: target, behavior: 'smooth' });
+//   };
+
+//   return (
+//     // wrapper: 아이템 수 * 100vh → 이 범위 동안 섹션이 화면에 고정됨
+//     <div ref={wrapperRef} className="relative" style={{ height: `${accordionItems.length * 100}vh` }}>
+//       {/* sticky: 실제로 보이는 영역은 고정 */}
+//       <div className="sticky top-0 h-screen">
+//         <div className="grid grid-cols-5 h-full">
+//           {/* 왼쪽 이미지 (안 잘리게, 꽉 차게 배치: 레터박스 허용) */}
+//           <div className="col-span-2 relative h-full bg-[#0b0b0b]">
+//             <img
+//               src={accordionItems[companyAccordion].image}
+//               alt=""
+//               className="absolute inset-0 w-full h-full object-contain"
+//             />
+//             <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+//             <div className="relative p-12 flex flex-col justify-center text-white h-full">
+//               <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
+//               <h2 className="text-3xl md:text-4xl font-bold mb-4">최첨단 레이저 기술</h2>
+//               <p className="text-base leading-relaxed max-w-sm mb-6">
+//                 고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
+//               </p>
+//               <a
+//                 href="/technology"
+//                 className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
+//               >
+//                 <span>기술 정보</span>
+//               </a>
+//             </div>
+//           </div>
+
+//           {/* 오른쪽 아코디언 (UI 동일) */}
+//           <div className="col-span-3 p-12 flex flex-col justify-center bg-white space-y-4">
+//             <div className="mb-4">
+//               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">기술과 신뢰의 이름, 금화레이저</h2>
+//               <p className="text-lg text-gray-600">
+//                 20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
+//                 아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
+//               </p>
+//             </div>
+
+//             {accordionItems.map((item, index) => (
+//               <div
+//                 key={index}
+//                 className="border-b border-gray-200 pb-2 py-8 flex flex-col justify-center scroll-mt-[120px]"
+//               >
+//                 <button onClick={() => handleClick(index)} className="flex items-start space-x-6 w-full text-left">
+//                   <div
+//                     className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors duration-300 ${
+//                       companyAccordion === index ? 'bg-blue-600' : 'bg-gray-300'
+//                     }`}
+//                   >
+//                     <span className="text-white text-xs">✓</span>
+//                   </div>
+//                   <div className="flex-1">
+//                     <h3
+//                       className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
+//                         companyAccordion === index ? 'text-blue-600' : 'text-gray-400'
+//                       }`}
+//                     >
+//                       {item.title}
+//                     </h3>
+//                     <p className="text-gray-700 text-lg">{item.subtitle}</p>
+//                   </div>
+//                 </button>
+
+//                 <div
+//                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
+//                     companyAccordion === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+//                   }`}
+//                 >
+//                   <div className="mt-4 ml-12 p-4 bg-blue-50 rounded-lg">
+//                     <p className="text-gray-700 leading-relaxed mb-4">{item.description}</p>
+
+//                     {item.stats && (
+//                       <div className="grid grid-cols-3 gap-4 text-center">
+//                         {item.stats.map((stat, i) => (
+//                           <div key={i} className="p-3 bg-white rounded">
+//                             <div className="text-2xl font-bold text-blue-600">{stat.value}</div>
+//                             <div className="text-sm text-gray-600">{stat.label}</div>
+//                           </div>
+//                         ))}
+//                       </div>
+//                     )}
+
+//                     {item.features && (
+//                       <div className="grid grid-cols-2 gap-3">
+//                         {item.features.map((feature, i) => (
+//                           <div key={i} className="flex items-center p-2 bg-white rounded">
+//                             <span className="mr-2">✓</span>
+//                             <span className="text-sm text-gray-700">{feature}</span>
+//                           </div>
+//                         ))}
+//                       </div>
+//                     )}
+
+//                     {item.certification && (
+//                       <div className="bg-white p-4 rounded-lg border-l-4 border-blue-600">
+//                         <div className="flex items-center">
+//                           <div className="text-blue-600 text-2xl mr-3">🏅</div>
+//                           <div>
+//                             <h4 className="font-semibold text-gray-900">{item.certification.title}</h4>
+//                             <p className="text-sm text-gray-600">{item.certification.desc}</p>
+//                           </div>
+//                         </div>
+//                       </div>
+//                     )}
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>{/* grid */}
+//       </div>{/* sticky */}
+//     </div>/* wrapper */
+//   );
+// }
+
+// export default CompanyAccordion;
 
 
 
