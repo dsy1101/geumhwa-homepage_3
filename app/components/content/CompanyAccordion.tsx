@@ -57,6 +57,9 @@ function CompanyAccordion() {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
+  // ✅ 현재 활성 인덱스를 ref로도 보관(closure 이슈 방지)
+  const activeIndexRef = useRef(0);
+
   useEffect(() => {
     const onScroll = () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -73,19 +76,21 @@ function CompanyAccordion() {
         const y = window.scrollY;
         const local = Math.min(Math.max(y - start, 0), totalScrollable);
 
-        // ✅ 안정 스냅: 초입은 픽셀 단위로 0에 스냅, 그 외는 중앙 기준 반올림
+        // 안정 스냅: 초입은 픽셀 단위로 0에 스냅, 그 외는 중앙 기준 반올림
         const TOP_SNAP_PX = 40; // 이 값보다 위면 항상 0번
         let nextIndex: number;
 
         if (local <= TOP_SNAP_PX) {
           nextIndex = 0;
         } else {
-          const raw = local / vh;                  // 0 → 1 → 2 ...
-          nextIndex = Math.round(raw);             // 중앙(0.5vh) 기준 스냅
+          const raw = local / vh;      // 0 → 1 → 2 ...
+          nextIndex = Math.round(raw); // 중앙(0.5vh) 기준 스냅
           nextIndex = Math.max(0, Math.min(accordionItems.length - 1, nextIndex));
         }
 
-        if (nextIndex !== companyAccordion) {
+        // ✅ ref와 비교해서 바뀐 경우에만 업데이트 (state의 오래된 캡처값과 비교하지 않음)
+        if (nextIndex !== activeIndexRef.current) {
+          activeIndexRef.current = nextIndex;
           setCompanyAccordion(nextIndex);
         }
       });
@@ -98,8 +103,6 @@ function CompanyAccordion() {
       window.removeEventListener('scroll', onScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-    // companyAccordion에 의존하지 않음 (스크롤마다 set만)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick = (index: number) => {
@@ -111,6 +114,10 @@ function CompanyAccordion() {
     // 초입에서 1로 튀지 않게 아주 작은 여유를 두고 이동
     const offset = 8; // px
     const target = start + index * vh + offset;
+
+    // ✅ 클릭 즉시 state/ref 동기화 (스크롤 이벤트 기다리지 않음)
+    activeIndexRef.current = index;
+    setCompanyAccordion(index);
 
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
@@ -232,6 +239,7 @@ function CompanyAccordion() {
 }
 
 export default CompanyAccordion;
+
 
 
 
