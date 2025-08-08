@@ -173,14 +173,13 @@ function CompanyAccordion() {
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
 
-  // 활성 제목 바로 아래로 패널 위치시키기 (레이아웃 밀지 않음)
+  // ✅ 활성 제목 바로 아래로 패널 위치시키기 (offsetTop 기반 / top 사용)
   const recalcPanelY = () => {
-    const container = listContainerRef.current;
     const titleEl = titleRefs.current[companyAccordion];
-    if (!container || !titleEl) return;
-    const cy = container.getBoundingClientRect().top + window.scrollY;
-    const ty = titleEl.getBoundingClientRect().top + window.scrollY;
-    setPanelY(ty - cy + titleEl.offsetHeight + DETAIL_OFFSET);
+    if (!titleEl) return;
+    const y = titleEl.offsetTop + titleEl.offsetHeight + DETAIL_OFFSET;
+    // 다음 페인트 타이밍에 적용하면 더 안정적
+    requestAnimationFrame(() => setPanelY(y));
   };
 
   useLayoutEffect(() => {
@@ -191,8 +190,7 @@ function CompanyAccordion() {
     recalcPanelY();
     const onResize = () => recalcPanelY();
     window.addEventListener('resize', onResize);
-    // 폰트 로딩 등 페인트 후 재계산
-    const t = setTimeout(recalcPanelY, 0);
+    const t = setTimeout(recalcPanelY, 0); // 폰트/레이아웃 페인트 후 1회 더
     return () => { window.removeEventListener('resize', onResize); clearTimeout(t); };
   }, []);
 
@@ -238,10 +236,7 @@ function CompanyAccordion() {
                 {accordionItems.map((item, index) => (
                   <div
                     key={index}
-                    ref={(el: HTMLDivElement | null) => {
-                      titleRefs.current[index] = el;  // 값만 저장하고 아무 것도 반환하지 않음
-                    }}
-
+                    ref={(el: HTMLDivElement | null) => { titleRefs.current[index] = el; }}
                     className="select-none"
                   >
                     <button
@@ -259,10 +254,10 @@ function CompanyAccordion() {
                 ))}
               </div>
 
-              {/* 디테일 패널: 절대 위치로 활성 제목 아래에 띄워서 렌더 → 레이아웃 안 밀림 */}
+              {/* 디테일 패널: 절대 위치(top)로 활성 제목 바로 아래에 배치 */}
               <div
-                className="absolute left-0 right-0 transition-transform duration-300"
-                style={{ transform: `translateY(${panelY}px)` }}
+                className="absolute left-0 right-0 transition-[top] duration-200"
+                style={{ top: panelY }}
               >
                 <div className="pt-3 pb-6 border-b border-gray-200">
                   {active.subtitle && (
@@ -318,6 +313,330 @@ function CompanyAccordion() {
 }
 
 export default CompanyAccordion;
+
+
+
+// 20250808_1945
+// 'use client';
+
+// import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+
+// type Stat = { label: string; value: string };
+// type Item = {
+//   title: string;
+//   subtitle: string;
+//   description: string;
+//   image: string;
+//   stats?: Stat[];
+//   features?: string[];
+//   certification?: { title: string; desc: string };
+// };
+
+// const accordionItems: Item[] = [
+//   {
+//     title: '회사 개요',
+//     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
+//     description:
+//       '금화레이저(주)는 레이저 기반 금속 절단 및 정밀 가공 기술을 핵심 역량으로 하는 기술 중심 제조기업입니다. 20년 이상의 축적된 노하우와 최첨단 장비를 바탕으로 철강, 알루미늄, 스테인리스 등 다양한 금속 소재를 고출력 파이버 레이저로 정밀 가공하여 최고 품질의 부품을 생산하고 있습니다.',
+//     image:
+//       'https://readdy.ai/api/search-image?query=modern%20industrial%20laser%20cutting%20facility%20with%20bright%20blue%20laser%20beams%20cutting%20through%20steel%20plates%2C%20high-tech%20manufacturing%20environment%20with%20precision%20equipment%2C%20clean%20industrial%20workspace%20with%20metallic%20surfaces%20and%20professional%20lighting%2C%20futuristic%20manufacturing%20technology%20representing%20company%20overview%20and%20core%20technology&width=600&height=500&seq=company-overview-bg&orientation=landscape',
+//     stats: [
+//       { label: '년간 기술력', value: '20+' },
+//       { label: '협력사', value: '500+' },
+//       { label: '품질 만족도', value: '99.9%' },
+//     ],
+//   },
+//   {
+//     title: '사업 분야',
+//     subtitle: '다양한 금속 소재의 레이저 정밀 가공 전문 서비스',
+//     description:
+//       '자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서 정밀 레이저 가공 서비스를 제공하고 있습니다.',
+//     image:
+//       'https://readdy.ai/api/search-image?query=diverse%20industrial%20applications%20and%20business%20areas%20of%20laser%20cutting%20technology%2C%20various%20metal%20products%20and%20components%20for%20automotive%20aerospace%20electronics%20industries%2C%20professional%20manufacturing%20showcase%20with%20different%20materials%20and%20finished%20products%2C%20business%20expansion%20and%20market%20coverage&width=600&height=500&seq=business-areas-bg&orientation=landscape',
+//     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
+//   },
+//   {
+//     title: '인증 및 수상',
+//     subtitle: '산업통상자원부 인정 뿌리기업으로서의 검증된 기술력',
+//     description:
+//       '산업통상자원부가 지정하는 "뿌리 산업" 중 금속 가공 기술 분야의 핵심 제조기업으로 공식 확인받았습니다.',
+//     image:
+//       'https://readdy.ai/api/search-image?query=professional%20certification%20and%20quality%20assurance%20in%20manufacturing%20industry%2C%20official%20government%20certificates%20and%20awards%20displayed%20with%20Korean%20flag%2C%20industrial%20excellence%20recognition%20and%20trust%20symbols%2C%20manufacturing%20facility%20with%20certification%20documents%20and%20quality%20control%20systems&width=600&height=500&seq=certification-bg&orientation=landscape',
+//     certification: {
+//       title: '뿌리기업 확인서',
+//       desc: '산업통상자원부 인정기업',
+//     },
+//   },
+// ];
+
+// /* ---- 왼쪽 이미지: 덮는 느낌 없는 2단계 크로스페이드 ---- */
+// function CrossfadeImage({ src }: { src: string }) {
+//   const DURATION = 400; // ms
+//   const HALF = DURATION / 2;
+
+//   const [baseSrc, setBaseSrc] = useState(src);
+//   const [overlaySrc, setOverlaySrc] = useState(src);
+//   const [showOverlay, setShowOverlay] = useState(false);
+//   const [phase, setPhase] = useState<'idle' | 'baseOut' | 'overlayIn'>('idle');
+//   const timers = useRef<number[]>([]);
+
+//   useEffect(() => {
+//     if (src === baseSrc) return;
+//     setPhase('baseOut');
+//     setShowOverlay(false);
+//     const t1 = window.setTimeout(() => {
+//       setOverlaySrc(src);
+//       setShowOverlay(true);
+//       setPhase('overlayIn');
+//     }, HALF);
+//     const t2 = window.setTimeout(() => {
+//       setBaseSrc(src);
+//       setShowOverlay(false);
+//       setPhase('idle');
+//     }, DURATION);
+//     timers.current.forEach(clearTimeout);
+//     timers.current = [t1, t2];
+//     return () => { timers.current.forEach(clearTimeout); timers.current = []; };
+//   }, [src, baseSrc]);
+
+//   return (
+//     <div className="absolute inset-0 overflow-hidden">
+//       <img
+//         src={baseSrc}
+//         alt=""
+//         className={[
+//           "absolute inset-0 w-full h-full object-contain pointer-events-none",
+//           "transition-[opacity,filter] ease-out",
+//           phase === 'baseOut' ? `duration-[${HALF}ms] opacity-0 blur-sm` : "duration-150 opacity-100 blur-0"
+//         ].join(" ")}
+//         style={{ willChange: 'opacity, filter' }}
+//       />
+//       {showOverlay && (
+//         <img
+//           src={overlaySrc}
+//           alt=""
+//           className={[
+//             "absolute inset-0 w-full h-full object-contain pointer-events-none",
+//             "transition-[opacity,filter] ease-out",
+//             phase === 'overlayIn' ? `duration-[${HALF}ms] opacity-100 blur-0` : "duration-150 opacity-0 blur-sm"
+//           ].join(" ")}
+//           style={{ willChange: 'opacity, filter' }}
+//         />
+//       )}
+//       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+//     </div>
+//   );
+// }
+
+// function CompanyAccordion() {
+//   const [companyAccordion, setCompanyAccordion] = useState<number>(0);
+
+//   // pinned wrapper
+//   const wrapperRef = useRef<HTMLDivElement | null>(null);
+//   const rafRef = useRef<number | null>(null);
+
+//   // 현재 활성 인덱스를 ref로도 관리(closure 이슈 방지)
+//   const activeIndexRef = useRef(0);
+
+//   // 제목 위치 계산용 refs
+//   const listContainerRef = useRef<HTMLDivElement | null>(null);
+//   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
+//   const [panelY, setPanelY] = useState(0); // 디테일 패널 Y 위치(px)
+//   const DETAIL_OFFSET = 8; // 제목 아래 여백
+
+//   // 스크롤→index 동기화 (기존 로직 유지)
+//   useEffect(() => {
+//     const onScroll = () => {
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//       rafRef.current = requestAnimationFrame(() => {
+//         const wrapper = wrapperRef.current;
+//         if (!wrapper) return;
+//         const start = wrapper.getBoundingClientRect().top + window.scrollY;
+//         const vh = window.innerHeight;
+//         const totalHeight = accordionItems.length * vh;
+//         const totalScrollable = totalHeight - vh;
+//         const y = window.scrollY;
+//         const local = Math.min(Math.max(y - start, 0), totalScrollable);
+
+//         const TOP_SNAP_PX = 40;
+//         let nextIndex: number;
+//         if (local <= TOP_SNAP_PX) nextIndex = 0;
+//         else {
+//           const raw = local / vh;
+//           nextIndex = Math.round(raw);
+//           nextIndex = Math.max(0, Math.min(accordionItems.length - 1, nextIndex));
+//         }
+//         if (nextIndex !== activeIndexRef.current) {
+//           activeIndexRef.current = nextIndex;
+//           setCompanyAccordion(nextIndex);
+//         }
+//       });
+//     };
+//     onScroll();
+//     window.addEventListener('scroll', onScroll, { passive: true });
+//     return () => {
+//       window.removeEventListener('scroll', onScroll);
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//     };
+//   }, []);
+
+//   // 클릭 시 해당 섹션 위치로 스크롤
+//   const handleClick = (index: number) => {
+//     const wrapper = wrapperRef.current;
+//     if (!wrapper) return;
+//     const start = wrapper.getBoundingClientRect().top + window.scrollY;
+//     const vh = window.innerHeight;
+//     const target = start + index * vh + 8;
+//     activeIndexRef.current = index;
+//     setCompanyAccordion(index);
+//     window.scrollTo({ top: target, behavior: 'smooth' });
+//   };
+
+//   // 활성 제목 바로 아래로 패널 위치시키기 (레이아웃 밀지 않음)
+//   const recalcPanelY = () => {
+//     const container = listContainerRef.current;
+//     const titleEl = titleRefs.current[companyAccordion];
+//     if (!container || !titleEl) return;
+//     const cy = container.getBoundingClientRect().top + window.scrollY;
+//     const ty = titleEl.getBoundingClientRect().top + window.scrollY;
+//     setPanelY(ty - cy + titleEl.offsetHeight + DETAIL_OFFSET);
+//   };
+
+//   useLayoutEffect(() => {
+//     recalcPanelY();
+//   }, [companyAccordion]);
+
+//   useEffect(() => {
+//     recalcPanelY();
+//     const onResize = () => recalcPanelY();
+//     window.addEventListener('resize', onResize);
+//     // 폰트 로딩 등 페인트 후 재계산
+//     const t = setTimeout(recalcPanelY, 0);
+//     return () => { window.removeEventListener('resize', onResize); clearTimeout(t); };
+//   }, []);
+
+//   const active = accordionItems[companyAccordion];
+
+//   return (
+//     <div ref={wrapperRef} className="relative" style={{ height: `${accordionItems.length * 100}vh` }}>
+//       <div className="sticky top-0 h-screen z-40">
+//         <div className="grid grid-cols-5 h-full">
+//           {/* 왼쪽 이미지 */}
+//           <div className="col-span-2 relative h-full bg-[#0b0b0b] overflow-hidden">
+//             <CrossfadeImage src={active.image} />
+//             <div className="relative p-12 flex flex-col justify-center text-white h-full">
+//               <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
+//               <h2 className="text-3xl md:text-4xl font-bold mb-4">최첨단 레이저 기술</h2>
+//               <p className="text-base leading-relaxed max-w-sm mb-6">
+//                 고출력 파이버 레이저와 자동화 시스템을 통해 정밀하고 효율적인 금속 가공 서비스를 제공합니다.
+//               </p>
+//               <a
+//                 href="/technology"
+//                 className="inline-flex items-center space-x-2 text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors font-bold"
+//               >
+//                 <span>기술 정보</span>
+//               </a>
+//             </div>
+//           </div>
+
+//           {/* 오른쪽 */}
+//           <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
+//             {/* ★ 항상 고정: 섹션 헤더(절대 안 움직임) */}
+//             <div className="mb-6">
+//               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">기술과 신뢰의 이름, 금화레이저</h2>
+//               <p className="text-lg text-gray-600">
+//                 20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
+//                 아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
+//               </p>
+//             </div>
+
+//             {/* 제목 리스트 컨테이너 (relative) */}
+//             <div ref={listContainerRef} className="relative">
+//               {/* 제목들: 레이아웃 고정, 색상만 토글 */}
+//               <div className="space-y-4">
+//                 {accordionItems.map((item, index) => (
+//                   <div
+//                     key={index}
+//                     ref={(el: HTMLDivElement | null) => {
+//                       titleRefs.current[index] = el;  // 값만 저장하고 아무 것도 반환하지 않음
+//                     }}
+
+//                     className="select-none"
+//                   >
+//                     <button
+//                       onClick={() => handleClick(index)}
+//                       className="block w-full text-left"
+//                     >
+//                       <h3
+//                         className={`text-[40px] leading-[1.1] font-extrabold tracking-tight transition-colors duration-300
+//                         ${companyAccordion === index ? 'text-blue-600' : 'text-gray-300'}`}
+//                       >
+//                         {item.title}
+//                       </h3>
+//                     </button>
+//                   </div>
+//                 ))}
+//               </div>
+
+//               {/* 디테일 패널: 절대 위치로 활성 제목 아래에 띄워서 렌더 → 레이아웃 안 밀림 */}
+//               <div
+//                 className="absolute left-0 right-0 transition-transform duration-300"
+//                 style={{ transform: `translateY(${panelY}px)` }}
+//               >
+//                 <div className="pt-3 pb-6 border-b border-gray-200">
+//                   {active.subtitle && (
+//                     <p className="text-gray-800 text-lg mb-3">{active.subtitle}</p>
+//                   )}
+//                   {active.description && (
+//                     <p className="text-gray-600 leading-relaxed mb-6">{active.description}</p>
+//                   )}
+
+//                   {active.stats && (
+//                     <div className="grid grid-cols-3 gap-4 text-center mb-6">
+//                       {active.stats.map((stat, i) => (
+//                         <div key={i} className="p-3 bg-blue-50 rounded">
+//                           <div className="text-2xl font-bold text-blue-600">{stat.value}</div>
+//                           <div className="text-sm text-gray-600">{stat.label}</div>
+//                         </div>
+//                       ))}
+//                     </div>
+//                   )}
+
+//                   {active.features && (
+//                     <div className="grid grid-cols-2 gap-3 mb-6">
+//                       {active.features.map((feature, i) => (
+//                         <div key={i} className="p-2 bg-blue-50 rounded text-gray-700 text-sm">
+//                           {feature}
+//                         </div>
+//                       ))}
+//                     </div>
+//                   )}
+
+//                   {active.certification && (
+//                     <div className="bg-blue-50 p-4 rounded-lg">
+//                       <div className="flex items-center">
+//                         <div className="text-blue-600 text-2xl mr-3">🏅</div>
+//                         <div>
+//                           <h4 className="font-semibold text-gray-900">{active.certification.title}</h4>
+//                           <p className="text-sm text-gray-600">{active.certification.desc}</p>
+//                         </div>
+//                       </div>
+//                     </div>
+//                   )}
+//                 </div>
+//               </div>
+
+//               {/* 패널이 마지막 제목 밑으로 나올 때 잘리지 않도록 하단 패딩 확보 */}
+//               <div className="pb-[280px]" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default CompanyAccordion;
 
 
 
