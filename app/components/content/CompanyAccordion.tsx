@@ -52,7 +52,6 @@ const accordionItems: Item[] = [
 
 function CompanyAccordion() {
   const [companyAccordion, setCompanyAccordion] = useState<number>(0);
-  // 🔁 관찰 대상: '항목 래퍼'
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
@@ -69,8 +68,7 @@ function CompanyAccordion() {
       },
       {
         root: null,
-        // 가운데 20% 근처에 들어오면 트리거
-        rootMargin: '-40% 0px -40% 0px',
+        rootMargin: '-30% 0px -50% 0px',
         threshold: [0.1, 0.25, 0.5],
       }
     );
@@ -81,7 +79,7 @@ function CompanyAccordion() {
 
   const handleClick = (index: number) => {
     setCompanyAccordion(index);
-    const node = itemRefs.current[index]; // ← 래퍼로 스크롤
+    const node = itemRefs.current[index];
     if (node) {
       const top = node.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -90,14 +88,17 @@ function CompanyAccordion() {
 
   return (
     <div className="grid grid-cols-5 h-screen">
-      {/* 왼쪽 이미지 */}
-      <div
-        className="col-span-2 relative bg-cover bg-center bg-no-repeat h-full"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${accordionItems[companyAccordion].image})`,
-        }}
-      >
-        <div className="p-12 flex flex-col justify-center text-white h-full">
+      {/* 왼쪽 이미지 (안 잘리게, 최대한 꽉 차게) */}
+      <div className="col-span-2 relative h-full bg-[#0b0b0b]">
+        {/* 이미지 자체는 크롭 없이 영역을 최대한 채움 */}
+        <img
+          src={accordionItems[companyAccordion].image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-contain"
+        />
+        {/* 동일한 어둡기 유지용 오버레이 */}
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+        <div className="relative p-12 flex flex-col justify-center text-white h-full">
           <p className="text-sm mb-3 font-medium tracking-wider">핵심 기술</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">최첨단 레이저 기술</h2>
           <p className="text-base leading-relaxed max-w-sm mb-6">
@@ -113,7 +114,7 @@ function CompanyAccordion() {
       </div>
 
       {/* 오른쪽 아코디언 */}
-      <div className="col-span-3 p-12 flex flex-col justify-center bg-white space-y-6">
+      <div className="col-span-3 p-12 flex flex-col justify-center bg-white space-y-4">
         <div className="mb-4">
           <h2 className="text-4xl font-extrabold text-gray-900 mb-2">기술과 신뢰의 이름, 금화레이저</h2>
           <p className="text-lg text-gray-600">
@@ -126,7 +127,7 @@ function CompanyAccordion() {
           <div
             key={index}
             ref={(el: HTMLDivElement | null) => { itemRefs.current[index] = el; }}
-            className="border-b border-gray-200 pb-2 min-h-[60vh] flex flex-col justify-center"
+            className="border-b border-gray-200 pb-2 py-8 flex flex-col justify-center scroll-mt-[120px]"
           >
             <button onClick={() => handleClick(index)} className="flex items-start space-x-6 w-full text-left">
               <div
@@ -134,7 +135,6 @@ function CompanyAccordion() {
                   companyAccordion === index ? 'bg-blue-600' : 'bg-gray-300'
                 }`}
               >
-                {/* 아이콘은 선택 */}
                 <span className="text-white text-xs">✓</span>
               </div>
               <div className="flex-1">
@@ -200,6 +200,7 @@ function CompanyAccordion() {
 }
 
 export default CompanyAccordion;
+
 
 
 
