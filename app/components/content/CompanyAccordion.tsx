@@ -51,50 +51,124 @@ const accordionItems: Item[] = [
 ];
 
 /** ------------------------------
- *  부드러운 블러 + 페이드 전환 이미지
+ *  덮는 느낌 없이: 2단계(기존 사라짐 → 새 이미지 등장) 크로스페이드
  *  ------------------------------ */
 function CrossfadeImage({ src }: { src: string }) {
-  const DURATION = 700; // ms
+  const DURATION = 800; // 전체 전환 시간(ms) - 취향대로 조절
+  const HALF = DURATION / 2;
+
   const [baseSrc, setBaseSrc] = useState(src);        // 현재 화면에 깔린 이미지
-  const [overlaySrc, setOverlaySrc] = useState(src);  // 들어올 이미지
-  const [fading, setFading] = useState(false);
+  const [overlaySrc, setOverlaySrc] = useState(src);  // 새로 들어올 이미지
+  const [phase, setPhase] = useState<'idle' | 'baseOut' | 'overlayIn'>('idle');
+  const timers = useRef<number[]>([]);
 
   useEffect(() => {
-    if (src === baseSrc) return;      // 동일 src면 스킵
-    setOverlaySrc(src);
-    setFading(true);
+    // 같은 이미지면 전환 없음
+    if (src === baseSrc) return;
 
-    const t = setTimeout(() => {
-      setBaseSrc(src);                // 전환 완료 후 베이스 교체
-      setFading(false);
+    // 1) 새 이미지를 오버레이에 세팅(아직 안 보임)
+    setOverlaySrc(src);
+    setPhase('baseOut'); // 기존 이미지만 먼저 사라지는 단계
+
+    // 2) 절반 시점에 새 이미지 등장 시작
+    const t1 = window.setTimeout(() => setPhase('overlayIn'), HALF);
+
+    // 3) 끝나면 베이스 교체하고 단계 초기화
+    const t2 = window.setTimeout(() => {
+      setBaseSrc(src);
+      setPhase('idle');
     }, DURATION);
 
-    return () => clearTimeout(t);
+    timers.current.forEach(clearTimeout);
+    timers.current = [t1, t2];
+
+    return () => {
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+    };
   }, [src, baseSrc]);
 
   return (
-    <div className="absolute inset-0">
-      {/* 베이스 이미지 */}
+    <div className="absolute inset-0 overflow-hidden">
+      {/* 베이스 이미지: 0~50% 구간에서만 서서히 사라짐 */}
       <img
         src={baseSrc}
         alt=""
-        className="absolute inset-0 w-full h-full object-contain"
+        className={[
+          "absolute inset-0 w-full h-full object-contain",
+          "transition-[opacity,filter] ease-out",
+          phase === 'baseOut' ? `duration-[${HALF}ms] opacity-0 blur-sm` : "duration-150 opacity-100 blur-0"
+        ].join(" ")}
+        style={{ willChange: 'opacity, filter' }}
       />
-      {/* 오버레이 이미지: 흐릿+투명 → 선명해지며 페이드인 */}
+
+      {/* 오버레이 이미지: 50~100% 구간에서만 서서히 나타남 */}
       <img
         src={overlaySrc}
         alt=""
         className={[
           "absolute inset-0 w-full h-full object-contain",
-          "transition-opacity transition-filter duration-700 ease-out",
-          fading ? "opacity-100 blur-0" : "opacity-0 blur-sm"
+          "transition-[opacity,filter] ease-out",
+          phase === 'overlayIn'
+            ? `duration-[${HALF}ms] opacity-100 blur-0`
+            : "duration-150 opacity-0 blur-sm"
         ].join(" ")}
+        style={{ willChange: 'opacity, filter' }}
       />
+
       {/* 동일한 어둡기 오버레이 */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
     </div>
   );
 }
+
+
+
+/** ------------------------------
+ *  부드러운 블러 + 페이드 전환 이미지
+ *  ------------------------------ */
+// function CrossfadeImage({ src }: { src: string }) {
+//   const DURATION = 700; // ms
+//   const [baseSrc, setBaseSrc] = useState(src);        // 현재 화면에 깔린 이미지
+//   const [overlaySrc, setOverlaySrc] = useState(src);  // 들어올 이미지
+//   const [fading, setFading] = useState(false);
+
+//   useEffect(() => {
+//     if (src === baseSrc) return;      // 동일 src면 스킵
+//     setOverlaySrc(src);
+//     setFading(true);
+
+//     const t = setTimeout(() => {
+//       setBaseSrc(src);                // 전환 완료 후 베이스 교체
+//       setFading(false);
+//     }, DURATION);
+
+//     return () => clearTimeout(t);
+//   }, [src, baseSrc]);
+
+//   return (
+//     <div className="absolute inset-0">
+//       {/* 베이스 이미지 */}
+//       <img
+//         src={baseSrc}
+//         alt=""
+//         className="absolute inset-0 w-full h-full object-contain"
+//       />
+//       {/* 오버레이 이미지: 흐릿+투명 → 선명해지며 페이드인 */}
+//       <img
+//         src={overlaySrc}
+//         alt=""
+//         className={[
+//           "absolute inset-0 w-full h-full object-contain",
+//           "transition-opacity transition-filter duration-700 ease-out",
+//           fading ? "opacity-100 blur-0" : "opacity-0 blur-sm"
+//         ].join(" ")}
+//       />
+//       {/* 동일한 어둡기 오버레이 */}
+//       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+//     </div>
+//   );
+// }
 
 function CompanyAccordion() {
   const [companyAccordion, setCompanyAccordion] = useState<number>(0);
