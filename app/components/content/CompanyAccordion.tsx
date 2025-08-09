@@ -270,7 +270,8 @@ function CompanyAccordion() {
               >
                 <div ref={detailRef} className="pt-3 pb-6 border-b border-gray-200">
                   {active.subtitle && (
-                    <p className="text-gray-800 text-lg mb-3">{active.subtitle}</p>
+                    // <p className="text-gray-800 text-lg mb-3">{active.subtitle}</p>
+                    <p className="text-gray-800 text-2xl mb-3">{active.subtitle}</p>
                   )}
                   {active.description && (
                     <p className="text-gray-600 leading-relaxed mb-6">{active.description}</p>
