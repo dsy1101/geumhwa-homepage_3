@@ -226,7 +226,7 @@ function CompanyAccordion() {
           {/* 오른쪽 */}
           <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
             {/* ★ 항상 고정: 섹션 헤더(절대 안 움직임) */}
-            <div className="mb-18">
+            <div className="mb-16">
               {/* 섹션헤더와 아코디언 제목 간 간격 */}
               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">기술과 신뢰의 이름, 금화레이저</h2>
               <p className="text-lg text-gray-600">
