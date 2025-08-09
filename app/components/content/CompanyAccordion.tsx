@@ -226,7 +226,7 @@ function CompanyAccordion() {
           {/* 오른쪽 */}
           <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
             {/* ★ 항상 고정: 섹션 헤더(절대 안 움직임) */}
-            <div className="mb-6">
+            <div className="mb-12">
               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">기술과 신뢰의 이름, 금화레이저</h2>
               <p className="text-lg text-gray-600">
                 20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
@@ -270,8 +270,7 @@ function CompanyAccordion() {
               >
                 <div ref={detailRef} className="pt-3 pb-6 border-b border-gray-200">
                   {active.subtitle && (
-                    // <p className="text-gray-800 text-lg mb-3">{active.subtitle}</p>
-                    <p className="text-gray-800 text-2xl mb-3">{active.subtitle}</p>
+                    <p className="text-gray-800 text-lg mb-3">{active.subtitle}</p>
                   )}
                   {active.description && (
                     <p className="text-gray-600 leading-relaxed mb-6">{active.description}</p>
