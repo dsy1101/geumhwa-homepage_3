@@ -86,7 +86,8 @@ function CrossfadeImage({ src }: { src: string }) {
         src={baseSrc}
         alt=""
         className={[
-          "absolute inset-0 w-full h-full object-contain pointer-events-none",
+          // "absolute inset-0 w-full h-full object-contain pointer-events-none",
+          "absolute inset-0 w-full h-full object-cover pointer-events-none",
           "transition-[opacity,filter] ease-out",
           phase === 'baseOut' ? `duration-[${HALF}ms] opacity-0 blur-sm` : "duration-150 opacity-100 blur-0"
         ].join(" ")}
@@ -97,7 +98,8 @@ function CrossfadeImage({ src }: { src: string }) {
           src={overlaySrc}
           alt=""
           className={[
-            "absolute inset-0 w-full h-full object-contain pointer-events-none",
+            // "absolute inset-0 w-full h-full object-contain pointer-events-none",
+            "absolute inset-0 w-full h-full object-cover pointer-events-none",
             "transition-[opacity,filter] ease-out",
             phase === 'overlayIn' ? `duration-[${HALF}ms] opacity-100 blur-0` : "duration-150 opacity-0 blur-sm"
           ].join(" ")}

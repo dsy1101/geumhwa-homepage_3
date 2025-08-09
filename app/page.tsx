@@ -30,13 +30,11 @@ export default function Home() {
       <HeroSection slides={heroSlides} />
 
       {/* ✅ Company Section (mt-0으로 여백 제거) */}
-      {/* <section className="h-screen mt-0"> */}
       <section className="mt-0">
         <CompanyAccordion />
       </section>
 
       {/* ✅ Services Section */}
-      {/* <section className="h-screen mt-0"> */}
       <section className="mt-0">
         <ServicesAccordion />
       </section>
