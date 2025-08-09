@@ -249,7 +249,7 @@ function CompanyAccordion() {
                         className="block w-full text-left"
                       >
                         <h3
-                          className={`text-[40px] leading-[1.1] font-extrabold tracking-tight transition-colors duration-300
+                          className={`text-[80px] leading-[1.1] font-extrabold tracking-tight transition-colors duration-300
                           ${companyAccordion === index ? 'text-blue-600' : 'text-gray-300'}`}
                         >
                           {item.title}
