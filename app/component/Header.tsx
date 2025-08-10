@@ -7,31 +7,31 @@ import { useState } from "react";
 const menuItems = [
   {
     title: "회사소개",
-    href: "/(2_company)/company",
+    href: "/company",
   },
   {
     title: "사업현황",
-    href: "/company/business",
+    href: "/business",
     dropdown: [
-      { title: "사업분야", href: "/company/business" },
-      { title: "인증현황", href: "/company/certification" },
+      { title: "사업분야", href: "/business/business_sector" },
+      { title: "인증현황", href: "/business/certification" },
     ],
   },
   {
     title: "기술 및 서비스",
-    href: "/products",
+    href: "/techonology",
         dropdown: [
-      { title: "레이저가공", href: "/products/laser" },
-      { title: "제품", href: "/products/product" },
-      { title: "공정", href: "/products/process" },
-      { title: "기술력", href: "/products/technology" },
+      { title: "레이저가공", href: "/technology" },
+      { title: "제품", href: "/technology/product" },
+      { title: "공정", href: "/technology/process" },
+      { title: "기술력", href: "/technology/technology" },
     ],
   },
   {
     title: "고객지원",
-    href: "/support/contact",
+    href: "/support",
     dropdown: [
-      { title: "문의하기", href: "/support/contact" },
+      { title: "문의하기", href: "/support/support" },
     ],
   },
 ];
