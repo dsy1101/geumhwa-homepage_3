@@ -7,7 +7,7 @@ import { useState } from "react";
 const menuItems = [
   {
     title: "회사소개",
-    href: "/kumhwa",
+    href: "/(2_company)/company",
   },
   {
     title: "사업현황",
