@@ -16,9 +16,7 @@ const accordionItems: Item[] = [
   {
     title: 'TECHNOLOGY',
     subtitle: '다양한 금속',
-    description: `고출력 파이버 레이저 절단 기술을 기반으로 난이도 높은 금속 가공 문제를 해결합니다.
-    
-소재·두께별 최적 가공 조건을 데이터화하여 높은 정밀도와 생산성을 확보합니다.`,
+    description: `고출력 파이버레이저 절단 기술을 기반으로 고난도 금속 가공 문제를 해결하는 기술 중심 기업입니다.`,
     image: '/certifications/Services/Services_1.jpg',
     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
     cta: { label: '기술력', href: '/technology/process' },
@@ -26,9 +24,7 @@ const accordionItems: Item[] = [
   {
     title: 'PRODUCTS',
     subtitle: '고객 맞춤 설계',
-    description: `정밀 레이저 가공 기술로 고객 요구에 최적화된 맞춤형 솔루션을 제공합니다.
-    
-소량 다품종부터 양산까지 설계-제작-검사 전 과정을 지원합니다.`,
+    description: `정밀 레이저 가공 기술로 고객 요구에 최적화된 맞춤형 솔루션을 제공합니다.`,
     image: '/certifications/Services/Services_2.jpg',
     features: ['시제품 설계', '3D 모델링', '설계 검증', '기술 컨설팅'],
     cta: { label: '제품', href: '/technology/product' },
@@ -36,9 +32,7 @@ const accordionItems: Item[] = [
   {
     title: 'PROCESS',
     subtitle: '스마트 자동화',
-    description: `체계적이고 정밀한 생산 프로세스를 통해 최고 품질의 제품을 제공합니다.
-    
-표준화된 공정 관리와 실시간 품질 모니터링으로 납기와 신뢰를 보장합니다.`,
+    description: `체계적이고 정밀한 생산 프로세스를 통해 고객이 신뢰할 수 있는 최고 품질의 제품을 제공합니다.`,
     image: '/certifications/Services/Services_3.jpg',
     features: ['자동화 생산', '품질 관리', '납기 단축', '생산 라인 최적화'],
     cta: { label: '공정', href: '/business' },
