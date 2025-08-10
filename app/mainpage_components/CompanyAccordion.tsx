@@ -231,10 +231,10 @@ function CompanyAccordion() {
             <div className="mb-16">
               {/* 섹션헤더와 아코디언 제목 간 간격 */}
               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">기술과 신뢰의 이름, 금화레이저</h2>
-              <p className="text-lg text-gray-600">
+              {/* <p className="text-lg text-gray-600">
                 20년 이상의 노하우와 첨단 기술력을 바탕으로 금화레이저는 금속 가공 산업의 선도 기업으로 자리매김하고 있습니다.
                 아래 항목을 통해 금화레이저의 핵심 역량을 확인해보세요.
-              </p>
+              </p> */}
             </div>
 
             {/* 제목 리스트 컨테이너 (relative) */}
@@ -272,9 +272,9 @@ function CompanyAccordion() {
                 style={{ top: panelY }}
               >
                 <div ref={detailRef} className="pt-3 pb-6 border-b border-gray-200">
-                  {active.subtitle && (
+                  {/* {active.subtitle && (
                     <p className="text-gray-800 text-lg mb-3">{active.subtitle}</p>
-                  )}
+                  )} */}
                   {active.description && (
                     <p className="text-gray-600 leading-relaxed mb-6">{active.description}</p>
                   )}
