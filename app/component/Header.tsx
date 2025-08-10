@@ -19,7 +19,7 @@ const menuItems = [
   },
   {
     title: "기술 및 서비스",
-    href: "/techonology",
+    href: "/technology",
         dropdown: [
       { title: "레이저가공", href: "/technology" },
       { title: "제품", href: "/technology/product" },
