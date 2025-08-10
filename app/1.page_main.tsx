@@ -1,9 +1,8 @@
 'use client';
 
-import HeroSection from './components/content/HeroSection';
-import CompanyAccordion from './components/content/CompanyAccordion';
-import ServicesAccordion from "./components/content/ServicesAccordion";
-import ContactBox from "./components/content/ContactBox";
+import HeroSection from './1.mainpage/1.HeroSection';
+import CompanyAccordion from './1.mainpage/2.CompanyAccordion';
+import ServicesAccordion from "./1.mainpage/3.ServicesAccordion";
 
 const heroSlides = [
   {
