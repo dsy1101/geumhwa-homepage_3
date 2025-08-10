@@ -22,9 +22,15 @@ export default function CompanyPage() {
           <div className="text-center text-white max-w-4xl px-4">
             {/* <h1 className="text-4xl md:text-5xl font-bold mb-4">
               최고의 정밀함으로, 산업의 혁신을 이끄는 금화레이저(주).
-            </h1> */}     
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-[-0.01em] break-keep mb-4">
+            </h1> */}  
+
+            {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-[-0.01em] break-keep mb-4">
               <span className="block">최고의 정밀함으로, 산업의 혁신을 이끄는</span>
+              <span className="block">금화레이저(주).</span>
+            </h1> */}
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-[-0.01em] break-keep mb-4">
+              <span className="block sm:whitespace-nowrap">최고의 정밀함으로, 산업의 혁신을 이끄는</span>
               <span className="block">금화레이저(주).</span>
             </h1>
 
