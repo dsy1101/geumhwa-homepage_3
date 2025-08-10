@@ -279,7 +279,7 @@ function CompanyAccordion() {
                     <p className="text-gray-600 leading-relaxed mb-6">{active.description}</p>
                   )}
 
-                  {active.stats && (
+                  {/* {active.stats && (
                     <div className="grid grid-cols-3 gap-4 text-center mb-6">
                       {active.stats.map((stat, i) => (
                         <div key={i} className="p-3 bg-blue-50 rounded">
@@ -310,7 +310,7 @@ function CompanyAccordion() {
                         </div>
                       </div>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
 
