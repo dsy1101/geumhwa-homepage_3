@@ -10,6 +10,7 @@ export default function CompanyPage() {
 
   return (
     <div className="min-h-screen bg-white">
+
       {/* Hero Section with Background Image */}
       <section
         className="relative h-96 bg-cover bg-center bg-no-repeat"
@@ -125,6 +126,7 @@ export default function CompanyPage() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
