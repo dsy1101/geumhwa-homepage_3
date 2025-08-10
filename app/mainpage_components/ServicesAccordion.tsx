@@ -14,29 +14,29 @@ type Item = {
 /* ▼ 콘텐츠 */
 const accordionItems: Item[] = [
   {
-    title: '정밀 절단 서비스',
+    title: 'Technology',
     subtitle: '다양한 금속',
     description:
       '자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서 정밀 레이저 가공 서비스를 제공하고 있습니다.',
     image: '/certifications/Services/Services_1.jpg',
     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
-    cta: { label: '정밀 절단', href: '/technology/process' },
+    cta: { label: '기술력', href: '/technology/process' },
   },
   {
-    title: '맞춤형 설계 지원',
+    title: 'Products',
     subtitle: '고객 맞춤 설계',
     description: '설계에서부터 시제품 제작까지 고객 맞춤형 서비스를 제공합니다.',
     image: '/certifications/Services/Services_2.jpg',
     features: ['시제품 설계', '3D 모델링', '설계 검증', '기술 컨설팅'],
-    cta: { label: '설계 지원', href: '/technology/product' },
+    cta: { label: '제품', href: '/technology/product' },
   },
   {
-    title: '대량 생산 대응',
+    title: 'Process',
     subtitle: '스마트 자동화',
     description: '자동화 시스템을 통해 대량 주문도 일관된 품질로 신속하게 대응합니다.',
     image: '/certifications/Services/Services_3.jpg',
     features: ['자동화 생산', '품질 관리', '납기 단축', '생산 라인 최적화'],
-    cta: { label: '대량 생산', href: '/business' },
+    cta: { label: '공정', href: '/business' },
   },
 ];
 
