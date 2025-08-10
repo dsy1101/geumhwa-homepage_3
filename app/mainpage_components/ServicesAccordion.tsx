@@ -14,26 +14,31 @@ type Item = {
 /* ▼ 콘텐츠 */
 const accordionItems: Item[] = [
   {
-    title: 'Technology',
+    title: 'TECHNOLOGY',
     subtitle: '다양한 금속',
-    description:
-      '자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서 정밀 레이저 가공 서비스를 제공하고 있습니다.',
+    description: `고출력 파이버 레이저 절단 기술을 기반으로 난이도 높은 금속 가공 문제를 해결합니다.
+    
+소재·두께별 최적 가공 조건을 데이터화하여 높은 정밀도와 생산성을 확보합니다.`,
     image: '/certifications/Services/Services_1.jpg',
     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
     cta: { label: '기술력', href: '/technology/process' },
   },
   {
-    title: 'Products',
+    title: 'PRODUCTS',
     subtitle: '고객 맞춤 설계',
-    description: '설계에서부터 시제품 제작까지 고객 맞춤형 서비스를 제공합니다.',
+    description: `정밀 레이저 가공 기술로 고객 요구에 최적화된 맞춤형 솔루션을 제공합니다.
+    
+소량 다품종부터 양산까지 설계-제작-검사 전 과정을 지원합니다.`,
     image: '/certifications/Services/Services_2.jpg',
     features: ['시제품 설계', '3D 모델링', '설계 검증', '기술 컨설팅'],
     cta: { label: '제품', href: '/technology/product' },
   },
   {
-    title: 'Process',
+    title: 'PROCESS',
     subtitle: '스마트 자동화',
-    description: '자동화 시스템을 통해 대량 주문도 일관된 품질로 신속하게 대응합니다.',
+    description: `체계적이고 정밀한 생산 프로세스를 통해 최고 품질의 제품을 제공합니다.
+    
+표준화된 공정 관리와 실시간 품질 모니터링으로 납기와 신뢰를 보장합니다.`,
     image: '/certifications/Services/Services_3.jpg',
     features: ['자동화 생산', '품질 관리', '납기 단축', '생산 라인 최적화'],
     cta: { label: '공정', href: '/business' },
@@ -208,7 +213,7 @@ export default function ServicesAccordion() {
           {/* 왼쪽: 배경 이미지 (크로스페이드) */}
           <div className="col-span-2 relative h-full bg-[#0b0b0b] overflow-hidden">
             <CrossfadeImage src={active.image} />
-            {/* ⛔️ 텍스트 오버레이 전부 제거 */}
+            {/* 텍스트 오버레이 없음 */}
           </div>
 
           {/* 오른쪽: 제목 리스트 + 디테일 패널 */}
@@ -289,6 +294,302 @@ export default function ServicesAccordion() {
     </div>
   );
 }
+
+
+
+
+// 20250810_1805
+// 'use client';
+
+// import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+
+// type Item = {
+//   title: string;
+//   subtitle: string;
+//   description: string;
+//   image: string;
+//   features?: string[];
+//   cta?: { label: string; href: string }; // ✅ CTA
+// };
+
+// /* ▼ 콘텐츠 */
+// const accordionItems: Item[] = [
+//   {
+//     title: 'TECHNOLOGY',
+//     subtitle: '다양한 금속',
+//     description:
+//       '고출력 파이버레이저 절단 기술을 기반으로 고난도 금속 가공 문제를 해결하는 기술 중심 기업입니다.',
+//     image: '/certifications/Services/Services_1.jpg',
+//     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
+//     cta: { label: '기술력', href: '/technology/process' },
+//   },
+//   {
+//     title: 'PRODUCTS',
+//     subtitle: '고객 맞춤 설계',
+//     description: '정밀 레이저 가공 기술로 고객 요구에 최적화된 맞춤형 솔루션을 제공합니다.',
+//     image: '/certifications/Services/Services_2.jpg',
+//     features: ['시제품 설계', '3D 모델링', '설계 검증', '기술 컨설팅'],
+//     cta: { label: '제품', href: '/technology/product' },
+//   },
+//   {
+//     title: 'PROCESS',
+//     subtitle: '스마트 자동화',
+//     description: '체계적이고 정밀한 생산 프로세스를 통해 고객이 신뢰할 수 있는 최고 품질의 제품을 제공합니다.',
+//     image: '/certifications/Services/Services_3.jpg',
+//     features: ['자동화 생산', '품질 관리', '납기 단축', '생산 라인 최적화'],
+//     cta: { label: '공정', href: '/business' },
+//   },
+// ];
+
+// /* ---- 왼쪽 이미지: 2단계 크로스페이드 ---- */
+// function CrossfadeImage({ src }: { src: string }) {
+//   const DURATION = 400;
+//   const HALF = DURATION / 2;
+
+//   const [baseSrc, setBaseSrc] = useState(src);
+//   const [overlaySrc, setOverlaySrc] = useState(src);
+//   const [showOverlay, setShowOverlay] = useState(false);
+//   const [phase, setPhase] = useState<'idle' | 'baseOut' | 'overlayIn'>('idle');
+//   const timers = useRef<number[]>([]);
+
+//   useEffect(() => {
+//     if (src === baseSrc) return;
+//     setPhase('baseOut');
+//     setShowOverlay(false);
+//     const t1 = window.setTimeout(() => {
+//       setOverlaySrc(src);
+//       setShowOverlay(true);
+//       setPhase('overlayIn');
+//     }, HALF);
+//     const t2 = window.setTimeout(() => {
+//       setBaseSrc(src);
+//       setShowOverlay(false);
+//       setPhase('idle');
+//     }, DURATION);
+//     timers.current.forEach(clearTimeout);
+//     timers.current = [t1, t2];
+//     return () => {
+//       timers.current.forEach(clearTimeout);
+//       timers.current = [];
+//     };
+//   }, [src, baseSrc]);
+
+//   return (
+//     <div className="absolute inset-0 overflow-hidden">
+//       <img
+//         src={baseSrc}
+//         alt=""
+//         className={[
+//           'absolute inset-0 w-full h-full object-cover pointer-events-none',
+//           'transition-[opacity,filter] ease-out',
+//           phase === 'baseOut'
+//             ? `duration-[${HALF}ms] opacity-0 blur-sm`
+//             : 'duration-150 opacity-100 blur-0',
+//         ].join(' ')}
+//         style={{ willChange: 'opacity, filter' }}
+//       />
+//       {showOverlay && (
+//         <img
+//           src={overlaySrc}
+//           alt=""
+//           className={[
+//             'absolute inset-0 w-full h-full object-cover pointer-events-none',
+//             'transition-[opacity,filter] ease-out',
+//             phase === 'overlayIn'
+//               ? `duration-[${HALF}ms] opacity-100 blur-0`
+//               : 'duration-150 opacity-0 blur-sm',
+//           ].join(' ')}
+//           style={{ willChange: 'opacity, filter' }}
+//         />
+//       )}
+//       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+//     </div>
+//   );
+// }
+
+// /* ---- 스크롤형 아코디언 (서비스용) ---- */
+// export default function ServicesAccordion() {
+//   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+//   const wrapperRef = useRef<HTMLDivElement | null>(null);
+//   const rafRef = useRef<number | null>(null);
+//   const activeIndexRef = useRef(0);
+
+//   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
+//   const detailRef = useRef<HTMLDivElement | null>(null);
+//   const [panelY, setPanelY] = useState(0);
+//   const [panelH, setPanelH] = useState(0);
+//   const DETAIL_OFFSET = 12;
+
+//   /* 스크롤 위치 → 섹션 인덱스 계산 */
+//   useEffect(() => {
+//     const onScroll = () => {
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//       rafRef.current = requestAnimationFrame(() => {
+//         const wrapper = wrapperRef.current;
+//         if (!wrapper) return;
+//         const start = wrapper.getBoundingClientRect().top + window.scrollY;
+//         const vh = window.innerHeight;
+//         const totalHeight = accordionItems.length * vh;
+//         const totalScrollable = totalHeight - vh;
+//         const y = window.scrollY;
+//         const local = Math.min(Math.max(y - start, 0), totalScrollable);
+
+//         const TOP_SNAP_PX = 40;
+//         let nextIndex: number;
+//         if (local <= TOP_SNAP_PX) nextIndex = 0;
+//         else {
+//           const raw = local / vh;
+//           nextIndex = Math.round(raw);
+//           nextIndex = Math.max(0, Math.min(accordionItems.length - 1, nextIndex));
+//         }
+//         if (nextIndex !== activeIndexRef.current) {
+//           activeIndexRef.current = nextIndex;
+//           setActiveIndex(nextIndex);
+//         }
+//       });
+//     };
+//     onScroll();
+//     window.addEventListener('scroll', onScroll, { passive: true });
+//     return () => {
+//       window.removeEventListener('scroll', onScroll);
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//     };
+//   }, []);
+
+//   /* 클릭 시 해당 섹션 위치로 스크롤 */
+//   const handleClick = (index: number) => {
+//     const wrapper = wrapperRef.current;
+//     if (!wrapper) return;
+//     const start = wrapper.getBoundingClientRect().top + window.scrollY;
+//     const vh = window.innerHeight;
+//     const target = start + index * vh + 8;
+//     activeIndexRef.current = index;
+//     setActiveIndex(index);
+//     window.scrollTo({ top: target, behavior: 'smooth' });
+//   };
+
+//   /* 활성 제목 바로 아래에 패널 배치 + 높이 측정 */
+//   const recalcPanelY = () => {
+//     const titleEl = titleRefs.current[activeIndex];
+//     if (!titleEl) return;
+//     const y = titleEl.offsetTop + titleEl.offsetHeight + DETAIL_OFFSET;
+//     const h = detailRef.current?.offsetHeight ?? 0;
+//     requestAnimationFrame(() => {
+//       setPanelY(y);
+//       setPanelH(h);
+//     });
+//   };
+
+//   useLayoutEffect(() => {
+//     recalcPanelY();
+//   }, [activeIndex]);
+
+//   useEffect(() => {
+//     recalcPanelY();
+//     const onResize = () => recalcPanelY();
+//     window.addEventListener('resize', onResize);
+//     const t = setTimeout(recalcPanelY, 0);
+//     return () => {
+//       window.removeEventListener('resize', onResize);
+//       clearTimeout(t);
+//     };
+//   }, []);
+
+//   const active = accordionItems[activeIndex];
+
+//   return (
+//     <div
+//       ref={wrapperRef}
+//       className="relative"
+//       style={{ height: `${accordionItems.length * 100}vh` }}
+//     >
+//       <div className="sticky top-0 h-screen z-40">
+//         <div className="grid grid-cols-5 h-full">
+//           {/* 왼쪽: 배경 이미지 (크로스페이드) */}
+//           <div className="col-span-2 relative h-full bg-[#0b0b0b] overflow-hidden">
+//             <CrossfadeImage src={active.image} />
+//             {/* ⛔️ 텍스트 오버레이 전부 제거 */}
+//           </div>
+
+//           {/* 오른쪽: 제목 리스트 + 디테일 패널 */}
+//           <div className="col-span-3 p-12 flex flex-col justify-center bg-white">
+//             {/* 섹션 헤더 */}
+//             <div className="mb-16">
+//               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">서비스 소개</h2>
+//               <p className="text-lg text-gray-600">
+//                 다양한 산업 분야에 최적화된 레이저 가공 솔루션을 제공합니다.
+//               </p>
+//             </div>
+
+//             <div className="relative">
+//               {/* 큰 제목들 */}
+//               <div className="space-y-4">
+//                 {accordionItems.map((item, index) => (
+//                   <React.Fragment key={index}>
+//                     <div
+//                       ref={(el) => {
+//                         titleRefs.current[index] = el;
+//                       }}
+//                       className="select-none"
+//                     >
+//                       <button
+//                         onClick={() => handleClick(index)}
+//                         className="block w-full text-left"
+//                       >
+//                         <h3
+//                           className={`text-[80px] leading-[1.1] font-extrabold tracking-tight transition-colors duration-300
+//                           ${activeIndex === index ? 'text-blue-600' : 'text-gray-300'}`}
+//                         >
+//                           {item.title}
+//                         </h3>
+//                       </button>
+//                     </div>
+
+//                     {/* 활성 제목 뒤 spacer */}
+//                     {activeIndex === index && <div style={{ height: panelH }} />}
+//                   </React.Fragment>
+//                 ))}
+//               </div>
+
+//               {/* 디테일 패널 */}
+//               <div
+//                 className="absolute left-0 right-0 transition-[top] duration-200"
+//                 style={{ top: panelY }}
+//               >
+//                 <div ref={detailRef} className="pt-3 pb-6 border-b border-gray-200">
+//                   {/* subtitle 렌더 제거 */}
+
+//                   {active.description && (
+//                     <p className="text-gray-600 text-[15px] md:text-base leading-7 md:leading-8 tracking-[-0.005em] max-w-[520px] whitespace-pre-line mb-6">
+//                       {active.description}
+//                     </p>
+//                   )}
+
+//                   {/* description 아래 CTA 링크 */}
+//                   {active.cta && (
+//                     <a
+//                       href={active.cta.href}
+//                       className="inline-flex items-center font-semibold text-gray-900 group"
+//                     >
+//                       <span>{active.cta.label}</span>
+//                       <span aria-hidden className="ml-1 transition-transform group-hover:translate-x-0.5">→</span>
+//                     </a>
+//                   )}
+
+//                   {/* features/stat/certification 렌더 제거 */}
+//                 </div>
+//               </div>
+
+//               {/* 하단 여유 패딩 (잘림 방지) */}
+//               <div className="pb-[240px]" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 
 

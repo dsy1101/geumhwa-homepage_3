@@ -21,10 +21,9 @@ const menuItems = [
     title: "기술 및 서비스",
     href: "/technology",
         dropdown: [
-      { title: "레이저가공", href: "/technology" },
+      { title: "기술력", href: "/technology/technology" },
       { title: "제품", href: "/technology/product" },
       { title: "공정", href: "/technology/process" },
-      { title: "기술력", href: "/technology/technology" },
     ],
   },
   {
