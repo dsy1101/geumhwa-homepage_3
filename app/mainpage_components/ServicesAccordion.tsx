@@ -19,7 +19,7 @@ const accordionItems: Item[] = [
     description: `고출력 파이버레이저 절단 기술을 기반으로 고난도 금속 가공 문제를 해결하는 기술 중심 기업입니다.`,
     image: '/certifications/Services/Services_1.jpg',
     features: ['자동차 부품', '산업 기계', '방산 산업', '전자 부품'],
-    cta: { label: '기술력', href: '/technology/process' },
+    cta: { label: '기술력', href: '/technology/technology' },
   },
   {
     title: 'PRODUCTS',
@@ -35,7 +35,7 @@ const accordionItems: Item[] = [
     description: `체계적이고 정밀한 생산 프로세스를 통해 고객이 신뢰할 수 있는 최고 품질의 제품을 제공합니다.`,
     image: '/certifications/Services/Services_3.jpg',
     features: ['자동화 생산', '품질 관리', '납기 단축', '생산 라인 최적화'],
-    cta: { label: '공정', href: '/business' },
+    cta: { label: '공정', href: '/technology/process' },
   },
 ];
 
@@ -215,9 +215,9 @@ export default function ServicesAccordion() {
             {/* 섹션 헤더 */}
             <div className="mb-16">
               <h2 className="text-4xl font-extrabold text-gray-900 mb-2">서비스 소개</h2>
-              <p className="text-lg text-gray-600">
+              {/* <p className="text-lg text-gray-600">
                 다양한 산업 분야에 최적화된 레이저 가공 솔루션을 제공합니다.
-              </p>
+              </p> */}
             </div>
 
             <div className="relative">

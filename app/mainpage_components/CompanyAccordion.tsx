@@ -16,7 +16,7 @@ type Item = {
 
 const accordionItems: Item[] = [
   {
-    title: '회사 개요',
+    title: 'COMPANY OVERVIEW',
     subtitle: '최고의 정밀함으로 산업 혁신을 이끄는 기술 중심 제조企業',
     description:
       '금화레이저(주)는 20년 이상의 노하우와 최첨단 장비를 바탕으로\n철강, 알루미늄, 스테인리스 등 금속을 고출력 파이버 레이저로\n정밀 가공하는 기술 중심 제조기업입니다.',
@@ -30,7 +30,7 @@ const accordionItems: Item[] = [
     cta: { label: '회사소개', href: '/company' }, // ✅ 추가
   },
   {
-    title: '사업 분야',
+    title: 'BUSINESS SECTORS',
     subtitle: '다양한 금속 소재의 레이저 정밀 가공 전문 서비스',
     description:
       '자동차, 항공우주, 방산, 전자 부품 등 다양한 고부가가치 산업 분야에서 정밀 레이저 가공 서비스를 제공하고 있습니다.',
@@ -40,7 +40,7 @@ const accordionItems: Item[] = [
     cta: { label: '사업분야', href: '/business' }, // ✅ 추가
   },
   {
-    title: '인증 현황',
+    title: 'CERTIFICATIONS',
     subtitle: '산업통상자원부 인정 뿌리기업으로서의 검증된 기술력',
     description:
       '산업통상자원부가 지정하는 "뿌리 산업" 중 금속 가공 기술 분야의 핵심 제조기업으로 공식 확인받았습니다.',
@@ -50,7 +50,7 @@ const accordionItems: Item[] = [
       title: '뿌리기업 확인서',
       desc: '산업통상자원부 인정기업',
     },
-    cta: { label: '인증 및 수상', href: '/business/certification' }, // ✅ 추가
+    cta: { label: '인증 현황', href: '/business/certification' }, // ✅ 추가
   },
 ];
 
